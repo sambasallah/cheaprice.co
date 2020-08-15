@@ -1,0 +1,40 @@
+{
+  "name": "cheaprice",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
+    "chromeless": "^1.5.2",
+    "firebase-admin": "^9.0.0",
+    "fontawesome": "^5.6.3",
+    "jquery": "^3.5.1",
+    "jquery-countup": "^1.0.1",
+    "magnific-popup": "^1.1.0",
+    "next": "9.5.1",
+    "node-fetch": "^2.6.0",
+    "node-sass": "^4.14.1",
+    "owl.carousel": "^2.3.4",
+    "popper.js": "^1.16.1",
+    "propper": "^1.0.3",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-icons": "^3.10.0",
+    "react-owl-carousel": "^2.3.1",
+    "react-toast-notification": "^1.1.4",
+    "react-toastify": "^6.0.8",
+    "request": "^2.88.2",
+    "sass": "^1.26.10",
+    "underscore.string": "^3.3.5",
+    "url": "^0.11.0",
+    "uuid": "^8.3.0",
+    "waypoints": "^4.0.1"
+  }
+}
