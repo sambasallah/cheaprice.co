@@ -19,7 +19,7 @@ export default async (req, res) => {
        doc(uuidv4()).
        set(user).
         then(() => {
-            axios.post('http://localhost:3000/api/crawl/fetch', {id: user.id, url: user.url},
+            axios.post(`https://cheaprice-co.vercel.app/api/crawl/fetch`, {id: user.id, url: user.url},
             {headers: {'Content-Type': 'application/json'}})
             .catch((err) => {
               console.log('Error Occured.....');

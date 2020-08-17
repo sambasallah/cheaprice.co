@@ -24,6 +24,7 @@ const Index = () => {
             <div><img src="images/pricechart.png" />
                 <h3>Price History</h3>
             </div>  
+          
             <div><img src="images/notification.png" />
                 <h3>Price Alerts</h3>
             </div>
