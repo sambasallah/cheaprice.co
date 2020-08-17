@@ -1,5 +1,6 @@
 import firebase from '../firebase/firebase';
 import { v4 as uuidv4 }  from 'uuid';
+const axios = require('axios').default;
 
 export default async (req, res) => {
     if(req.method !== 'POST') {
@@ -18,11 +19,13 @@ export default async (req, res) => {
        doc(uuidv4()).
        set(user).
         then(() => {
-            console.log(user.id);
+            axios.post('http://localhost:3000/api/crawl/fetch', {id: user.id, url: user.url},
+            {headers: {'Content-Type': 'application/json'}})
+            .catch((err) => {
+              console.log('Error Occured.....');
+            });
             res.json({statusCode: 201,message: 'Data inserted'})
-            // Make a request to crawl 
-         
-
+             
         }).catch((err) => {
             res.json({statusCode: 400, error: err});
         });

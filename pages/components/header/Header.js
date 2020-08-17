@@ -24,7 +24,8 @@ const Header = ({title,description}) => {
           <Head>
             <meta CharSet="utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-            <meta name="description" content="Amazon price tracker, eBay price tracker, walmart price tracker, etsy price tracker" />
+            <meta name="description" content="Amazon price tracker, eBay price tracker,
+             walmart price tracker, Free Price tracker, ecommerce stores" />
             <title>{title}</title>
          </Head>
          <header className="site__header">

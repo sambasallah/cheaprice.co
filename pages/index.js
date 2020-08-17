@@ -9,15 +9,14 @@ const Index = () => {
      <Header title="Cheaprice | Amazon, eBay, Walmart & Etsy Price Tracker App" />
      <main className="main__body">
        <div className="hero__section">
-          <h1>Amazon, eBay, Walmart & Target Price Tracker</h1>
-          <p>Free price tracker for Amazon, eBay, Walmart & Target</p>
+          <h1>Amazon, eBay & Walmart Price Tracker</h1>
+          <p>Free price tracker for Amazon, eBay, & Walmart</p>
           <img src='images/about1.png' style={{maxWidth: '70%', maxHeight: '50%'}} />
        </div>
        <div className="ecommerce__logos">
-             <div><img src="images/amazon.png" style={{maxWidth: '50%', maxHeight: '50%'}}/></div>
-             <div><img src="images/ebay.png" style={{maxWidth: '50%', maxHeight: '50%'}}/></div>
-             <div><img src="images/target.png" style={{maxWidth: '50%', maxHeight: '50%'}}/></div>
-             <div><img src="images/walmart.png" style={{maxWidth: '50%', maxHeight: '50%'}}/></div>
+             <div><img src="images/amazon.png" style={{maxWidth: '40%', maxHeight: '40%'}}/></div>
+             <div><img src="images/ebay.png" style={{maxWidth: '40%', maxHeight: '40%'}}/></div>
+             <div><img src="images/walmart.png" style={{maxWidth: '40%', maxHeight: '40%'}}/></div>
        </div>
        <div className="services">
           <h2>What We Offer</h2>

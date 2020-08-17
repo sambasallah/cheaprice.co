@@ -1,24 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../style/css/style.css';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import { ToastContainer, toast } from 'react-toastify';
 import Link from 'next/link';
+import Router from 'next/router';
+import { limitTitle } from '../utils';
 
-const Track = () => {
+const Track = ({data}) => {
 
     const [formData, setFormData] = useState({});
     const [loading, setLoading] = useState(false);
     const [stores,setStores] = useState(["www.amazon.com","amazon.com","www.ebay.com",
     "ebay.com", "www.walmart.com","walmart.com"]);
-
+    const [currentlyTracking, setCurrentlyTracking] = useState([]);
+    
     const submitForm = async (event) => {
         event.preventDefault();
         setLoading(true);
         const { phone_number, url, email, price_drop_amount } = formData;
         const host = (new URL(url)).hostname;
-        console.log(host);
         if(!stores.includes(host)) {
             toast.error('The store you entered is not supported.', {
                         position: "top-right",
@@ -43,17 +45,16 @@ const Track = () => {
         headers: {'Content-Type': 'application/json'}});
         let data = await res.json();
         if(data.statusCode === 201) {
-            toast('Success! Tracking Initiated', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                });
-                setLoading(false);
-                
+                setLoading(false);  
+                toast('Success! Tracking Initiated', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
         } else {
             toast.error('Error! check your input again', {
                 position: "top-right",
@@ -72,7 +73,7 @@ const Track = () => {
     const handleChange = (event) => {
         setFormData({...formData, [event.target.id]: event.target.value});
     }
-
+   
     return(
         <>
          <ToastContainer />
@@ -103,18 +104,24 @@ const Track = () => {
            <div className="currently__tracking">
                <h1>Currently Tracking</h1>
                <div className="currently__tracking_products">
-                <Link href='../product'>
-                    <div className="tracked__product"> 
-                        <div className="product__img">
-                            <img src="images/product1.jpg" />
-                        </div>
-                        <div className="product__description">
-                            <p className="product__name">Samsung Galaxy J9</p>
-                            <span className="price__now">$250 <span className="before__price">$260</span></span>
-                        </div>
-                    </div>
-                </Link>
-                <div className="tracked__product">
+                { data.products.map((value) => {
+                    return (
+                        <>
+                         <Link href='../product'>
+                            <div className="tracked__product"> 
+                                <div className="product__img">
+                                    <img src={value.image} />
+                                </div>
+                                <div className="product__description">
+                                    <p className="product__name">{limitTitle(String(value.title))}</p>
+                                    <span className="price__now">${value.price}</span> {/** <span className="before__price">$260</span> */}
+                                </div>
+                            </div>
+                        </Link>
+                        </>
+                    )
+                }) }
+                {/* <div className="tracked__product">
                     <div className="product__img">
                         <img src="images/product2.png" />
                     </div>
@@ -140,7 +147,7 @@ const Track = () => {
                             <p className="product__name">Hair Cream</p>
                             <span className="price__now">(Best Price) $50 <span className="before__price">$60</span></span>
                     </div>
-                </div>
+                </div> */}
                </div>
            </div>
            <Footer />
@@ -148,5 +155,23 @@ const Track = () => {
         </>
     )
 }
+
+export async function getServerSideProps(context) {
+    let response = await fetch('http://localhost:3000/api/products/');
+    let data = await response.json();
+    // if(data) {
+    //     const products = data.data;
+    //     return {
+    //         props: {products}, // will be passed to the page component as props
+    //     }
+    // } else {
+    //     return {
+    //         props: {}
+    //     }
+    // }
+    return {
+        props: {data}
+    }
+  }
 
 export default Track;
