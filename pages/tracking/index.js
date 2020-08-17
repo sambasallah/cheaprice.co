@@ -5,8 +5,6 @@ import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import { ToastContainer, toast } from 'react-toastify';
 import Link from 'next/link';
-import Router from 'next/router';
-import { limitTitle } from '../utils';
 
 const Track = ({data}) => {
 
@@ -69,6 +67,17 @@ const Track = ({data}) => {
        }
     }
 
+    const limitTitle = (str) => {
+        let newTitle = '';
+        if(str.length < 17) {
+            return str;
+        } 
+        for(let i = 0; i < 18; i++) {
+            newTitle += str.charAt(i);
+        }
+        return newTitle.trim() + "...";
+    }
+    
 
     const handleChange = (event) => {
         setFormData({...formData, [event.target.id]: event.target.value});
