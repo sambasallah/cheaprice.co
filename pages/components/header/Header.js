@@ -38,7 +38,7 @@ const Header = ({title,description}) => {
                     <li><Link href='#'><a>FAQs</a></Link></li>
                     <li><Link href='#'><a>Contact</a></Link></li>
                     <li>
-                    <Link href="/tracking"><a className="action__btn">Get Started</a></Link>
+                     <a href="/tracking" className="action__btn">Get Started</a>
                     </li>
                 </ul>
                 </nav>
@@ -60,7 +60,7 @@ const Header = ({title,description}) => {
                     <li><Link href='#'><a>FAQs</a></Link></li>
                     <li><Link href='#'><a>Contact</a></Link></li>
                     <li>
-                    <Link href="/tracking"><a className="get__started">Get Started</a></Link>
+                    <a href="/tracking" className="get__started">Get Started</a>
                     </li>
                 </ul>
             </nav>

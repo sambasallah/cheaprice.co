@@ -168,16 +168,6 @@ const Track = ({data}) => {
 export async function getServerSideProps(context) {
     let response = await fetch('http://localhost:3000/api/products/');
     let data = await response.json();
-    // if(data) {
-    //     const products = data.data;
-    //     return {
-    //         props: {products}, // will be passed to the page component as props
-    //     }
-    // } else {
-    //     return {
-    //         props: {}
-    //     }
-    // }
     return {
         props: {data}
     }
