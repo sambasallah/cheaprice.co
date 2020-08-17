@@ -39,7 +39,7 @@ const Track = ({data}) => {
             const phone = "+1" + phone_number;
             filteredData = {url: url, email: email, price_drop_amount: price_drop_amount, phone_number: phone};
         }
-        let res = await fetch('/api/users', {method: 'POST', body: JSON.stringify(filteredData), 
+        let res = await fetch('https://cheaprice-co.vercel.app/api/users', {method: 'POST', body: JSON.stringify(filteredData), 
         headers: {'Content-Type': 'application/json'}});
         let data = await res.json();
         if(data.statusCode === 201) {
