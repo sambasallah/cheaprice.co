@@ -430,8 +430,10 @@ ul {
 	width: 95%;
 	margin: auto;
 	.breadcrumb {
-		height: 80px;
-		line-height: 80px;
+		min-height: 50px;
+		line-height: 50px;
+		padding: 5px 0px;
+		// line-height: 80px;
 		border-bottom: 1px solid $bg-primary;
 	}
 
@@ -439,11 +441,30 @@ ul {
 		display: flex;
 		min-height: 500px;
 		.product__img {
-			text-align: center;
 			flex-basis: 100%;
+			position: relative;
+			text-align: center;
 			margin-top: 40px;
+			height: 400px;
+
 			img {
-				width: 70%;
+				 position: absolute;
+				 top: 0;
+				 left: 0;
+				 bottom: 0;
+				 right: 0;
+				margin: auto;
+				max-width: 100%;
+				max-height: 100%;
+				padding: 10px 0px;
+				vertical-align: middle;
+				max-width: 100%;
+				max-height: 100%;
+			}
+		}
+		@media screen and (max-width: 800px) {
+			.product__img {
+				flex-basis: auto;
 			}
 		}
 		.product__description {
@@ -454,6 +475,9 @@ ul {
 				font-weight: bold;
 				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 				margin-bottom: 15px;
+			}
+			h3 {
+				margin: 25px 0px;
 			}
 			ul {
 				margin-bottom: 20px;
@@ -509,3 +533,88 @@ ul {
 	}
 }
 
+/** Deals */
+.deals {
+	width: 95%;
+	margin: auto;
+	.breadcrumb {
+		min-height: 60px;
+		line-height: 60px;
+		border-bottom: 1px solid $bg-primary;
+		font-family: "Amazon Ember",Arial,sans-serif;
+	}
+	.products {
+		display: flex;
+		.search__bar {
+			flex: 1;
+		}
+		.product__list {
+			flex: 3;
+			.product {
+				width: 100%;
+				margin-top: 15px;
+				height: 300px;
+				cursor: pointer;
+				background-color: #fff;
+				border: 1px solid $bg-primary;
+				box-shadow: 1px 1px -1px 0px rgba(0,0,0,0.5);
+				border-radius: 8px;
+				.product__img {
+					position: relative;
+					max-width: 90%;
+					margin: 5px auto;
+					height: 230px;
+					img {
+						position: absolute;
+						top: 0;
+						left: 0;
+						bottom: 0;
+						right: 0;
+						margin: auto;
+						max-width: 100%;
+						max-height: 100%;
+						padding: 10px 0px;
+						vertical-align: middle;
+					}
+				}
+				.product__description {
+					font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+					font-size: 14px;
+					font-weight: 700;
+					box-sizing: border-box;
+					
+					p {
+						padding: 0px 0px 5px 8px;
+						margin: 0px !important;
+					}
+				}
+			}
+		}
+		.search__bar {
+			h2 {
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				padding: 10px 0px;
+				font-size: 23px;
+			}
+			form {
+				display: flex;
+			}
+			input[type=text] {
+				height: 40px;
+				width: 80%;
+				padding: 0px 8px;
+				font-family: sans-serif;
+				font-weight: 800;
+			}
+			button {
+				width: 50px;
+				height: 40px;
+			}
+		}
+	}
+	@media screen and (max-width: 800px) {
+		.products {
+			flex-direction: column;
+		}
+	}
+}

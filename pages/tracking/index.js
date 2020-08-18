@@ -39,7 +39,7 @@ const Track = ({data}) => {
             const phone = "+1" + phone_number;
             filteredData = {url: url, email: email, price_drop_amount: price_drop_amount, phone_number: phone};
         }
-        let res = await fetch('https://cheaprice-co.vercel.app/api/users', {method: 'POST', body: JSON.stringify(filteredData), 
+        let res = await fetch('http://localhost:3000/api/users', {method: 'POST', body: JSON.stringify(filteredData), 
         headers: {'Content-Type': 'application/json'}});
         let data = await res.json();
         if(data.statusCode === 201) {
@@ -78,10 +78,24 @@ const Track = ({data}) => {
         return newTitle.trim() + "...";
     }
     
+    const trackingData = async () => {
+        let response = await fetch(`http://localhost:3000/api/products/`);
+        let data = await response.json();
+
+        if(data) {
+            setCurrentlyTracking([...currentlyTracking, ...data.products]);
+        } else {
+            console.error('Error')
+        }
+    }
 
     const handleChange = (event) => {
         setFormData({...formData, [event.target.id]: event.target.value});
     }
+
+    useEffect(() => {
+        trackingData();
+    },[]);
    
     return(
         <>
@@ -113,50 +127,29 @@ const Track = ({data}) => {
            <div className="currently__tracking">
                <h1>Currently Tracking</h1>
                <div className="currently__tracking_products">
-                { data.products.map((value) => {
-                    return (
-                        <>
-                         <Link href='../product'>
-                            <div className="tracked__product"> 
-                                <div className="product__img">
-                                    <img src={value.image} />
+                { currentlyTracking.length > 0 ?(
+                     currentlyTracking.map((value) => {
+                        return (
+                            <>
+                             <Link href={"../product/" + value.id} >
+                                <div className="tracked__product"> 
+                                    <div className="product__img">
+                                        <img src={value.image} />
+                                    </div>
+                                    <div className="product__description">
+                                        <p className="product__name">{limitTitle(String(value.title))}</p>
+                                        <span className="price__now">${value.price}</span> {/** <span className="before__price">$260</span> */}
+                                    </div>
                                 </div>
-                                <div className="product__description">
-                                    <p className="product__name">{limitTitle(String(value.title))}</p>
-                                    <span className="price__now">${value.price}</span> {/** <span className="before__price">$260</span> */}
-                                </div>
-                            </div>
-                        </Link>
-                        </>
-                    )
-                }) }
-                {/* <div className="tracked__product">
-                    <div className="product__img">
-                        <img src="images/product2.png" />
-                    </div>
-                    <div className="product__description">
-                        <p className="product__name">Spark 4</p>
-                        <span className="price__now">(Best Price) $150 <span className="before__price">$160</span></span>
-                    </div>
-                </div>
-                <div className="tracked__product">
-                    <div className="product__img">
-                            <img src="images/product3.jpg" />
-                        </div>
-                        <div className="product__description">
-                            <p className="product__name">Phantom 10</p>
-                            <span className="price__now">$350 <span className="before__price">$400</span></span>
-                        </div>
-                    </div>
-                <div className="tracked__product">
-                    <div className="product__img">
-                            <img src="images/product9.jpg" />
-                        </div>
-                        <div className="product__description">
-                            <p className="product__name">Hair Cream</p>
-                            <span className="price__now">(Best Price) $50 <span className="before__price">$60</span></span>
-                    </div>
-                </div> */}
+                            </Link>
+                            </>
+                        )
+                    })
+                     ) : (
+                    <>
+                     <h1>Loading...</h1>
+                    </>
+                )}
                </div>
               
            </div>
@@ -166,12 +159,5 @@ const Track = ({data}) => {
     )
 }
 
-export async function getServerSideProps(context) {
-    let response = await fetch(`https://cheaprice-co.vercel.app/api/products/`);
-    let data = await response.json();
-    return {
-        props: {data}
-    }
-  }
 
 export default Track;

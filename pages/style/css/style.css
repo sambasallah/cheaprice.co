@@ -389,8 +389,9 @@ ul {
   margin: auto;
 }
 .product__page .breadcrumb {
-  height: 80px;
-  line-height: 80px;
+  min-height: 50px;
+  line-height: 50px;
+  padding: 5px 0px;
   border-bottom: 1px solid #f6f6f6;
 }
 .product__page .product__info {
@@ -398,12 +399,30 @@ ul {
   min-height: 500px;
 }
 .product__page .product__info .product__img {
-  text-align: center;
   flex-basis: 100%;
+  position: relative;
+  text-align: center;
   margin-top: 40px;
+  height: 400px;
 }
 .product__page .product__info .product__img img {
-  width: 70%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 10px 0px;
+  vertical-align: middle;
+  max-width: 100%;
+  max-height: 100%;
+}
+@media screen and (max-width: 800px) {
+  .product__page .product__info .product__img {
+    flex-basis: auto;
+  }
 }
 .product__page .product__info .product__description {
   margin-top: 40px;
@@ -414,6 +433,9 @@ ul {
   font-weight: bold;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 15px;
+}
+.product__page .product__info .product__description h3 {
+  margin: 25px 0px;
 }
 .product__page .product__info .product__description ul {
   margin-bottom: 20px;
@@ -462,6 +484,89 @@ ul {
 }
 @media screen and (max-width: 800px) {
   .product__page .product__info {
+    flex-direction: column;
+  }
+}
+
+/** Deals */
+.deals {
+  width: 95%;
+  margin: auto;
+}
+.deals .breadcrumb {
+  min-height: 60px;
+  line-height: 60px;
+  border-bottom: 1px solid #f6f6f6;
+  font-family: "Amazon Ember", Arial, sans-serif;
+}
+.deals .products {
+  display: flex;
+}
+.deals .products .search__bar {
+  flex: 1;
+}
+.deals .products .product__list {
+  flex: 3;
+}
+.deals .products .product__list .product {
+  width: 100%;
+  margin-top: 15px;
+  height: 300px;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #f6f6f6;
+  box-shadow: 1px 1px -1px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+.deals .products .product__list .product .product__img {
+  position: relative;
+  max-width: 90%;
+  margin: 5px auto;
+  height: 230px;
+}
+.deals .products .product__list .product .product__img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 10px 0px;
+  vertical-align: middle;
+}
+.deals .products .product__list .product .product__description {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  box-sizing: border-box;
+}
+.deals .products .product__list .product .product__description p {
+  padding: 0px 0px 5px 8px;
+  margin: 0px !important;
+}
+.deals .products .search__bar h2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 10px 0px;
+  font-size: 23px;
+}
+.deals .products .search__bar form {
+  display: flex;
+}
+.deals .products .search__bar input[type=text] {
+  height: 40px;
+  width: 80%;
+  padding: 0px 8px;
+  font-family: sans-serif;
+  font-weight: 800;
+}
+.deals .products .search__bar button {
+  width: 50px;
+  height: 40px;
+}
+@media screen and (max-width: 800px) {
+  .deals .products {
     flex-direction: column;
   }
 }

@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { FiTrendingDown } from 'react-icons/fi';
 
-const Header = ({title,description}) => {
+const Header = ({title,description, url,image, type}) => {
     const [resNav, setResNav] = useState(false);
     const [screenSize, setScreenSize] = useState(0);
   
@@ -26,6 +26,10 @@ const Header = ({title,description}) => {
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
             <meta name="description" content="Amazon price tracker, eBay price tracker,
              walmart price tracker, Free Price tracker, ecommerce stores" />
+             <meta property="og:title" content={title} />
+            <meta property="og:type" content={type} />
+            <meta property="og:url" content={url} />
+            <meta property="og:image" content={image} />
             <title>{title}</title>
          </Head>
          <header className="site__header">
@@ -33,12 +37,12 @@ const Header = ({title,description}) => {
                 <nav>
                 <ul>
                     <li><Link href='/'><a>Home</a></Link></li>
-                    <li><Link href='#'><a>Deals</a></Link></li>
+                    <li><a href="/deals">Deals</a></li>
                     <li><Link href='#'><a>Privacy</a></Link></li>
                     <li><Link href='#'><a>FAQs</a></Link></li>
                     <li><Link href='#'><a>Contact</a></Link></li>
                     <li>
-                     <a href="/tracking" className="action__btn">Get Started</a>
+                     <Link  href="/tracking"><a className="action__btn">Get Started</a></Link>
                     </li>
                 </ul>
                 </nav>
@@ -55,12 +59,12 @@ const Header = ({title,description}) => {
             <nav>
                 <ul>
                     <li><Link href='/'><a>Home</a></Link></li>
-                    <li><Link href='#'><a>Deals</a></Link></li>
+                    <li><Link href='/deals'><a>Deals</a></Link></li>
                     <li><Link href='#'><a>Privacy</a></Link></li>
                     <li><Link href='#'><a>FAQs</a></Link></li>
                     <li><Link href='#'><a>Contact</a></Link></li>
                     <li>
-                    <a href="/tracking" className="get__started">Get Started</a>
+                    <Link href="/tracking"><a className="get__started">Get Started</a></Link> 
                     </li>
                 </ul>
             </nav>
