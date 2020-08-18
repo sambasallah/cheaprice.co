@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { FiTrendingDown } from 'react-icons/fi';
 
-const Header = ({title,url,image, type}) => {
+const Header = ({title,description,url,image, type}) => {
     const [resNav, setResNav] = useState(false);
     const [screenSize, setScreenSize] = useState(0);
   
