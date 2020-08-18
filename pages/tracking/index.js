@@ -79,7 +79,7 @@ const Track = ({data}) => {
     }
     
     const trackingData = async () => {
-        let response = await fetch(`https://cheaprice-co.vercel.app/api/products/`);
+        let response = await fetch(`http://localhost:3000/api/products/`);
         let data = await response.json();
 
         if(data) {
