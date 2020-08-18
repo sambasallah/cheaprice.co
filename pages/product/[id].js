@@ -7,12 +7,13 @@ import parse from 'html-react-parser';
 import { FaStarOfLife } from 'react-icons/fa';
 
 const Product = ({data}) => {
-   
+    
+    const description = parse(String(data.description))
    
     return (
         <div>
                 <>
-                <Header title={data.title} description={parse(String(data.description))} type="image/jpeg" url={`https://cheaprice-co.vercel.app/product/${data.id}`} image={data.image} />
+                <Header title={data.title} description={description} type="image/jpeg" url={`https://cheaprice-co.vercel.app/product/${data.id}`} image={data.image} />
                    <main className="product__page">
                        <div className="breadcrumb">
                            <h1>{ parse(String(data.title)) }</h1>
