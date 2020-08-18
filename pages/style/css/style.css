@@ -494,8 +494,8 @@ ul {
   margin: auto;
 }
 .deals .breadcrumb {
-  min-height: 60px;
-  line-height: 60px;
+  min-height: 70px;
+  line-height: 70px;
   border-bottom: 1px solid #f6f6f6;
   font-family: "Amazon Ember", Arial, sans-serif;
 }
@@ -564,6 +564,15 @@ ul {
 .deals .products .search__bar button {
   width: 50px;
   height: 40px;
+}
+@media screen and (max-width: 800px) {
+  .deals .products input[type=text] {
+    height: 40px;
+    width: 100%;
+    padding: 0px 8px;
+    font-family: sans-serif;
+    font-weight: 800;
+  }
 }
 @media screen and (max-width: 800px) {
   .deals .products {

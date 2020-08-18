@@ -55,7 +55,7 @@ const Deals = ({data}) => {
              <Header title="Deals | Cheaprice" />
             <main className="deals">
                 <div className="breadcrumb">
-                    <h1>Deals</h1>
+                    <h1>Best Deals</h1>
                 </div>
                 <div className="products">
                     <div className="search__bar">

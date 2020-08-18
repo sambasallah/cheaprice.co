@@ -538,8 +538,8 @@ ul {
 	width: 95%;
 	margin: auto;
 	.breadcrumb {
-		min-height: 60px;
-		line-height: 60px;
+		min-height: 70px;
+		line-height: 70px;
 		border-bottom: 1px solid $bg-primary;
 		font-family: "Amazon Ember",Arial,sans-serif;
 	}
@@ -609,6 +609,15 @@ ul {
 			button {
 				width: 50px;
 				height: 40px;
+			}
+		}
+		@media screen and (max-width: 800px) {
+			input[type=text] {
+				height: 40px;
+				width: 100%;
+				padding: 0px 8px;
+				font-family: sans-serif;
+				font-weight: 800;
 			}
 		}
 	}
