@@ -94,7 +94,7 @@ const Deals = ({data}) => {
 }
 
 export async function getServerSideProps(context) {
-    let resp = await fetch('http://localhost:3000/api/products/all');
+    let resp = await fetch('https://cheaprice-co.vercel.app/api/products/all');
     let data = await resp.json();
     if(data) {
         return {
