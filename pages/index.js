@@ -6,7 +6,8 @@ import './style/css/style.css';
 const Index = () => {
   return (
     <>
-     <Header title="Cheaprice | Amazon, eBay, Walmart & Etsy Price Tracker App" />
+     <Header title="Cheaprice | Amazon, eBay, Walmart & Etsy Price Tracker App" description="Amazon price tracker, eBay price tracker,
+             walmart price tracker, Free Price tracker, ecommerce stores" />
      <main className="main__body">
        <div className="hero__section">
           <h1>Amazon, eBay & Walmart Price Tracker</h1>

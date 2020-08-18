@@ -24,11 +24,12 @@ const Header = ({title,description, url,image, type}) => {
           <Head>
             <meta CharSet="utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-            <meta name="description" content="Amazon price tracker, eBay price tracker,
-             walmart price tracker, Free Price tracker, ecommerce stores" />
+            {/* <meta name="description" content="Amazon price tracker, eBay price tracker,
+             walmart price tracker, Free Price tracker, ecommerce stores" /> */}
              <meta property="og:title" content={title} />
             <meta property="og:type" content={type} />
             <meta property="og:url" content={url} />
+            <meta property="og:description" content={description} />
             <meta property="og:image" content={image} />
             <title>{title}</title>
          </Head>

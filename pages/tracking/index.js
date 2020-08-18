@@ -100,7 +100,8 @@ const Track = ({data}) => {
     return(
         <>
          <ToastContainer />
-          <Header title="Track A Product" />
+          <Header title="Track A Product" description="Amazon price tracker, eBay price tracker,
+             walmart price tracker, Free Price tracker, ecommerce stores"/>
            <main className="track__page">
                <h1>Track A Product</h1>
                <p>Get Alerts sent to your Email and/or Phone when the price drops for free</p>

@@ -13,7 +13,7 @@ const Product = ({data}) => {
     return (
         <div>
                 <>
-                <Header title="Samsung Galaxy S9 | Cheaprice" type="image/jpeg" url={`https://cheaprice-co.vercel.app/product/${data.id}`} image={data.image} />
+                <Header title="Samsung Galaxy S9 | Cheaprice" description={data.description} type="image/jpeg" url={`https://cheaprice-co.vercel.app/product/${data.id}`} image={data.image} />
                    <main className="product__page">
                        <div className="breadcrumb">
                            <h1>{ parse(String(data.title)) }</h1>
