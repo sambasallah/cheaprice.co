@@ -7,72 +7,50 @@ import parse from 'html-react-parser';
 import { FaStarOfLife } from 'react-icons/fa';
 import urlUtil from 'url';
 
-const Product = ({id}) => {
-    const [product, setProduct] = useState({});
-
-    const getProduct = async () => {
-        let resp = await fetch(`https://cheaprice-co.vercel.app/api/products/${id}`);
-        let data = await resp.json();
-
-        if(data) {
-           setProduct({...product, ...data});
-        } else {
-            console.error('Error fetching data');
-        }
-    }
-
-    const isEmtpy = (data) => {
-        if(data.id === undefined) {
-            return true;
-        }
-        return false;
-    }
-
-    useEffect(() => {
-        getProduct();
-    },[]);
+const Product = ({data}) => {
+   
+   
     return (
         <div>
-            { !isEmtpy(product)? (
                 <>
-                <Header title="Samsung Galaxy S9 | Cheaprice" type="image/jpeg" url={product.url} image={product.image} />
+                <Header title="Samsung Galaxy S9 | Cheaprice" type="image/jpeg" url={data.url} image={data.image} />
                    <main className="product__page">
                        <div className="breadcrumb">
-                           <h1>{ parse(String(product.title)) }</h1>
+                           <h1>{ parse(String(data.title)) }</h1>
                        </div>
                        <div className="product__info">
                            <div className="product__img">
-                               <img src={product.image? product.image : product.fullImg } />
+                               <img src={data.image? data.image : data.fullImg } />
                            </div>
                            <div className="product__description">
                                <h1>Description</h1>
                                <ul>
-                                   <li>Price : ${ product.price } </li>
+                                   <li>Price : ${ data.price } </li>
                                    {/* <li>Before : $280</li> */}
                                </ul>
-                               { product.description !== null? (
+                               { data.description !== null? (
                                    <>
                                     <h3>Details</h3>
-                                    <p>{ parse(String(product.description)) }</p>
+                                    <p>{ parse(String(data.description)) }</p>
                                     </>
                                ) : (
                                    <>
                                      <h3>Click Below to see more info</h3>
                                    </>
                                )}
-                               { product.store === 'Amazon'? (
+                               { data.store === 'Amazon'? (
                                    <>
-                                    <a href={ product.url } target="__blank" className="buy__on__amazon">View On Amazon</a>
+                                    <a href={ data.url } target="__blank" className="buy__on__amazon">View On Amazon</a>
                                    </>
                                ) : ''}
-                               { product.store === 'eBay'? (
+                               { data.store === 'eBay'? (
                                    <>
-                                   <a href={ product.url } target="__blank" className="buy__on__ebay">View On eBay</a>
+                                   <a href={ data.url } target="__blank" className="buy__on__ebay">View On eBay</a>
                                    </>
                                ) : ''}
-                               { product.store === 'Walmart'? (
+                               { data.store === 'Walmart'? (
                                    <>
-                                     <a href={ product.url } target="__blank" className="buy__on__walmart">View On Walmart <FaStarOfLife style={{color: '#FF9900'}} /></a>
+                                     <a href={ data.url } target="__blank" className="buy__on__walmart">View On Walmart <FaStarOfLife style={{color: '#FF9900'}} /></a>
                                    </>
                                ): ''}
                               
@@ -81,21 +59,15 @@ const Product = ({id}) => {
                    </main>
                 <Footer />
                </>
-            ) : (
-                <>
-                  <Header title="Cheaprice | Amazon, eBay & Walmart Price Tracker" />
-                  <main>
-                      <h1 style={{padding: '10px'}}>Loading...</h1>
-                  </main>
-                </>
-            )}
         </div>
     )
 }
 
 export async function getServerSideProps(context) {
+    let resp = await fetch(`https://cheaprice-co.vercel.app/api/products/${context.params.id}`);
+    let data = await resp.json();
     return {
-      props: {id: context.params.id}, // will be passed to the page component as props
+      props: {data}, // will be passed to the page component as props
     }
   }
 
