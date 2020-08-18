@@ -6,7 +6,7 @@ import Footer from '../components/footer/Footer';
 import { ToastContainer, toast } from 'react-toastify';
 import Link from 'next/link';
 
-const Track = ({data}) => {
+const Track = () => {
 
     const [formData, setFormData] = useState({});
     const [loading, setLoading] = useState(false);
@@ -79,7 +79,7 @@ const Track = ({data}) => {
     }
     
     const trackingData = async () => {
-        let response = await fetch(`http://localhost:3000/api/products/`);
+        let response = await fetch(`https://cheaprice-co.vercel.app/api/products/`);
         let data = await response.json();
 
         if(data) {
