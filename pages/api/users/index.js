@@ -18,9 +18,7 @@ export default async (req, res) => {
     await firebase.collection('users').
        add(user).
         then(() => {
-            axios.post(process.env.NODE_ENV === 'development'? 
-            `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/crawl/fetch` : 
-            `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/crawl/fetch`, {id: user.id, url: user.url, email: user.email},
+            axios.post(`https://cheaprice.co/api/crawl/fetch`, {id: user.id, url: user.url, email: user.email},
             {headers: {'Content-Type': 'application/json'}})
             .catch((err) => {
               console.log('Error Occured.....');
