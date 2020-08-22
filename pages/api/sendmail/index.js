@@ -1,7 +1,7 @@
 const sgMail = require('@sendgrid/mail');
 export default (req, res) => {
     if(req.method === 'POST') {
-        const { email, message, title, price, image, url } = req.body;
+        const { useremail, message, title, price, image, url } = req.body;
         const email = `
         <div style='background-color: #f5f5f5; width: 700px; height: 580px; margin: 10px auto; text-align: center;'>
         <h2 style='font-size: 25px; font-weight: 22px; text-align: center; padding-top: 10px; font-family:
@@ -20,7 +20,7 @@ export default (req, res) => {
     `;
         sgMail.setApiKey('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');
         const msg = {
-        to: email,
+        to: useremail,
         from: {name: 'Cheaprice.co', 'email': 'pricedropalert@cheaprice.co'},
         subject: `Cheaprice.co - ${message}!`,
         html:email,
