@@ -86,7 +86,7 @@ export default async (req,res) => {
                      res.json({statusCode: 400, message: 'Data Not Inserted'});
                  });
                 }).catch(async (err) => {
-                    await axios.post( process.env.NODE_ENV === 'development'? 
+                    await axios.post(process.env.NODE_ENV === 'development'? 
                     `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/trackerror` : 
                     `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/trackerror`, {email: email},{headers: {'Content-Type': 'application/json'}})
                     .then(async (resp) => {
