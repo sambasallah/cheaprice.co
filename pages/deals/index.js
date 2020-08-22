@@ -78,7 +78,7 @@ const Deals = ({data}) => {
                                     <Link href={`../product/${value.id}`}>
                                         <div className="product col-md-3" key={value.id}>
                                             <div className="product__img">
-                                                    <img src={value.image? value.image : value.fullImg} style={{maxWidth: '100%', maxHeight: '100%'}} />
+                                                    <img src={value.image? value.image : value.fullImg.replace('http', 'https')} style={{maxWidth: '100%', maxHeight: '100%'}} />
                                             </div>
                                             <div className="product__description">
                                                 <p>{ limitTitle(String(value.title)) }</p>

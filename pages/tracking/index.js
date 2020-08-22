@@ -159,7 +159,7 @@ const Track = () => {
                              <Link href={"../product/" + value.id} >
                                 <div className="tracked__product"> 
                                     <div className="product__img">
-                                        <img src={value.image? value.image : value.fullImg} />
+                                        <img src={value.image? value.image : value.fullImg.replace('http','https')} />
                                     </div>
                                     <div className="product__description">
                                         <p className="product__name">{limitTitle(String(value.title))}</p>

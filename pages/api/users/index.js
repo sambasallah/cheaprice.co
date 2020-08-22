@@ -26,7 +26,6 @@ export default async (req, res) => {
               console.log('Error Occured.....');
             });
             res.json({statusCode: 201,message: 'Data inserted'})
-             
         }).catch((err) => {
             res.json({statusCode: 400, error: err});
         });;

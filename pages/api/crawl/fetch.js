@@ -2,12 +2,9 @@
 const axios = require('axios').default;
 const urlUtil = require('url');
 import firebase from '../firebase/firebase';
-const algoliasearch = require('algoliasearch');
 
 export default async (req,res) => {
     if(req.method === 'POST') {
-        const client = algoliasearch('VL9V6CVL87','1706d6a2d8010a0021303ce7a9a766fe');
-        const index = client.initIndex('test_products');
         const stores = ['amazon.com','www.amazon.com', 'ebay.com', 'www.ebay.com',
         'walmart.com','www.walmart.com']
         const { url, id, email } = req.body;
