@@ -18,14 +18,14 @@ export default (req, res) => {
         "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; text-decoration: none;'>Buy Now</a>
     </div>
     `;
-        sgMail.setApiKey('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');
+        sgMail.setApiKey(NEXT_PUBLIC_SENDGRID_API);
         const msg = {
         to: useremail,
         from: {name: 'Cheaprice.co', 'email': 'pricedropalert@cheaprice.co'},
         subject: `Cheaprice.co - ${message}!`,
         html:email,
         };
-        sgMail.send(msg);
+        await sgMail.send(msg);
     }
     res.json({message: 'Request Method Not Allowed'});
 }
