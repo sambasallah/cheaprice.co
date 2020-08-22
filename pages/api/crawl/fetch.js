@@ -27,7 +27,10 @@ export default async (req,res) => {
                     // }).catch((err) => {
                     //     res.json({'error': err});
                     // });
-                    await axios.post('http://localhost:3000/api/sendmail/tracksuccess', {email: email},{headers: {'Content-Type': 'application/json'}})
+                   
+                    await axios.post( process.env.NODE_ENV === 'development'? 
+                    `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/tracksuccess` : 
+                    `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})
                     .then((resp) => {
                         console.log('Email Sent');
                     }).catch((err) => {
@@ -39,7 +42,9 @@ export default async (req,res) => {
                  });
                 }).catch(async (err) => {
                     // retry
-                    await axios.post('http://localhost:3000/api/sendmail/trackerror', {email: email},{headers: {'Content-Type': 'application/json'}})
+                    await axios.post( process.env.NODE_ENV === 'development'? 
+                    `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/trackerror` : 
+                    `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/trackerror`, {email: email},{headers: {'Content-Type': 'application/json'}})
                     .then(async (resp) => {
                         console.log('Email Sent');
                         await firebase.collection('users').
@@ -68,7 +73,9 @@ export default async (req,res) => {
                 await firebase.collection('products')
                 .add(data).
                  then(async () => {
-                    await axios.post('http://localhost:3000/api/sendmail/tracksuccess', {email: email},{headers: {'Content-Type': 'application/json'}})
+                    await axios.post( process.env.NODE_ENV === 'development'? 
+                    `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/tracksuccess` : 
+                    `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})
                     .then((resp) => {
                         console.log('Email Sent');
                     }).catch((err) => {
@@ -79,7 +86,9 @@ export default async (req,res) => {
                      res.json({statusCode: 400, message: 'Data Not Inserted'});
                  });
                 }).catch(async (err) => {
-                    await axios.post('http://localhost:3000/api/sendmail/trackerror', {email: email},{headers: {'Content-Type': 'application/json'}})
+                    await axios.post( process.env.NODE_ENV === 'development'? 
+                    `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/trackerror` : 
+                    `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/trackerror`, {email: email},{headers: {'Content-Type': 'application/json'}})
                     .then(async (resp) => {
                         console.log('Email Sent');
                         await firebase.collection('users').
@@ -110,7 +119,9 @@ export default async (req,res) => {
             await firebase.collection('products')
             .add(data).
              then(async () => {
-                await axios.post('http://localhost:3000/api/sendmail/tracksuccess', {email: email},{headers: {'Content-Type': 'application/json'}})
+                await axios.post( process.env.NODE_ENV === 'development'? 
+                `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/tracksuccess` : 
+                `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})
                 .then((resp) => {
                     console.log('Email Sent');
                 }).catch((err) => {
@@ -118,7 +129,9 @@ export default async (req,res) => {
                 });
                 res.json({statusCode: 201, message: 'Data Inserted'});
              }).catch(async (err) => {
-                await axios.post('http://localhost:3000/api/sendmail/trackerror', {email: email},{headers: {'Content-Type': 'application/json'}})
+                await axios.post( process.env.NODE_ENV === 'development'? 
+                `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/trackerror` : 
+                `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/trackerror`, {email: email},{headers: {'Content-Type': 'application/json'}})
                 .then(async (resp) => {
                     console.log('Email Sent');
                     await firebase.collection('users').

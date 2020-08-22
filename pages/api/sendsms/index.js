@@ -4,11 +4,12 @@ const client = require('twilio')(accountSid, authToken);
 
 export default (req, res) => {
     if(req.method === 'POST') {
+        const { phoneNumber, message } = req.body;
         client.messages
         .create({
-            body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+            body: `Cheaprice.co - Price Drop Alert! ${ message } Check Your Email For More Info`,
             from: '+15017122661',
-            to: '+15558675310'
+            to: phoneNumber,
         })
         .then(message => console.log(message.sid));
     }

@@ -13,14 +13,18 @@ export default async (req, res) => {
            axios.post('/aws-lambda-endpoint', {products: products},{headers: {'Content-Type': 'application/json'}})
            .catch((err) => {
                // send email
-               axios.post('https://localhost:3000/api/sendmail/crawlerror',{headers: {'Content-Type': 'application/json'}})
+               axios.post( process.env.NODE_ENV === 'development'? 
+               `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/crawlerror` : 
+               `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/crawlerror`,{headers: {'Content-Type': 'application/json'}})
                .catch((err) => {
                   console.log('Error sending crawl error message');
                });
            });
         }).catch((err) => {
           // send email
-          axios.post('https://localhost:3000/api/sendmail/producterror',{headers: {'Content-Type': 'application/json'}})
+          axios.post( process.env.NODE_ENV === 'development'? 
+          `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/producterror` : 
+          `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/producterror`,{headers: {'Content-Type': 'application/json'}})
           .catch((err) => {
              console.log('Error sending crawl error message');
           });

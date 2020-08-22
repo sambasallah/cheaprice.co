@@ -27,7 +27,7 @@ export default async (req, res) => {
         if(Number(previousData.price) > Number(scraped.price)) {
             if(previousData.priceDropAmount <= scraped.price) {
                 // send price drop alert
-                axios.post('https://cheaprice.co/api/sendmail',{message: 'Price Dropped', 
+                axios.post('https://cheaprice.co/api/sendmail',{message: 'Price Dropped!!!', 
                 email: user.email, image: previousData.image? previousData.image: previousData.fullImg,
                  url: previousData.url, price: scraped.price, title: limitTitle(scraped.title) })
                 .catch((err) => {
@@ -35,7 +35,7 @@ export default async (req, res) => {
                 });
                 if(user.phoneNumber !== null) {
                     // send text message
-                    axios.post('https://cheaprice.co/api/sendsms',{message: 'Price Dropped',phoneNumber: user.phoneNumber,
+                    axios.post('https://cheaprice.co/api/sendsms',{message: 'Price Dropped!!!',phoneNumber: user.phoneNumber,
                     url: previousData.url, price: scraped.price, title: limitTitle(scraped.title)})
                     .catch((err) => {
                         console.log('Error....');
@@ -43,7 +43,7 @@ export default async (req, res) => {
                 }
                 await firebase.collection('products')
                 .where('id', '==',`${previousData.id}`)
-                .set({
+                .update({
                     price: scraped.price,
                     previousPrice: previousData.price
                 }).then((response) => {
@@ -61,21 +61,24 @@ export default async (req, res) => {
                 });
             } else {
             // send price drop alert
-            axios.post('https://cheaprice.co/api/sendmail',{message: 'Price Reduced', email: user.email})
-            .catch((err) => {
-                console.log('Error....');
-            });
-            if(user.phoneNumber !== null) {
-                // send text message
-                axios.post('https://cheaprice.co/api/sendsms',{message: 'Price Reduced',phoneNumber: user.phoneNumber})
+            axios.post('https://cheaprice.co/api/sendmail',{message: 'Price Dropped!!!', 
+                email: user.email, image: previousData.image? previousData.image: previousData.fullImg,
+                 url: previousData.url, price: scraped.price, title: limitTitle(scraped.title) })
                 .catch((err) => {
                     console.log('Error....');
                 });
+            if(user.phoneNumber !== null) {
+                // send text message
+                axios.post('https://cheaprice.co/api/sendsms',{message: 'Price Reduced!!!',phoneNumber: user.phoneNumber,
+                    url: previousData.url, price: scraped.price, title: limitTitle(scraped.title)})
+                    .catch((err) => {
+                        console.log('Error....');
+                    });
             }
 
             await firebase.collection('products')
             .where('id', '==',`${previousData.id}`)
-            .set({
+            .update({
                 price: scraped.price,
                 previousPrice: previousData.price
             }).then((response) => {
