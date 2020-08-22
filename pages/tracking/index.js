@@ -132,6 +132,7 @@ const Track = () => {
                         <span value="+1" id="countryCode">+1</span>
                         <input type="text" placeholder="US PHONE NUMBER (OPTIONAL)" value={formData.phoneNumber} id="phoneNumber" 
                         pattern="[0-9]{10}" onChange={handleChange}/>
+                        { console.log(process.env.NEXT_PUBLIC_LIVE_SERVER) }
                    </div>
                    <div>
                       <button type="submit">{ loading? 'Loading...': 'Track' } </button>
