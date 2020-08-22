@@ -46,7 +46,7 @@ export default async (req, res) => {
                 .update({
                     price: scraped.price,
                     previousPrice: previousData.price
-                }).then((response) => {
+                }).then(async (response) => {
                     await firebase.collection('prices').
                     add({
                         id: previousData.id,
@@ -81,7 +81,7 @@ export default async (req, res) => {
             .update({
                 price: scraped.price,
                 previousPrice: previousData.price
-            }).then((response) => {
+            }).then(async (response) => {
                 await firestore.collection('prices').
                 add({
                     id: previousData.id,
