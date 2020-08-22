@@ -112,6 +112,7 @@ const Track = () => {
     return(
         <>
          <ToastContainer />
+         { console.log(process.env.NODE_ENV) }
           <Header title="Track A Product" description="Amazon price tracker, eBay price tracker,
              walmart price tracker, Free Price tracker, ecommerce stores"/>
            <main className="track__page">
@@ -132,7 +133,6 @@ const Track = () => {
                         <span value="+1" id="countryCode">+1</span>
                         <input type="text" placeholder="US PHONE NUMBER (OPTIONAL)" value={formData.phoneNumber} id="phoneNumber" 
                         pattern="[0-9]{10}" onChange={handleChange}/>
-                        { console.log(process.env.NEXT_PUBLIC_LIVE_SERVER) }
                    </div>
                    <div>
                       <button type="submit">{ loading? 'Loading...': 'Track' } </button>
