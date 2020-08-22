@@ -1,7 +1,7 @@
 import firebase from '../firebase/firebase';
 const axios = require('axios').default;
 
-export default (req, res) => {
+export default async (req, res) => {
     if(req.method === 'POST') {
         await firebase.collection('products')
         .get()

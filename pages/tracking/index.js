@@ -89,9 +89,7 @@ const Track = () => {
     }
     
     const trackingData = async () => {
-        let response = await fetch(process.env.NODE_ENV === 'development'? 
-        `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/products` : 
-        `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/products`);
+        let response = await fetch(`${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/products`);
         let data = await response.json();
 
         if(data) {
@@ -112,7 +110,6 @@ const Track = () => {
     return(
         <>
          <ToastContainer />
-         { console.log(process.env.NODE_ENV) }
           <Header title="Track A Product" description="Amazon price tracker, eBay price tracker,
              walmart price tracker, Free Price tracker, ecommerce stores"/>
            <main className="track__page">
