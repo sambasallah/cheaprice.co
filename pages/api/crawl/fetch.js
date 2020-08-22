@@ -18,7 +18,7 @@ export default async (req,res) => {
                 await firebase.collection('products')
                 .add(data).
                  then(async (response) => {
-                    await axios.post(`https://cheaprice/api/sendmail/success`, {email: email},{headers: {'Content-Type': 'application/json'}})
+                    await axios.post(`https://cheaprice/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})
                     .then((resp) => {
                         console.log('Email Sent');
                     }).catch((err) => {
