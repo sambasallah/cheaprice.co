@@ -11,6 +11,7 @@ export default (req, res) => {
         html:'Your tracking request was not successful, please retry again this might be caused my a connection timeout or if the product you want to track has attributes select one of the attributes and try again. Thank you.',
         };
         sgMail.send(msg);
+        res.json({message: 'error'});
     }
     res.json({message: 'Request Method Not Allowed'});
 }

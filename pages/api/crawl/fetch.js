@@ -17,11 +17,9 @@ export default async (req,res) => {
                 const data = Object.assign({}, response.data, {id: id, createdAt: new Date(), updatedAt: new Date()});  
                 await firebase.collection('products')
                 .add(data).
-                 then(async (response) => {
-                    await axios.post(`https://cheaprice.co/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})
-                    .then((resp) => {
-                        console.log('Email Sent');
-                    }).catch((err) => {
+                 then((response) => {
+                    axios.post(`https://cheaprice.co/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})
+                    .catch((err) => {
                         console.log(err);
                     });
                     res.json({statusCode: 201, message: 'Data Inserted'});
@@ -57,11 +55,9 @@ export default async (req,res) => {
                 const data = Object.assign({}, response.data, {id: id, createdAt: new Date(), updatedAt: new Date()});  
                 await firebase.collection('products')
                 .add(data).
-                 then(async () => {
-                    await axios.post(`https://cheaprice.co/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})
-                    .then((resp) => {
-                        console.log('Email Sent');
-                    }).catch((err) => {
+                 then(() => {
+                    axios.post(`https://cheaprice.co/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})
+                    .catch((err) => {
                         console.log(err);
                     });
                     res.json({statusCode: 201, message: 'Data Inserted'});
@@ -99,11 +95,9 @@ export default async (req,res) => {
             const data = Object.assign({}, response.data, {id: id, createdAt: new Date(), updatedAt: new Date()});  
             await firebase.collection('products')
             .add(data).
-             then(async () => {
+             then(() => {
                 await axios.post(`https://cheaprice.co/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})
-                .then((resp) => {
-                    console.log('Email Sent');
-                }).catch((err) => {
+                .catch((err) => {
                     console.log(err);
                 });
                 res.json({statusCode: 201, message: 'Data Inserted'});
