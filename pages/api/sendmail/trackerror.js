@@ -10,13 +10,7 @@ export default (req, res) => {
         subject: `Cheaprice.co - Tracking Unsuccessful!`,
         html:'Your tracking request was not successful, please retry again this might be caused my a connection timeout or if the product you want to track has attributes select one of the attributes and try again. Thank you.',
         };
-        
-        try {
-            sgMail.send(msg);
-            res.json({message: 'Email Sent'});
-        } catch(err) {
-            res.json({message: 'Error sending email'});
-        }
+        sgMail.send(msg);
     }
     res.json({message: 'Request Method Not Allowed'});
 }

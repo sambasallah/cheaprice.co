@@ -9,13 +9,8 @@ export default (req, res) => {
         subject: `Cheaprice.co - Crawl Unsuccessful!`,
         html:'Your periodical crawl request was not successful',
         };
+        sgMail.send(msg);
         
-        try {
-            sgMail.send(msg);
-            res.json({message: 'Email Sent'});
-        } catch(err) {
-            res.json({message: 'Error sending email'});
-        }
     }
     res.json({message: 'Request Method Not Allowed'});
 }

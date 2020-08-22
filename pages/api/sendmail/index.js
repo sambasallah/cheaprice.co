@@ -25,13 +25,8 @@ export default (req, res) => {
         subject: `Cheaprice.co - ${message}!`,
         html:email,
         };
+        sgMail.send(msg);
         
-        try {
-            sgMail.send(msg);
-            res.json({message: 'Email Sent'});
-        } catch(err) {
-            res.json({message: 'Error sending email'});
-        }
 
     }
     res.json({message: 'Request Method Not Allowed'});

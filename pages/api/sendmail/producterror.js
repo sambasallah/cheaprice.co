@@ -9,13 +9,7 @@ export default (req, res) => {
         subject: `Cheaprice.co - Crawl Unsuccessful!`,
         html:'Coundn"t not get products from firebase database'
         };
-        
-        try {
-            sgMail.send(msg);
-            res.json({message: 'Email Sent'});
-        } catch(err) {
-            res.json({message: 'Error sending email'});
-        }
+        sgMail.send(msg);
     }
     res.json({message: 'Request Method Not Allowed'});
 }

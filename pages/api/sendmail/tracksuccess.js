@@ -10,13 +10,8 @@ export default (req, res) => {
         subject: `Cheaprice.co - Tracking Successful!`,
         html:'Your tracking request was successful, you will be notified when the product price drops!. Thank you.',
         };
+        sgMail.send(msg);
         
-        try {
-            sgMail.send(msg);
-            res.json({message: 'Email Sent'});
-        } catch(err) {
-            res.json({message: 'Error sending email'});
-        }
     }
     res.json({message: 'Request Method Not Allowed'});
 }

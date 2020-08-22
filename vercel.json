@@ -1,7 +1,0 @@
-{
-    "functions": {
-      "api/crawl/fetch.js": {
-        "maxDuration": 40
-      }
-    }
-  }
