@@ -7,7 +7,7 @@ const Footer = () => {
                 <div>
                 <h3>CHEAPRICE <FiTrendingDown /></h3>
                 <p>CHEAPRICE allows you to check historic prices of products from US based 
-                    E-commerce stores for free. This is easy to use and ad-free price tracker for US based 
+                    E-commerce stores for free. This is easy to use price tracker for US based 
                     E-commerce stores. We currently offer Amazon Price Tracker, eBay Price Tracker, Walmart Price
                     Tracker and Etsy Price Tracker</p>
                 </div>

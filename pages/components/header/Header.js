@@ -16,8 +16,7 @@ const Header = ({title,description,url,image, type}) => {
     }
     
     useEffect(() => {
-        setScreenSize(window.innerWidth);
-        console.log(screenSize);
+      
     },[]);
     return (
         <>
@@ -39,9 +38,9 @@ const Header = ({title,description,url,image, type}) => {
                 <ul>
                     <li><Link href='/'><a>Home</a></Link></li>
                     <li><a href="/deals">Deals</a></li>
-                    <li><Link href='#'><a>Privacy</a></Link></li>
-                    <li><Link href='#'><a>FAQs</a></Link></li>
-                    <li><Link href='#'><a>Contact</a></Link></li>
+                    <li><Link href='/privacy'><a>Privacy</a></Link></li>
+                    <li><Link href='/faqs'><a>FAQs</a></Link></li>
+                    <li><Link href='/contact'><a>Contact</a></Link></li>
                     <li>
                      <Link  href="/tracking"><a className="action__btn">Get Started</a></Link>
                     </li>
@@ -61,9 +60,9 @@ const Header = ({title,description,url,image, type}) => {
                 <ul>
                     <li><Link href='/'><a>Home</a></Link></li>
                     <li><Link href='/deals'><a>Deals</a></Link></li>
-                    <li><Link href='#'><a>Privacy</a></Link></li>
-                    <li><Link href='#'><a>FAQs</a></Link></li>
-                    <li><Link href='#'><a>Contact</a></Link></li>
+                    <li><Link href='/privacy'><a>Privacy</a></Link></li>
+                    <li><Link href='/faqs'><a>FAQs</a></Link></li>
+                    <li><Link href='/contact'><a>Contact</a></Link></li>
                     <li>
                     <Link href="/tracking"><a className="get__started">Get Started</a></Link> 
                     </li>

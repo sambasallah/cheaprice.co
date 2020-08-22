@@ -269,8 +269,20 @@ ul {
   width: 50%;
   margin: 20px auto;
 }
+.track__page div {
+  display: flex;
+}
 .track__page div input[type=text], .track__page div input[type=url] {
   width: 100%;
+}
+.track__page div #countryCode {
+  height: 45px;
+  width: 80px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding-top: 15px;
+  font-size: 25px;
+  background-color: #f6f6f6;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .track__page h1 {
   font-size: 60px;
@@ -317,6 +329,23 @@ ul {
   box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+.supported__stores {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  background-color: #f6f6f6;
+  margin: 15px 0px;
+  align-items: center;
+}
+.supported__stores div {
+  flex-basis: 100%;
+  text-align: center;
+}
+.supported__stores div img {
+  max-width: 40% !important;
+  max-height: 40% !important;
+}
+
 @media screen and (max-width: 768px) {
   .track__page {
     width: 95%;
@@ -328,6 +357,7 @@ ul {
 }
 .currently__tracking h1 {
   margin-bottom: 30px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .currently__tracking .currently__tracking_products {
   display: flex;
@@ -337,7 +367,7 @@ ul {
   margin-top: 20px;
   width: 90%;
   margin: auto;
-  height: 330px;
+  height: 350px;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034);
   border-radius: 5px;
   cursor: pointer;
@@ -361,8 +391,8 @@ ul {
   vertical-align: middle;
 }
 .currently__tracking .currently__tracking_products .tracked__product .product__description {
-  text-align: center;
   margin-bottom: 10px;
+  padding: 0px 8px;
 }
 .currently__tracking .currently__tracking_products .tracked__product .product__description p {
   font-size: 18px;
@@ -403,7 +433,8 @@ ul {
   position: relative;
   text-align: center;
   margin-top: 40px;
-  height: 400px;
+  min-height: 600px;
+  box-sizing: border-box;
 }
 .product__page .product__info .product__img img {
   position: absolute;
@@ -412,12 +443,10 @@ ul {
   bottom: 0;
   right: 0;
   margin: auto;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90%;
+  max-height: 90%;
   padding: 10px 0px;
   vertical-align: middle;
-  max-width: 100%;
-  max-height: 100%;
 }
 @media screen and (max-width: 800px) {
   .product__page .product__info .product__img {
@@ -482,10 +511,38 @@ ul {
   font-family: "Amazon Ember", Arial, sans-serif;
   font-weight: 500;
 }
+.product__page .product__info .product__description .track {
+  background-color: #00001c;
+  padding: 15px 40px;
+  border-radius: 5px;
+  color: #fff;
+  font-family: "Amazon Ember", Arial, sans-serif;
+  font-weight: 500;
+  margin-left: 10px;
+}
 @media screen and (max-width: 800px) {
   .product__page .product__info {
     flex-direction: column;
   }
+}
+
+/** Product Don't Exist **/
+.product__not__exist {
+  width: 100%;
+  height: 80vh;
+  position: relative;
+}
+.product__not__exist .not__found {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 300px;
+  text-align: center;
+  padding-top: 150px;
+  background-color: #f6f6f6;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 /** Deals */
@@ -497,7 +554,11 @@ ul {
   min-height: 70px;
   line-height: 70px;
   border-bottom: 1px solid #f6f6f6;
-  font-family: "Amazon Ember", Arial, sans-serif;
+}
+.deals .breadcrumb h2 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: lighter;
+  font-size: 30px;
 }
 .deals .products {
   display: flex;
@@ -511,7 +572,7 @@ ul {
 .deals .products .product__list .product {
   width: 100%;
   margin-top: 15px;
-  height: 300px;
+  height: 310px;
   cursor: pointer;
   background-color: #fff;
   border: 1px solid #f6f6f6;
@@ -539,7 +600,7 @@ ul {
 .deals .products .product__list .product .product__description {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   box-sizing: border-box;
 }
 .deals .products .product__list .product .product__description p {
@@ -577,6 +638,112 @@ ul {
 @media screen and (max-width: 800px) {
   .deals .products {
     flex-direction: column;
+  }
+}
+
+/** Privacy Page **/
+.privacy__page {
+  width: 95%;
+  margin: auto;
+}
+.privacy__page .privacy__title {
+  padding: 10px 0px;
+  border-bottom: 1px solid #f6f6f6;
+}
+.privacy__page .privacy__title h2 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 500;
+}
+.privacy__page .privacy__content h2 {
+  padding-top: 10px;
+  font-weight: 400px;
+  font-weight: lighter;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+/** FAQs **/
+.faqs__page {
+  width: 95%;
+  margin: auto;
+}
+.faqs__page .faqs__title {
+  padding: 10px 0px;
+  border-bottom: 1px solid #f6f6f6;
+}
+.faqs__page .faqs__title h2 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: lighter;
+}
+.faqs__page .faqs__content h2 {
+  padding-top: 10px;
+  font-weight: lighter;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+/** Contact Us **/
+.contact__us .breadcrumb {
+  width: 95%;
+  min-height: 60px;
+  line-height: 60px;
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border-bottom: 1px solid #f6f6f6;
+  margin: auto;
+}
+.contact__us .breadcrumb h2 {
+  font-weight: lighter;
+}
+.contact__us .form__container {
+  width: 60%;
+  margin: 40px auto;
+}
+.contact__us .form__container h2 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding-bottom: 15px;
+}
+.contact__us .form__container input[type=text], .contact__us .form__container textarea {
+  width: 100%;
+}
+.contact__us .form__container input[type=text] {
+  max-width: 100%;
+  height: 45px;
+  max-height: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 0px 12px;
+  font-family: "Merriweather", serif;
+  font-size: 18px;
+  background-color: #f6f6f6;
+  margin-bottom: 10px;
+  font-weight: lighter;
+}
+.contact__us .form__container textarea {
+  max-width: 100%;
+  height: 150px;
+  max-height: 150px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 12px;
+  font-family: "Merriweather", serif;
+  font-size: 18px;
+  background-color: #f6f6f6;
+  margin-bottom: 10px;
+  font-weight: lighter;
+}
+.contact__us .form__container .btn__send {
+  width: 150px;
+  height: 50px;
+  background-color: #3f3a64;
+  color: #0099e5;
+  border: 1px solid #0099e5;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: serif;
+  border-radius: 8px;
+  cursor: pointer;
+}
+@media screen and (max-width: 800px) {
+  .contact__us .form__container {
+    width: 95%;
   }
 }
 

@@ -10,48 +10,91 @@ export default async (req,res) => {
         const index = client.initIndex('test_products');
         const stores = ['amazon.com','www.amazon.com', 'ebay.com', 'www.ebay.com',
         'walmart.com','www.walmart.com']
-        const { url, id } = req.body;
+        const { url, id, email } = req.body;
         const host = urlUtil.parse(url).host;
         if(stores.includes(host) && host === 'amazon.com' || host === 'www.amazon.com') {
             // send crawl request
-            await axios.post('https://ibcweim5j3.execute-api.eu-west-1.amazonaws.com/dev/amazon/add',{url: url},
+            await axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/amazon/add',{url: url},
             {headers: {'Content-Type': 'application/json'}}).
             then(async (response) => {
-                const data = Object.assign({}, response.data, {id: id});  
+                const data = Object.assign({}, response.data, {id: id, createdAt: new Date(), updatedAt: new Date()});  
                 await firebase.collection('products')
                 .add(data).
                  then(async (response) => {
-                    const algoliaData = Object.assign({}, data, {objectID: data.id});
-                    await index.saveObjects([algoliaData]).then(() => {
-                        res.json({message: 'Data inserted'});
+                    // const algoliaData = Object.assign({}, data, {objectID: data.id});
+                    // await index.saveObjects([algoliaData]).then(() => {
+                    //     res.json({message: 'Data inserted'});
+                    // }).catch((err) => {
+                    //     res.json({'error': err});
+                    // });
+                    await axios.post('http://localhost:3000/api/sendmail/tracksuccess', {email: email},{headers: {'Content-Type': 'application/json'}})
+                    .then((resp) => {
+                        console.log('Email Sent');
                     }).catch((err) => {
-                        res.json({'error': err});
+                        console.log(err);
                     });
-                    // res.json({statusCode: 201, message: 'Data Inserted'});
+                    res.json({statusCode: 201, message: 'Data Inserted'});
                  }).catch((err) => {;
                      res.json({statusCode: 400, message: 'Data Not Inserted'});
                  });
-                }).catch((err) => {
+                }).catch(async (err) => {
                     // retry
+                    await axios.post('http://localhost:3000/api/sendmail/trackerror', {email: email},{headers: {'Content-Type': 'application/json'}})
+                    .then(async (resp) => {
+                        console.log('Email Sent');
+                        await firebase.collection('users').
+                        where('id', '==', `${id}`).get().
+                        then((resp) => {
+                            resp.forEach((doc) => {
+                                doc.ref.delete();
+                            });
+                            console.log({message: 'Document Deleted'});
+                        }).catch((err) => {
+                            console.log({message: 'Cannot Delete User'});
+                        });
+                    }).catch((err) => {
+                        console.log(err);
+                    });
                     res.json({err: err});
                 })
                 await firebase.database().goOffline();
         
         } else if(stores.includes(host) && host === 'walmart.com' || host === 'www.walmart.com') {
             // send crawl request
-            await axios.post('https://ibcweim5j3.execute-api.eu-west-1.amazonaws.com/dev/walmart/add',{url: url},
+            await axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/walmart/add',{url: url},
             {headers: {'Content-Type': 'application/json'}}).
             then(async (response) => {
-                const data = Object.assign({}, response.data, {id: id});  
+                const data = Object.assign({}, response.data, {id: id, createdAt: new Date(), updatedAt: new Date()});  
                 await firebase.collection('products')
                 .add(data).
-                 then(() => {
+                 then(async () => {
+                    await axios.post('http://localhost:3000/api/sendmail/tracksuccess', {email: email},{headers: {'Content-Type': 'application/json'}})
+                    .then((resp) => {
+                        console.log('Email Sent');
+                    }).catch((err) => {
+                        console.log(err);
+                    });
                     res.json({statusCode: 201, message: 'Data Inserted'});
                  }).catch((err) => {;
                      res.json({statusCode: 400, message: 'Data Not Inserted'});
                  });
-                }).catch((err) => {
-                    // retry
+                }).catch(async (err) => {
+                    await axios.post('http://localhost:3000/api/sendmail/trackerror', {email: email},{headers: {'Content-Type': 'application/json'}})
+                    .then(async (resp) => {
+                        console.log('Email Sent');
+                        await firebase.collection('users').
+                        where('id', '==', `${id}`).get().
+                        then((resp) => {
+                            resp.forEach((doc) => {
+                                doc.ref.delete();
+                            });
+                            console.log({message: 'Document Deleted'});
+                        }).catch((err) => {
+                            console.log({message: 'Cannot Delete User'});
+                        });
+                    }).catch((err) => {
+                        console.log(err);
+                    });
                     res.json({err: err});
                 })
                 await firebase.database().goOffline(); {
@@ -60,15 +103,37 @@ export default async (req,res) => {
         
     } else  if(stores.includes(host) && host === 'ebay.com' || host === 'www.ebay.com') {
         // send crawl request
-        await axios.post('https://ibcweim5j3.execute-api.eu-west-1.amazonaws.com/dev/ebay/add',{url: url},
+        await axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/ebay/add',{url: url},
         {headers: {'Content-Type': 'application/json'}}).
         then(async (response) => {
-            const data = Object.assign({}, response.data, {id: id});  
+            const data = Object.assign({}, response.data, {id: id, createdAt: new Date(), updatedAt: new Date()});  
             await firebase.collection('products')
             .add(data).
-             then(() => {
+             then(async () => {
+                await axios.post('http://localhost:3000/api/sendmail/tracksuccess', {email: email},{headers: {'Content-Type': 'application/json'}})
+                .then((resp) => {
+                    console.log('Email Sent');
+                }).catch((err) => {
+                    console.log(err);
+                });
                 res.json({statusCode: 201, message: 'Data Inserted'});
-             }).catch((err) => {;
+             }).catch(async (err) => {
+                await axios.post('http://localhost:3000/api/sendmail/trackerror', {email: email},{headers: {'Content-Type': 'application/json'}})
+                .then(async (resp) => {
+                    console.log('Email Sent');
+                    await firebase.collection('users').
+                        where('id', '==', `${id}`).get().
+                        then((resp) => {
+                            resp.forEach((doc) => {
+                                doc.ref.delete();
+                            });
+                            console.log({message: 'Document Deleted'});
+                        }).catch((err) => {
+                            console.log({message: 'Cannot Delete User'});
+                        });
+                }).catch((err) => {
+                    console.log(err);
+                });
                  res.json({statusCode: 400, message: 'Data Not Inserted'});
              });
             }).catch((err) => {

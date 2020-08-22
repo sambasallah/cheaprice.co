@@ -7,10 +7,10 @@ export default async (req, res) => {
         return res.json({error: 'Request Method Not Allow'});
     }
     const user = {
-        id: uuidv4(),
+        id: req.body.id? req.body.id : uuidv4(),
         email: req.body.email,
-        phoneNumber: req.body.phone_number || null,
-        priceDropAmount: req.body.price_drop_amount,
+        phoneNumber: req.body.phoneNumber || null,
+        priceDropAmount: req.body.priceDropAmount,
         url: req.body.url,
         createdAt: new Date()
     };
@@ -18,7 +18,7 @@ export default async (req, res) => {
     await firebase.collection('users').
        add(user).
         then(() => {
-            axios.post(`http://localhost:3000/api/crawl/fetch`, {id: user.id, url: user.url},
+            axios.post(`http://localhost:3000/api/crawl/fetch`, {id: user.id, url: user.url, email: user.email},
             {headers: {'Content-Type': 'application/json'}})
             .catch((err) => {
               console.log('Error Occured.....');

@@ -6,14 +6,15 @@ import './style/css/style.css';
 const Index = () => {
   return (
     <>
-     <Header title="Cheaprice | Amazon, eBay, Walmart & Etsy Price Tracker App" description="Amazon price tracker, eBay price tracker,
-             walmart price tracker, Free Price tracker, ecommerce stores" />
+     <Header title="Cheaprice.co | Amazon, eBay & Walmart Price Tracker App" description="Amazon price tracker, eBay price tracker,
+             walmart price tracker, Free Price tracker, ecommerce stores, price tracker, best price tracker" />
      <main className="main__body">
        <div className="hero__section">
           <h1>Amazon, eBay & Walmart Price Tracker</h1>
           <p>Free price tracker for Amazon, eBay, & Walmart</p>
           <img src='images/about1.png' style={{maxWidth: '70%', maxHeight: '50%'}} />
        </div>
+       { console.log(process.env.NEXT_PUBLIC_LOCAL_SERVER) }
        <div className="ecommerce__logos">
              <div><img src="images/amazon.png" style={{maxWidth: '40%', maxHeight: '40%'}}/></div>
              <div><img src="images/ebay.png" style={{maxWidth: '40%', maxHeight: '40%'}}/></div>

@@ -308,6 +308,16 @@ ul {
 		input[type=text], input[type=url] {
 			width: 100%;
 		}
+		display: flex;
+		#countryCode {
+			height: 45px;
+			width: 80px;
+			border: 1px solid rgba(0,0,0,0.5);
+			padding-top: 15px;
+			font-size: 25px;
+			background-color: $bg-primary;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		}
 	}
 
 	h1 {
@@ -356,6 +366,23 @@ ul {
 	}
 }
 
+.supported__stores {
+	display: flex;
+	width: 100%;
+	height: 100px;
+	background-color: $bg-primary;
+	margin: 15px 0px;
+	align-items: center;
+	div {
+		flex-basis: 100%;
+		text-align: center;
+		img {
+			max-width: 40% !important;
+			max-height: 40% !important;
+		}
+	}
+}
+
 @media screen and (max-width: 768px) {
 	.track__page {
 		width: 95%;
@@ -367,6 +394,7 @@ ul {
 	margin: auto;
 	h1 {
 		margin-bottom: 30px;
+		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	}
 	.currently__tracking_products {
 		display: flex;
@@ -375,7 +403,7 @@ ul {
 			margin-top: 20px;
 			width: 90%;
 			margin: auto;
-			height: 330px;
+			height: 350px;
 			box-shadow:
 			0 2.8px 2.2px rgba(0, 0, 0, 0.034);
 		   border-radius: 5px;
@@ -400,8 +428,8 @@ ul {
 			}
 
 			.product__description {
-				text-align: center;
 				margin-bottom: 10px;
+				padding: 0px 8px;
 				p {
 					font-size: 18px;
 					font-weight: 500px;
@@ -445,21 +473,19 @@ ul {
 			position: relative;
 			text-align: center;
 			margin-top: 40px;
-			height: 400px;
-
+			min-height: 600px;
+			box-sizing: border-box;
 			img {
-				 position: absolute;
-				 top: 0;
-				 left: 0;
-				 bottom: 0;
-				 right: 0;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
 				margin: auto;
-				max-width: 100%;
-				max-height: 100%;
+				max-width: 90%;
+				max-height: 90%;
 				padding: 10px 0px;
 				vertical-align: middle;
-				max-width: 100%;
-				max-height: 100%;
 			}
 		}
 		@media screen and (max-width: 800px) {
@@ -524,12 +550,40 @@ ul {
 				font-family: "Amazon Ember",Arial,sans-serif;
 				font-weight: 500;
 			}
+			.track {
+				background-color: rgba(0,0,28,75);
+				padding: 15px 40px;
+				border-radius: 5px;
+				color: #fff;
+				font-family: "Amazon Ember",Arial,sans-serif;
+				font-weight: 500;
+				margin-left: 10px;
+			}
 		}
 	}
 	@media screen and (max-width: 800px) {
 		.product__info {
 			flex-direction: column;
 		}
+	}
+}
+
+/** Product Don't Exist **/
+.product__not__exist {
+	width: 100%;
+	height: 80vh;
+	position: relative;
+	.not__found {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		width: 200px;
+		height: 300px;
+		text-align: center;
+		padding-top: 150px;
+		background-color: $bg-primary;
+		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	}
 }
 
@@ -541,7 +595,11 @@ ul {
 		min-height: 70px;
 		line-height: 70px;
 		border-bottom: 1px solid $bg-primary;
-		font-family: "Amazon Ember",Arial,sans-serif;
+		h2 {
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			font-weight: lighter;
+			font-size: 30px;
+		}
 	}
 	.products {
 		display: flex;
@@ -553,7 +611,7 @@ ul {
 			.product {
 				width: 100%;
 				margin-top: 15px;
-				height: 300px;
+				height: 310px;
 				cursor: pointer;
 				background-color: #fff;
 				border: 1px solid $bg-primary;
@@ -580,9 +638,9 @@ ul {
 				.product__description {
 					font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 					font-size: 14px;
-					font-weight: 700;
+					font-weight: 600;
 					box-sizing: border-box;
-					
+									
 					p {
 						padding: 0px 0px 5px 8px;
 						margin: 0px !important;
@@ -627,3 +685,116 @@ ul {
 		}
 	}
 }
+
+/** Privacy Page **/
+.privacy__page {
+	width: 95%;
+	margin:  auto;
+	.privacy__title{
+		padding: 10px 0px;
+		border-bottom: 1px solid $bg-primary;
+		h2 {
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			font-weight: 500;
+		}
+	}
+	.privacy__content {
+		h2 {
+			padding-top: 10px;
+			font-weight: 400px;
+			font-weight: lighter;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;	
+		}
+	}
+}
+
+/** FAQs **/
+.faqs__page {
+	width: 95%;
+	margin:  auto;
+	.faqs__title{
+		padding: 10px 0px;
+		border-bottom: 1px solid $bg-primary;
+		h2 {
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			font-weight: lighter;
+		}
+	}
+	.faqs__content {
+		h2 {
+			padding-top: 10px;
+			font-weight: lighter;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;			
+		}
+	}
+}
+
+/** Contact Us **/
+.contact__us {
+	.breadcrumb {
+		width: 95%;
+		min-height: 60px;
+		line-height: 60px;
+		font-size: 20px;
+		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+		border-bottom: 1px solid $bg-primary;
+		margin: auto;
+		h2 {
+			font-weight: lighter;
+		}
+	}
+	.form__container {
+		width: 60%;
+		margin: 40px auto;
+		h2 {
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			padding-bottom: 15px;
+		}
+		input[type=text],textarea {
+			width: 100%;
+		}
+		input[type=text]{
+			max-width: 100%;
+			height: 45px;
+			max-height: 50px;
+			border: 1px solid rgba(0,0,0,0.5);
+			padding: 0px 12px;
+			font-family: 'Merriweather', serif;
+			font-size: 18px;
+			background-color: $bg-primary;
+			margin-bottom: 10px;
+			font-weight: lighter;
+		}
+		textarea {
+			max-width: 100%;
+			height: 150px;
+			max-height: 150px;
+			border: 1px solid rgba(0,0,0,0.5);
+			padding: 12px;
+			font-family: 'Merriweather', serif;
+			font-size: 18px;
+			background-color: $bg-primary;
+			margin-bottom: 10px;
+			font-weight: lighter;
+		}
+		.btn__send {
+			width: 150px;
+			height: 50px;
+			background-color: $heading-color;
+			color: $primary-color;
+			border: 1px solid $primary-color;
+			background-color: transparent;
+			font-size: 20px;
+			font-weight: bold;
+			font-family: serif;
+			border-radius: $border-radius;
+			cursor: pointer;
+		}
+	}
+	@media screen and (max-width: 800px) {
+		.form__container {
+			width: 95%;
+		}
+	}
+}
+

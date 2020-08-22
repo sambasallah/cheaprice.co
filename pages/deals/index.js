@@ -11,6 +11,7 @@ const Deals = ({data}) => {
 
     const [search, setSearch] = useState(null);
     const [products, setProducts] = useState({products: [...data.products]});
+
    
     const lookUp = async (event) => {
         event.preventDefault();
@@ -25,10 +26,10 @@ const Deals = ({data}) => {
 
     const limitTitle = (str) => {
         let newTitle = '';
-        if(str.length < 17) {
+        if(str.length < 35) {
             return str;
         } 
-        for(let i = 0; i < 22; i++) {
+        for(let i = 0; i < 45; i++) {
             newTitle += str.charAt(i);
         }
         return newTitle.trim() + "...";
@@ -50,21 +51,25 @@ const Deals = ({data}) => {
         setSearch(event.target.value);
     }
 
+    useEffect(() => {
+      
+    },[]);
+
     return (
        <>
              <Header title="Deals | Cheaprice" />
             <main className="deals">
                 <div className="breadcrumb">
-                    <h1>Best Deals</h1>
+                    <h2>Best Deals</h2>
                 </div>
                 <div className="products">
-                    <div className="search__bar">
+                    {/* <div className="search__bar">
                         <h2>Filter</h2>
                         <form onSubmit={ lookUp }>
                             <input type="text" placeholder="Search" id="searchValue" onChange={handleChange} />
                             <button type="submit"><FaSearch /></button>
                         </form>
-                    </div>
+                    </div> */}
                     <div className="product__list">
                         <div className="row">
                           {products.products.map((value) => {
@@ -94,7 +99,9 @@ const Deals = ({data}) => {
 }
 
 export async function getServerSideProps(context) {
-    let resp = await fetch('https://cheaprice-co.vercel.app/api/products/all');
+    let resp = await fetch(process.env.NODE_ENV === 'development'? 
+    `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/products/all` : 
+    `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/products/all`)
     let data = await resp.json();
     if(data) {
         return {

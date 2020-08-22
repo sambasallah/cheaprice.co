@@ -1,6 +1,4 @@
 import firebase from '../firebase/firebase';
-// import { v4 as uuidv4 }  from 'uuid';
-// import axios from 'axios';
 
 export default async (req, res) => {
     if(req.method === 'GET') {
