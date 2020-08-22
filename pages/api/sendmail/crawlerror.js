@@ -10,7 +10,6 @@ export default (req, res) => {
         html:'Your periodical crawl request was not successful',
         };
         sgMail.send(msg);
-        
     }
     res.json({message: 'Request Method Not Allowed'});
 }

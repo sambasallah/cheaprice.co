@@ -141,7 +141,8 @@ const Product = ({data}) => {
                                          backgroundColor: '#f6f6f6',
                                          marginBottom: '10px',
                                          fontWeight:'lighter'
-                                         }} placeholder="Email Address" value={formData.email} id="email" onChange={handleChange} />
+                                         }} placeholder="Email Address" value={formData.email} id="email"
+                                         pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' onChange={handleChange} />
                                     <input  type="text" style={
                                         {width: '100%', maxWidth: '100%',
                                          height: '45px',maxHeight: '50px',
@@ -151,7 +152,9 @@ const Product = ({data}) => {
                                          backgroundColor: '#f6f6f6',
                                          marginBottom: '10px',
                                          fontWeight:'lighter'
-                                         }} placeholder="Phone Number (Optional)" value={formData.phoneNumber} id="phoneNumber" onChange={handleChange} />
+                                         }} placeholder="Phone Number (Optional)" 
+                                         value={formData.phoneNumber} id="phoneNumber" 
+                                         pattern="[0-9]{10}" onChange={handleChange} />
                                     <input required type="text" style={
                                         {width: '100%', maxWidth: '100%',
                                          height: '45px',maxHeight: '50px',
@@ -161,7 +164,9 @@ const Product = ({data}) => {
                                          backgroundColor: '#f6f6f6',
                                          marginBottom: '10px',
                                          fontWeight:'lighter'
-                                         }} placeholder="Price Drop Amount" value={formData.priceDropAmount} id="priceDropAmount" onChange={handleChange} />
+                                         }} placeholder="Price Drop Amount" 
+                                         value={formData.priceDropAmount} id="priceDropAmount" 
+                                         pattern="[0-9]+" onChange={handleChange} />
                                     <button type="Submit" style={
                                         {
                                             width: '150px',

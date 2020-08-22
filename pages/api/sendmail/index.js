@@ -26,8 +26,6 @@ export default (req, res) => {
         html:email,
         };
         sgMail.send(msg);
-        
-
     }
     res.json({message: 'Request Method Not Allowed'});
 }

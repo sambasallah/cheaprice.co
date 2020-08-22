@@ -18,7 +18,9 @@ export default async (req,res) => {
                 await firebase.collection('products')
                 .add(data).
                  then((response) => {
-                    axios.post(`https://cheaprice.co/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})
+                    axios.post(process.env.NODE_ENV === 'development'? 
+                    `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/tracksuccess` : 
+                    `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})
                     .catch((err) => {
                         console.log(err);
                     });
@@ -27,7 +29,9 @@ export default async (req,res) => {
                      res.json({statusCode: 400, message: 'Data Not Inserted'});
                  });
                 }).catch(async (err) => {
-                    await axios.post(`https://cheaprice.co/api/sendmail/trackerror`, {email: email},{headers: {'Content-Type': 'application/json'}})
+                    await axios.post(process.env.NODE_ENV === 'development'? 
+                    `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/trackerror` : 
+                    `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/trackerror`, {email: email},{headers: {'Content-Type': 'application/json'}})
                     .then(async (resp) => {
                         console.log('Email Sent');
                         await firebase.collection('users').
@@ -55,8 +59,10 @@ export default async (req,res) => {
                 const data = Object.assign({}, response.data, {id: id, createdAt: new Date(), updatedAt: new Date()});  
                 await firebase.collection('products')
                 .add(data).
-                 then(() => {
-                    axios.post(`https://cheaprice.co/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})
+                 then((resp) => {
+                    axios.post(process.env.NODE_ENV === 'development'? 
+                    `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/tracksuccess` : 
+                    `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})
                     .catch((err) => {
                         console.log(err);
                     });
@@ -65,7 +71,9 @@ export default async (req,res) => {
                      res.json({statusCode: 400, message: 'Data Not Inserted'});
                  });
                 }).catch(async (err) => {
-                    await axios.post(`https://cheaprice.co/api/sendmail/trackerror`, {email: email},{headers: {'Content-Type': 'application/json'}})
+                    await axios.post(process.env.NODE_ENV === 'development'? 
+                    `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/trackerror` : 
+                    `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/trackerror`, {email: email},{headers: {'Content-Type': 'application/json'}})
                     .then(async (resp) => {
                         console.log('Email Sent');
                         await firebase.collection('users').
@@ -95,14 +103,18 @@ export default async (req,res) => {
             const data = Object.assign({}, response.data, {id: id, createdAt: new Date(), updatedAt: new Date()});  
             await firebase.collection('products')
             .add(data).
-             then(() => {
-                await axios.post(`https://cheaprice.co/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})
+             then((resp) => {
+                axios.post(process.env.NODE_ENV === 'development'? 
+                `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/tracksuccess` : 
+                `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})
                 .catch((err) => {
                     console.log(err);
                 });
                 res.json({statusCode: 201, message: 'Data Inserted'});
              }).catch(async (err) => {
-                await axios.post(`https://cheaprice.co/api/sendmail/trackerror`, {email: email},{headers: {'Content-Type': 'application/json'}})
+                await axios.post(process.env.NODE_ENV === 'development'? 
+                `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/trackerror` : 
+                `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/trackerror`, {email: email},{headers: {'Content-Type': 'application/json'}})
                 .then(async (resp) => {
                     console.log('Email Sent');
                     await firebase.collection('users').
