@@ -21,13 +21,6 @@ export default async (req,res) => {
                 await firebase.collection('products')
                 .add(data).
                  then(async (response) => {
-                    // const algoliaData = Object.assign({}, data, {objectID: data.id});
-                    // await index.saveObjects([algoliaData]).then(() => {
-                    //     res.json({message: 'Data inserted'});
-                    // }).catch((err) => {
-                    //     res.json({'error': err});
-                    // });
-                   
                     await axios.post( process.env.NODE_ENV === 'development'? 
                     `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/tracksuccess` : 
                     `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})
