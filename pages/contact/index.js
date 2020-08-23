@@ -28,7 +28,7 @@ const Contact = () => {
         }), headers:{'Content-Type': 'application/json'}});
         let data = await response.json();
 
-        if(data.message) {
+        if(data.result) {
             setLoading(false);  
                 toast('Success! Message Sent', {
                     position: "top-right",

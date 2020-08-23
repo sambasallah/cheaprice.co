@@ -1,5 +1,5 @@
 const sgMail = require('@sendgrid/mail');
-export default (req, res) => {
+export default async (req, res) => {
     if(req.method === 'POST') {
         const { useremail, message, title, price, image, url } = req.body;
         const email = `
@@ -18,14 +18,25 @@ export default (req, res) => {
         "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; text-decoration: none;'>Buy Now</a>
     </div>
     `;
-        sgMail.setApiKey(NEXT_PUBLIC_SENDGRID_API);
+        sgMail.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API);
         const msg = {
         to: useremail,
         from: {name: 'Cheaprice.co', 'email': 'pricedropalert@cheaprice.co'},
         subject: `Cheaprice.co - ${message}!`,
         html:email,
         };
-        await sgMail.send(msg);
+        await sgMail
+        .send(msg)
+        .then(() => {
+            res.json({info: 'Message Sent'})
+        }, error => {
+            
+            res.json({info: error})
+
+            if (error.response) {
+            console.error(error.response.body)
+            }
+        });
     }
     res.json({message: 'Request Method Not Allowed'});
 }

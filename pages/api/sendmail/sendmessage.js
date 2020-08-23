@@ -8,15 +8,23 @@ export default async (req, res) => {
         <h3>Message: ${message}</h3>
     `;
     if(req.method === 'POST') {
-        sgMail.setApiKey(NEXT_PUBLIC_SENDGRID_API);
+        sgMail.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API);
         const msg = {
         to: 'cheaprice.io@gmail.com',
         from: {name: name, email: 'messages@cheaprice.co'},
         subject: subject,
         html: emailHTML,
         };
-        sgMail.send(msg);
-        res.json({result: 'Message Sent'});
+        await sgMail
+            .send(msg)
+            .then(() => {
+                res.json({info: 'Message Sent'})
+            }, error => {
+                res.json({info: error})
+                if (error.response) {
+                console.error(error.response.body)
+                }
+            });
     }
     res.json({message: 'Request Method Not Allowed'});
 }

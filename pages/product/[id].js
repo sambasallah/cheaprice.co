@@ -29,7 +29,9 @@ const Product = ({data}) => {
         const url = product.url;
         const trackData = {email: email, phoneNumber: phone, priceDropAmount: priceDropAmount,
          id: productID, url: url};
-        let response = await fetch('http://localhost:3000/api/users',{method: 'POST', body: JSON.stringify(trackData),
+        let response = await fetch(process.env.NODE_ENV === 'development'? 
+        `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/users` : 
+        `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/users`,{method: 'POST', body: JSON.stringify(trackData),
                 headers: {'Content-Type': 'application/json'}});
         let data = await response.json();
         if(data.statusCode === 201) {
