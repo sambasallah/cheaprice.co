@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { FiTrendingDown } from 'react-icons/fi';
+import '../../style/css/style.css';
+
 
 const Header = ({title,description,url,image, type}) => {
     const [resNav, setResNav] = useState(false);
