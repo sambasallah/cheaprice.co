@@ -31,6 +31,22 @@ const Header = ({title,description,url,image, type}) => {
             <meta property="og:description" content={description} />
             <meta property="og:image" content={image} />
             <title>{title}</title>
+            <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-174290712-1"
+                />
+
+            <script
+                dangerouslySetInnerHTML={{
+                __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'UA-174290712-1');
+                    `,
+                }}
+            />
+
          </Head>
          <header className="site__header">
                 <a href="/" className="site__title">CHEAPRICE <FiTrendingDown /></a>
