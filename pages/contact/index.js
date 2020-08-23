@@ -78,7 +78,7 @@ const Contact = () => {
                      <input type="text" placeholder="Your Email" id="email" value={formData.email} onChange={handleChange} required/>
                      <input type="text" placeholder="Subject" id="subject" value={formData.subject} onChange={handleChange} required/>
                      <textarea col="4" rows="20" placeholder="Message" id="message" value={formData.message} onChange={handleChange} required/>
-                     <button type="submit" className="btn__send">{loading? 'Loading...': 'Send Message'}</button>
+                     <button type="submit" className="btn__send">{loading? 'Loading...': 'Send'}</button>
                  </form>
              </div>
          </div>

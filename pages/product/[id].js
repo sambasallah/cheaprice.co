@@ -183,7 +183,7 @@ const Product = ({data}) => {
                                             borderRadius: '8px',
                                             cursor: 'pointer',
                                             padding: '10px'
-                                        }}>{loading? 'Loading...' : 'Start Tracking'}</button>
+                                        }}>{loading? 'Loading...' : 'Track'}</button>
                                 </form>
                            </Modal>
                        </div>
