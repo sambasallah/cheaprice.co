@@ -10,7 +10,7 @@ export default async (req, res) => {
            snaps.docs.map((doc) => {
              products.push(doc.data());
            })
-           axios.post('/aws-lambda-endpoint', {products: products},{headers: {'Content-Type': 'application/json'}})
+           axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/crawl', {products: products},{headers: {'Content-Type': 'application/json'}})
            .catch((err) => {
                // send email
                axios.post( process.env.NODE_ENV === 'development'? 

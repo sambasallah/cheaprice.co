@@ -25,10 +25,10 @@ export default async (req, res) => {
             console.log(err);
         });
         if(Number(previousData.price) > Number(scraped.price)) {
-            if(previousData.priceDropAmount <= scraped.price) {
+            if(Number(previousData.priceDropAmount) <= Number(scraped.price)) {
                 // send price drop alert
                 axios.post('https://cheaprice.co/api/sendmail',{message: 'Price Dropped!!!', 
-                email: user.email, image: previousData.image? previousData.image: previousData.fullImg,
+                email: user.email, image: previousData.image? previousData.image: previousData.fullImg.replace('http','https'),
                  url: previousData.url, price: scraped.price, title: limitTitle(scraped.title) })
                 .catch((err) => {
                     console.log('Error....');
@@ -43,14 +43,20 @@ export default async (req, res) => {
                 }
                 await firebase.collection('products')
                 .where('id', '==',`${previousData.id}`)
-                .update({
-                    price: scraped.price,
-                    previousPrice: previousData.price
-                }).then(async (response) => {
+                .get()
+                .then(async (snap) => {
+                    snap.forEach((doc) => {
+                        doc.ref.update({
+                            price: scraped.price,
+                            previousPrice: previousData.price,
+                            updatedAt: new Date()
+                        })
+                    });
                     await firebase.collection('prices').
                     add({
                         id: previousData.id,
                         price: previousData.price,
+                        createdAt: new Date()
                     }).then((resp) => {
                         console.log('Done...');
                     }).catch((err) => {
@@ -61,7 +67,7 @@ export default async (req, res) => {
                 });
             } else {
             // send price drop alert
-            axios.post('https://cheaprice.co/api/sendmail',{message: 'Price Dropped!!!', 
+            axios.post('https://cheaprice.co/api/sendmail',{message: 'Price Reduced!!!', 
                 email: user.email, image: previousData.image? previousData.image: previousData.fullImg,
                  url: previousData.url, price: scraped.price, title: limitTitle(scraped.title) })
                 .catch((err) => {
@@ -78,24 +84,43 @@ export default async (req, res) => {
 
             await firebase.collection('products')
             .where('id', '==',`${previousData.id}`)
-            .update({
-                price: scraped.price,
-                previousPrice: previousData.price
-            }).then(async (response) => {
+            .get()
+            .then(async (snap) => {
+                snap.forEach((doc) => {
+                    doc.ref.update({
+                        price: scraped.price,
+                        previousPrice: previousData.price,
+                        updatedAt: new Date()
+                    })
+                });
                 await firestore.collection('prices').
                 add({
                     id: previousData.id,
                     price: previousData.price,
+                    createdAt: new Date()
                 }).then((resp) => {
                     console.log('Done...');
                 }).catch((err) => {
                     console.log('err');
                 })
             }).catch((err) => {
-
+                console.log('Error Inserting Data to database');
             });
             }
-        }
+        } else {
+            await firebase.collection('products')
+                .where('id', '==',`${previousData.id}`)
+                .get()
+                .then(async (snap) => {
+                    snap.forEach((doc) => {
+                        doc.ref.update({
+                            updatedAt: new Date()
+                        })
+                    });
+                }).catch((err) => {
+                    console.log(err);
+                });
+        } 
     }
     res.json({message: 'Request Method Not Allowed'});
 }

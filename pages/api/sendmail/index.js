@@ -1,11 +1,11 @@
 const sgMail = require('@sendgrid/mail');
 export default async (req, res) => {
     if(req.method === 'POST') {
-        const { useremail, message, title, price, image, url } = req.body;
+        const { email, message, title, price, image, url } = req.body;
         const email = `
         <div style='background-color: #f5f5f5; width: 700px; height: 580px; margin: 10px auto; text-align: center;'>
         <h2 style='font-size: 25px; font-weight: 22px; text-align: center; padding-top: 10px; font-family:
-        "Courier New", Courier, monospace; padding-top: 20px;'>Price Drop Alert Cheaprice.co</h2>
+        "Courier New", Courier, monospace; padding-top: 20px;'>${message} - Cheaprice.co</h2>
         <div style='width: 50%; margin: 20px auto; height: 350px;'>
             <img src='${image}' style='width: 100%; height: 100%;' />
         </div>
@@ -20,7 +20,7 @@ export default async (req, res) => {
     `;
         sgMail.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API);
         const msg = {
-        to: useremail,
+        to: email,
         from: {name: 'Cheaprice.co', 'email': 'pricedropalert@cheaprice.co'},
         subject: `Cheaprice.co - ${message}!`,
         html:email,
@@ -30,9 +30,7 @@ export default async (req, res) => {
         .then(() => {
             res.json({info: 'Message Sent'})
         }, error => {
-            
             res.json({info: error})
-
             if (error.response) {
             console.error(error.response.body)
             }

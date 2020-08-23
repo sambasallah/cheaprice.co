@@ -7,7 +7,7 @@ export default async (req, res) => {
         to: 'cheaprice.io@gmail.com',
         from: {name: 'Crawl Error - Cheaprice.co', email: 'crawl@cheaprice.co'},
         subject: `Cheaprice.co - Crawl Unsuccessful!`,
-        html:'Coundn"t not get products from firebase database'
+        html:"Coundn't not get products from firebase database"
         };
         await sgMail
         .send(msg)
