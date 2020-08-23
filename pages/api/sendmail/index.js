@@ -2,7 +2,7 @@ const sgMail = require('@sendgrid/mail');
 export default async (req, res) => {
     if(req.method === 'POST') {
         const { email, message, title, price, image, url } = req.body;
-        const email = `
+        const emailHTML = `
         <div style='background-color: #f5f5f5; width: 700px; height: 580px; margin: 10px auto; text-align: center;'>
         <h2 style='font-size: 25px; font-weight: 22px; text-align: center; padding-top: 10px; font-family:
         "Courier New", Courier, monospace; padding-top: 20px;'>${message} - Cheaprice.co</h2>
@@ -20,7 +20,7 @@ export default async (req, res) => {
     `;
         sgMail.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API);
         const msg = {
-        to: email,
+        to: emailHTML,
         from: {name: 'Cheaprice.co', 'email': 'pricedropalert@cheaprice.co'},
         subject: `Cheaprice.co - ${message}!`,
         html:email,
