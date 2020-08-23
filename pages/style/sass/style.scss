@@ -518,7 +518,9 @@ ul {
 				padding-bottom: 15px;
 			}
 			.buy__on__amazon {
-				padding: 15px 40px;
+				padding: 15px;
+				max-width: 150px;
+				max-height: 50px;
 				border-radius: 5px;
 				background-color: #f0c14b;
 				color: #000;
@@ -528,7 +530,9 @@ ul {
 			}
 			.buy__on__ebay {
 				background-color: #3665f3;
-				padding: 15px 40px;
+				padding: 15px;
+				max-width: 150px;
+				max-height: 50px;
 				border-radius: 5px;
 				color: #fff;
 				font-family: "Amazon Ember",Arial,sans-serif;
@@ -536,7 +540,9 @@ ul {
 			}
 			.buy__on__walmart {
 				background-color: #000;
-				padding: 15px 40px;
+				padding: 15px;
+				max-width: 150px;
+				max-height: 50px;
 				border-radius: 5px;
 				color: #fff;
 				font-family: "Amazon Ember",Arial,sans-serif;
@@ -552,7 +558,9 @@ ul {
 			}
 			.track {
 				background-color: rgba(0,0,28,75);
-				padding: 15px 40px;
+				padding: 15px;
+				max-width: 150px;
+				max-height: 50px;
 				border-radius: 5px;
 				color: #fff;
 				font-family: "Amazon Ember",Arial,sans-serif;

@@ -171,8 +171,8 @@ const Product = ({data}) => {
                                          pattern="[0-9]+" onChange={handleChange} />
                                     <button type="Submit" style={
                                         {
-                                            width: '150px',
-                                            height: '50px',
+                                            maxWidth: '150px',
+                                            maxHeight: '50px',
                                             backgroundColor: '#3f3a64',
                                             color: '#0099e5',
                                             border: '1px solid #0099e5',
@@ -181,7 +181,8 @@ const Product = ({data}) => {
                                             fontWeight: 'bold',
                                             fontFamily: 'serif',
                                             borderRadius: '8px',
-                                            cursor: 'pointer'
+                                            cursor: 'pointer',
+                                            padding: '10px'
                                         }}>{loading? 'Loading...' : 'Start Tracking'}</button>
                                 </form>
                            </Modal>
