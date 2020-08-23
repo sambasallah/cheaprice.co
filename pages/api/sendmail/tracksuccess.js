@@ -3,7 +3,7 @@ const sgMail = require('@sendgrid/mail');
 export default async (req, res) => {
     if(req.method === 'POST') {
         const { email } = req.body;
-        sgMail.setApiKey(process.env.NEXT_PUBLIC_SENGRID_API);
+        sgMail.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API);
         const msg = {
         to: email,
         from: {name: 'Cheaprice.co', email: 'tracking@cheaprice.co'},
@@ -15,9 +15,7 @@ export default async (req, res) => {
         .then(() => {
             res.json({info: 'Message Sent'})
         }, error => {
-            
             res.json({info: error})
-
             if (error.response) {
             console.error(error.response.body)
             }
