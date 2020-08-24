@@ -1,4 +1,5 @@
 import firebase from '../firebase/firebase';
+const axios = require('axios').default;
 
 export default async (req, res) => {
     const limitTitle = (title) => {
@@ -25,7 +26,7 @@ export default async (req, res) => {
             console.log(err);
         });
         if(Number(previousData.price) > Number(scraped.price)) {
-            if(Number(previousData.priceDropAmount) <= Number(scraped.price)) {
+            if(Number(scraped.price) <= Number(previousData.priceDropAmount)  ) {
                 if(user !== null) {
                      // send price drop alert
                     axios.post('https://cheaprice.co/api/sendmail',{message: 'Price Dropped!!!', 
@@ -63,18 +64,26 @@ export default async (req, res) => {
                         createdAt: new Date()
                     }).then((resp) => {
                         console.log('Done...');
+                        res.json({message: 'Notification Sent'});
                     }).catch((err) => {
                         console.log('err');
+                        res.json({message: 'Error occured'})
                     })
                 }).catch((err) => {
                     console.log(err);
+                    res.json({message: 'Error occured'});
                 });
             } else {
             if(user !== null) {
                 // send price drop alert
-                axios.post('https://cheaprice.co/api/sendmail',{message: 'Price Reduced!!!', 
+                await axios.post(process.env.NODE_ENV === 'development'? 
+                `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail` : 
+                `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail`,{message: 'Price Reduced!!!', 
                 email: user.email, image: previousData.image? previousData.image: previousData.fullImg,
                 url: previousData.url, price: scraped.price, title: limitTitle(scraped.title) })
+                .then((resp) => {
+                    console.log('Sent...');
+                })
                 .catch((err) => {
                     console.log('Error....');
                 });
@@ -111,8 +120,10 @@ export default async (req, res) => {
                 }).catch((err) => {
                     console.log('err');
                 })
+                res.json({message: 'Notification Sent'});
             }).catch((err) => {
                 console.log('Error Inserting Data to database');
+                res.json({err: 'Error Inserting price'})
             });
             }
         } else {
@@ -125,8 +136,13 @@ export default async (req, res) => {
                             updatedAt: new Date()
                         })
                     });
+                    res.json({
+                        message: 'Updated'
+                    });
                 }).catch((err) => {
-                    console.log(err);
+                    res.json({
+                        message: 'Error'
+                    })
                 });
         } 
     }

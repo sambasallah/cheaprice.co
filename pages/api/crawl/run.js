@@ -5,12 +5,12 @@ export default async (req, res) => {
     if(req.method === 'POST') {
         await firebase.collection('products')
         .get()
-        .then((snaps) => {
-           let products = [];
+        .then(async (snaps) => {
+          let products = [];
            snaps.docs.map((doc) => {
              products.push(doc.data());
            })
-           axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/crawl', {products: products},{headers: {'Content-Type': 'application/json'}})
+           await axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/crawl', JSON.stringify({products: products}),{headers: {'Content-Type': 'application/json'}})
            .catch((err) => {
                // send email
                axios.post( process.env.NODE_ENV === 'development'? 
