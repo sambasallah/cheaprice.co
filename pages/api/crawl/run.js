@@ -19,6 +19,7 @@ export default async (req, res) => {
                .catch((err) => {
                   console.log('Error sending crawl error message');
                });
+              res.json({data: 'Crawler Running'});
            });
         }).catch((err) => {
           // send email
