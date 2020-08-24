@@ -2,18 +2,53 @@ import firebase from '../firebase/firebase';
 const axios = require('axios').default;
 
 export default async (req, res) => {
-    const limitTitle = (title) => {
-        let newTitle = "";
-        if(title.length < 18) {
-            return title;
-        }
-        for(let i = 0; i < 40; i++) {
-            newTitle += title.charAt(i);
-        }
-        return newTitle;
-    }
-    if(req.method === 'POST') {
-        const { previousData , scraped } = req.body;
+    const { previousData , scraped } = req.body;
+        await firebase.collection('products')
+                .where('id', '==',previousData.id)
+                .get()
+                .then((snap) => {
+                    let product = {};
+                    snap.forEach((doc) => {
+                        // doc.ref.update({
+                        //     updatedAt: new Date()
+                        // })
+                        product = {...doc.data()}
+                    });
+                    res.json({
+                        info: product
+                    });
+                }).catch((err) => {
+                    res.json({
+                        message: err
+                    })
+                });
+    // const limitTitle = (title) => {
+    //     let newTitle = "";
+    //     if(title.length < 18) {
+    //         return title;
+    //     }
+    //     for(let i = 0; i < 40; i++) {
+    //         newTitle += title.charAt(i);
+    //     }
+    //     return newTitle;
+    // }
+    // if(req.method === 'POST') {
+        // const { previousData , scraped } = req.body;
+        // await firebase.collection('products')
+        //         .where('id', '==',previousData.id)
+        //         .get()
+        //         .then((snap) => {
+        //             snap.forEach((doc) => {
+        //                 doc.ref.delete();
+        //             });
+        //             res.json({
+        //                 info: 'Updated'
+        //             });
+        //         }).catch((err) => {
+        //             res.json({
+        //                 message: 'Error'
+        //             })
+        //         });
         //  let user = null;
         // await firebase.collection('users')
         // .where('id', '==', `${previousData.id}`)
@@ -127,22 +162,8 @@ export default async (req, res) => {
         //     });
         //     }
         // } else {
-            await firebase.collection('products')
-                .where('id', '==',previousData.id)
-                .get()
-                .then((snap) => {
-                    snap.forEach((doc) => {
-                        doc.ref.delete();
-                    });
-                    res.json({
-                        info: 'Updated'
-                    });
-                }).catch((err) => {
-                    res.json({
-                        message: 'Error'
-                    })
-                });
+            
        // } 
-    }
-    res.json({message: 'Request Method Not Allowed'});
+    // }
+    // res.json({message: 'Request Method Not Allowed'});
 }
