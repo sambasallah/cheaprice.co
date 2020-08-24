@@ -14,17 +14,17 @@ export default async (req, res) => {
     }
     if(req.method === 'POST') {
         const { previousData , scraped } = req.body;
-         let user = null;
-        await firebase.collection('users')
-        .where('id', '==', `${previousData.id}`)
-        .get()
-        .then((snapshots) => {
-            snapshots.docs.map((value) => {
-              user = {...value.data()};
-            });
-        }).catch((err) => {
-            console.log(err);
-        });
+        //  let user = null;
+        // await firebase.collection('users')
+        // .where('id', '==', `${previousData.id}`)
+        // .get()
+        // .then((snapshots) => {
+        //     snapshots.docs.map((value) => {
+        //       user = {...value.data()};
+        //     });
+        // }).catch((err) => {
+        //     console.log(err);
+        // });
         if(Number(previousData.price) > Number(scraped.price)) {
             if(Number(scraped.price) <= Number(previousData.priceDropAmount)  ) {
                 if(user !== null) {
