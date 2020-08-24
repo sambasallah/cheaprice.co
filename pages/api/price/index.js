@@ -15,21 +15,6 @@ export default async (req, res) => {
     }
     if(req.method === 'POST') {
         const { previousData , scraped } = req.body;
-        await firebase.collection('products')
-                .where('id', '==',previousData.id)
-                .get()
-                .then((snap) => {
-                    snap.forEach((doc) => {
-                        doc.ref.delete();
-                    });
-                    res.json({
-                        info: 'Updated'
-                    });
-                }).catch((err) => {
-                    res.json({
-                        message: 'Error'
-                    })
-                });
          let user = null;
         await firebase.collection('users')
         .where('id', '==', `${previousData.id}`)
