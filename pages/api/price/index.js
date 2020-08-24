@@ -3,25 +3,19 @@ const axios = require('axios').default;
 
 export default async (req, res) => {
     const { previousData , scraped } = req.body;
-        await firebase.collection('products')
-                .where('id', '==',previousData.id)
-                .get()
-                .then((snap) => {
-                    let product = {};
-                    snap.forEach((doc) => {
-                        // doc.ref.update({
-                        //     updatedAt: new Date()
-                        // })
-                        product = {...doc.data()}
-                    });
-                    res.json({
-                        info: product
-                    });
-                }).catch((err) => {
-                    res.json({
-                        message: err
-                    })
-                });
+    await firebase.collection('products')
+    .where('id','==',previousData.id)
+    .get()
+    .then((snap) => {
+        snap.forEach((doc) => {
+           doc.ref.update({
+               updatedAt: new Date()
+           })
+        });
+        res.json({info: 'Updated'});
+    }).catch((err) => {
+        res.json({err: err});
+    })
     // const limitTitle = (title) => {
     //     let newTitle = "";
     //     if(title.length < 18) {
