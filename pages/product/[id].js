@@ -99,8 +99,7 @@ const Product = ({data}) => {
                                    <li>Price : ${ data.price } </li>
                                    { data.previousPrice? <li>Before : ${data.previousPrice }</li>: ''}
                                </ul>
-                               <span>Last Updated: { Number(new Date(data.createdAt._seconds * 1000).getHours().toString()) !== 0? new Date(data.updatedAt._seconds * 1000).toString() + ' hours ago'
-                               : new Date(data.updatedAt._seconds * 1000).getDay().toString() + ' days ago'  }</span>
+                               <span>Last Updated: { new Date(data.updatedAt._seconds * 1000).toString()  }</span>
                                { data.description !== null? (
                                    <>
                                     <h3>Details</h3>
