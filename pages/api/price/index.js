@@ -133,7 +133,7 @@ export default async (req, res) => {
                 .then(async (snap) => {
                     snap.forEach((doc) => {
                         doc.ref.update({
-                            updatedAt: 'New Time'
+                            title: 'New Title'
                         });
                     });
                     res.json({
