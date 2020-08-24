@@ -127,23 +127,23 @@ export default async (req, res) => {
         //     });
         //     }
         // } else {
-            // await firebase.collection('products')
-            //     .where('id', '==',previousData.id)
-            //     .get()
-            //     .then(async (snap) => {
-            //         snap.forEach((doc) => {
-            //             doc.ref.update({
-            //                 updatedAt: new Date()
-            //             });
-            //         });
-            //         res.json({
-            //             message: 'Updated'
-            //         });
-            //     }).catch((err) => {
-            //         res.json({
-            //             message: 'Error'
-            //         })
-            //     });
+            await firebase.collection('products')
+                .where('id', '==',previousData.id)
+                .get()
+                .then(async (snap) => {
+                    snap.forEach((doc) => {
+                        doc.ref.update({
+                            updatedAt: new Date().toUTCString()
+                        });
+                    });
+                    res.json({
+                        message: 'Updated'
+                    });
+                }).catch((err) => {
+                    res.json({
+                        message: 'Error'
+                    })
+                });
             res.json(previousData);
        // } 
     }
