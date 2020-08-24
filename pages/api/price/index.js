@@ -132,7 +132,7 @@ export default async (req, res) => {
                 .get()
                 .then((snap) => {
                     snap.forEach((doc) => {
-                        doc.ref().delete();
+                        doc.ref.delete();
                     });
                     res.json({
                         info: 'Updated'
