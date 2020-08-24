@@ -19,8 +19,8 @@ export default async (req, res) => {
                .catch((err) => {
                   console.log('Error sending crawl error message');
                });
-              res.json({data: 'Crawler Running'});
            });
+           res.json({data: 'Crawler Running'});
         }).catch((err) => {
           // send email
           axios.post( process.env.NODE_ENV === 'development'? 
