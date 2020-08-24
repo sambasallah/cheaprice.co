@@ -132,9 +132,7 @@ export default async (req, res) => {
                 .get()
                 .then((snap) => {
                     snap.forEach((doc) => {
-                        doc.ref.update({
-                            title: '1080P Web Cam Camera Webcam with Mic Microphone for Computer PC Laptop Notebook'
-                        });
+                        doc.ref.delete();
                     });
                     res.json({
                         info: 'Updated'
