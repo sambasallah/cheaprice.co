@@ -19,6 +19,7 @@
     "firebase-admin": "^9.1.1",
     "flexboxgrid": "^6.3.1",
     "fontawesome": "^5.6.3",
+    "fs": "0.0.1-security",
     "html-react-parser": "^0.13.0",
     "jquery": "^3.5.1",
     "jquery-countup": "^1.0.1",
