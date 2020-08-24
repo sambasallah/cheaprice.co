@@ -131,15 +131,13 @@ export default async (req, res) => {
                 .where('id', '==',previousData.id)
                 .get()
                 .then(async (snap) => {
-                    let product = {};
                     snap.forEach((doc) => {
-                        // doc.ref.update({
-                        //     title: 'New Title'
-                        // });
-                        product = {...doc.data()};
+                        doc.ref.update({
+                            "title": 'New Title'
+                        });
                     });
                     res.json({
-                        product: product
+                        info: 'Updated'
                     });
                 }).catch((err) => {
                     res.json({
