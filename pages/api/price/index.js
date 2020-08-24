@@ -13,7 +13,7 @@ export default async (req, res) => {
     }
     if(req.method === 'POST') {
         const { previousData , scraped } = req.body;
-        const user = null;
+         let user = null;
         await firebase.collection('users')
         .where('id', '==', `${previousData.id}`)
         .get()
