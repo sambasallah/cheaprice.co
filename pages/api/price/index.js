@@ -133,7 +133,7 @@ export default async (req, res) => {
                 .then(async (snap) => {
                     snap.forEach((doc) => {
                         doc.ref.update({
-                            updatedAt: new Date().toUTCString()
+                            updatedAt: 'New Time'
                         });
                     });
                     res.json({
@@ -144,7 +144,6 @@ export default async (req, res) => {
                         message: 'Error'
                     })
                 });
-            res.json(previousData);
        // } 
     }
     res.json({message: 'Request Method Not Allowed'});
