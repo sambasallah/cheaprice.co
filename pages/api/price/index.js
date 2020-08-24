@@ -26,20 +26,24 @@ export default async (req, res) => {
         });
         if(Number(previousData.price) > Number(scraped.price)) {
             if(Number(previousData.priceDropAmount) <= Number(scraped.price)) {
-                // send price drop alert
-                axios.post('https://cheaprice.co/api/sendmail',{message: 'Price Dropped!!!', 
-                email: user.email, image: previousData.image? previousData.image: previousData.fullImg.replace('http','https'),
-                 url: previousData.url, price: scraped.price, title: limitTitle(scraped.title) })
-                .catch((err) => {
-                    console.log('Error....');
-                });
-                if(user.phoneNumber !== null) {
-                    // send text message
-                    axios.post('https://cheaprice.co/api/sendsms',{message: 'Price Dropped!!!',phoneNumber: user.phoneNumber,
-                    url: previousData.url, price: scraped.price, title: limitTitle(scraped.title)})
+                if(user !== null) {
+                     // send price drop alert
+                    axios.post('https://cheaprice.co/api/sendmail',{message: 'Price Dropped!!!', 
+                    email: user.email, image: previousData.image? previousData.image: previousData.fullImg.replace('http','https'),
+                    url: previousData.url, price: scraped.price, title: limitTitle(scraped.title) })
                     .catch((err) => {
                         console.log('Error....');
                     });
+                }
+                if(user !== null) {
+                    if(user.phoneNumber !== null) {
+                        // send text message
+                        axios.post('https://cheaprice.co/api/sendsms',{message: 'Price Dropped!!!',phoneNumber: user.phoneNumber,
+                        url: previousData.url, price: scraped.price, title: limitTitle(scraped.title)})
+                        .catch((err) => {
+                            console.log('Error....');
+                        });
+                    }
                 }
                 await firebase.collection('products')
                 .where('id', '==',`${previousData.id}`)
@@ -66,20 +70,24 @@ export default async (req, res) => {
                     console.log(err);
                 });
             } else {
-            // send price drop alert
-            axios.post('https://cheaprice.co/api/sendmail',{message: 'Price Reduced!!!', 
+            if(user !== null) {
+                // send price drop alert
+                axios.post('https://cheaprice.co/api/sendmail',{message: 'Price Reduced!!!', 
                 email: user.email, image: previousData.image? previousData.image: previousData.fullImg,
-                 url: previousData.url, price: scraped.price, title: limitTitle(scraped.title) })
+                url: previousData.url, price: scraped.price, title: limitTitle(scraped.title) })
                 .catch((err) => {
                     console.log('Error....');
                 });
-            if(user.phoneNumber !== null) {
-                // send text message
-                axios.post('https://cheaprice.co/api/sendsms',{message: 'Price Reduced!!!',phoneNumber: user.phoneNumber,
-                    url: previousData.url, price: scraped.price, title: limitTitle(scraped.title)})
-                    .catch((err) => {
-                        console.log('Error....');
-                    });
+            }
+            if(user !== null) {
+                if(user.phoneNumber !== null) {
+                    // send text message
+                    axios.post('https://cheaprice.co/api/sendsms',{message: 'Price Reduced!!!',phoneNumber: user.phoneNumber,
+                        url: previousData.url, price: scraped.price, title: limitTitle(scraped.title)})
+                        .catch((err) => {
+                            console.log('Error....');
+                        });
+                }
             }
 
             await firebase.collection('products')
