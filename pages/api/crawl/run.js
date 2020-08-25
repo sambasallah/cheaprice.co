@@ -11,11 +11,7 @@ export default async (req, res) => {
              products.push(doc.data());
            })
            // https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/crawl
-          
-           await axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/crawl',JSON.stringify({products}),{headers: {'Content-Type': 'application/json'}})
-           .then((resp) => {
-             res.json(resp);
-           })
+            axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/crawl',JSON.stringify({products}),{headers: {'Content-Type': 'application/json'}})
            .catch((err) => {
                // send email
               //  axios.post( process.env.NODE_ENV === 'development'? 
