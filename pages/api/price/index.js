@@ -135,12 +135,12 @@ export default async (req, res) => {
                 snap.forEach((doc) => {
                 doc.ref.update({
                     updatedAt: new Date()
-                })
                 });
-                res.json({info: 'Updated'});
+                });
+                res.json({info: 'Updated'})
             }).catch((err) => {
                 res.json({err: err});
-            })
+            });
         } 
     }
      res.json({message: 'Request Method Not Allowed'});
