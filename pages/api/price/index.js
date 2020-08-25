@@ -134,10 +134,9 @@ export default async (req, res) => {
             .then((snap) => {
                 snap.forEach((doc) => {
                 doc.ref.update({
-                    updatedAt: 'Test'
+                    updatedAt: new Date()
                 });
                 });
-                res.json({info: 'Updated'})
             }).catch((err) => {
                 res.json({err: err});
             });

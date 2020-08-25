@@ -3,7 +3,7 @@ const axios = require('axios').default;
 
 export default async (req, res) => {
     if(req.method === 'POST') {
-        await firebase.collection('products').limit(1)
+        await firebase.collection('products').limit(3)
         .get()
         .then(async (snaps) => {
           let products = [];
@@ -14,7 +14,7 @@ export default async (req, res) => {
           
            await axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/crawl',JSON.stringify({products}),{headers: {'Content-Type': 'application/json'}})
            .then((resp) => {
-             res.json(resp.data);
+             console.log(resp.data);
            })
            .catch((err) => {
                // send email
