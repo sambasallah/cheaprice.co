@@ -3,7 +3,7 @@ const axios = require('axios').default;
 
 export default async (req, res) => {
     if(req.method === 'POST') {
-        await firebase.collection('products').limit(2)
+        await firebase.collection('products')
         .get()
         .then(async (snaps) => {
           let products = [];
