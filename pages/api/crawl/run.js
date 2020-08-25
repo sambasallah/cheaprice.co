@@ -3,7 +3,7 @@ const axios = require('axios').default;
 
 export default async (req, res) => {
     if(req.method === 'POST') {
-        await firebase.collection('products').limit(3)
+        await firebase.collection('products').limit(1)
         .get()
         .then(async (snaps) => {
           let products = [];
@@ -12,10 +12,7 @@ export default async (req, res) => {
            })
            // https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/crawl
           
-           await axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/crawl',JSON.stringify({products}),{headers: {'Content-Type': 'application/json'}})
-           .then((resp) => {
-             console.log(resp.data);
-           })
+            axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/crawl',JSON.stringify({products}),{headers: {'Content-Type': 'application/json'}})
            .catch((err) => {
                // send email
               //  axios.post( process.env.NODE_ENV === 'development'? 
@@ -25,6 +22,7 @@ export default async (req, res) => {
               //     console.log('Error sending crawl error message');
               //  });
               console.log(err)
+              res.json({err: err})
            });
           //  res.json({info: 'Crawl Started'});
         }).catch((err) => {
