@@ -16,6 +16,13 @@ export default async (req, res) => {
                           console.log('Error sending data');
                       });
                 }).catch((err) => {
+                    axios.post(process.env.NODE_ENV === 'development'? 
+                    `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/price/compare` : 
+                    `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/price/compare`, {previousData: value, scraped: null},
+                      {headers: {'Content-Type': 'application/json'}})
+                      .catch((err) => {
+                          console.log('Error sending data');
+                      });
                     console.log(err);
                 })
             } else if(value.store === 'Walmart') {
@@ -31,6 +38,13 @@ export default async (req, res) => {
                           console.log('Error sending data');
                       });
                 }).catch((err) => {
+                    axios.post(process.env.NODE_ENV === 'development'? 
+                    `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/price/compare` : 
+                    `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/price/compare`, {previousData: value, scraped: null},
+                      {headers: {'Content-Type': 'application/json'}})
+                      .catch((err) => {
+                          console.log('Error sending data');
+                      });
                     console.log(err);
                 });
             } else if(value.store === 'eBay') {
@@ -46,6 +60,13 @@ export default async (req, res) => {
                           console.log('Error sending data');
                       });
                 }).catch((err) => {
+                    axios.post(process.env.NODE_ENV === 'development'? 
+                    `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/price/compare` : 
+                    `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/price/compare`, {previousData: value, scraped: null},
+                      {headers: {'Content-Type': 'application/json'}})
+                      .catch((err) => {
+                          console.log('Error sending data');
+                      });
                     console.log(err);
                 });
             } else {

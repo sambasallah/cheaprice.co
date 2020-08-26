@@ -5,10 +5,10 @@ const axios = require('axios').default;
 export default async (req, res) => {
         const { previousData , scraped } = req.body;
         
-        if(!scraped) {
+        if(scraped === null) {
             // crawl again
             if(previousData.store == 'Amazon') {
-                console.log('Amazon')
+                console.log('Retry Amazon')
                 await axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/amazon/add',{url: previousData.url},
                 {headers: {'Content-Type': 'application/json'}}).
                 then((resp) => {
@@ -18,6 +18,7 @@ export default async (req, res) => {
                     console.log(err);
                 })
             } else if(previousData.store === 'Walmart') {
+                console.log('Retry Walmart');
                 await axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/walmart/add',{url: previousData.url},
                 {headers: {'Content-Type': 'application/json'}}).
                 then((resp) => {
@@ -27,6 +28,7 @@ export default async (req, res) => {
                     console.log(err);
                 });
             } else if(previousData.store === 'eBay') {
+                console.log('Retry eBay');
                 await axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/ebay/add',{url: previousData.url},
                 {headers: {'Content-Type': 'application/json'}}).
                 then((resp) => {
