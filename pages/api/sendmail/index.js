@@ -3,11 +3,11 @@ export default async (req, res) => {
     if(req.method === 'POST') {
         const { email, message, title, price, image, url } = req.body;
         const emailHTML = `
-        <div style='background-color: #f5f5f5; width: 700px; height: 580px; margin: 10px auto; text-align: center;'>
+        <div style='background-color: #f5f5f5; width: 700px; min-height: 580px; margin: 10px auto; text-align: center;'>
         <h2 style='font-size: 25px; font-weight: 22px; text-align: center; padding-top: 10px; font-family:
         "Courier New", Courier, monospace; padding-top: 20px;'>${message} - Cheaprice.co</h2>
         <div style='width: 50%; margin: 20px auto; height: 350px;'>
-            <img src='${image}' style='width: 100%; height: 100%;' />
+            <img src='${image}' style='max-width: 100%; max-height: 100%;' />
         </div>
         <span style='font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; font-weight: 500px;
             font-size: 22px;'>
