@@ -109,9 +109,8 @@ export default async (req, res) => {
                     });
                 }).catch((err) => {
                     console.log(err);
-                    res.json({message: 'Error occured'});
                 });
-                res.json({info: 'Price Dropped!!! Notification Sent'});
+                console.log({info: 'Price Dropped!!! Notification Sent'});
             } else {
             if(user !== null) {
                 // send price drop alert
@@ -164,7 +163,7 @@ export default async (req, res) => {
             }).catch((err) => {
                 console.log('Error Inserting Data to database');
             });
-            res.json({message: 'Notification Sent'});
+            console.log({message: 'Notification Sent'});
             }
         } else {
             await firebase.collection('products')
@@ -179,7 +178,7 @@ export default async (req, res) => {
             }).catch((err) => {
                 res.json({err: err});
             });
-            res.json({info: 'Updated'});
+           console.log('updated')
       } 
       res.json({message: 'Request Method Not Allowed'});
 }
