@@ -13,17 +13,17 @@ export default async (req, res) => {
             font-size: 22px;'>
             ${title}</span> <br>
         <span style='font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; font-size: 25px;'>
-            ${price}</span> <br> <br>
+            $${price}</span> <br> <br>
         <a href="${url}" style='padding: 10px 30px; background-color:black; color: #fff; font-family: 
         "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; text-decoration: none;'>Buy Now</a>
     </div>
     `;
         sgMail.setApiKey(process.env.NEXT_PUBLIC_SENDGRID_API);
         const msg = {
-        to: emailHTML,
+        to: email,
         from: {name: 'Cheaprice.co', 'email': 'pricedropalert@cheaprice.co'},
         subject: `Cheaprice.co - ${message}!`,
-        html:email,
+        html:emailHTML,
         };
         await sgMail
         .send(msg)
