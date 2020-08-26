@@ -17,9 +17,9 @@ export default async (req, res) => {
                 res.json({err});
             });
         }).catch((err) => {
-            res.json({err});
+            res.json({err})
         });
-        res.json({info: 'Crawling Started'});
+        console.log({info: 'Crawling Started'});
     }
     res.json({message: 'Request Method Not Allowed'});
 }
