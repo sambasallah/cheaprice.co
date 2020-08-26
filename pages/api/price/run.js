@@ -12,13 +12,13 @@ export default async (req, res) => {
             });
             axios.post(process.env.NODE_ENV === 'development'? 
             `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/price` : 
-            `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/price`,{products: products},{headers: {'Content-Type': 'application/json'}}).catch((err) => {
+            `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/price`,{products: products},{headers: {'Content-Type': 'application/json'}}).
+            catch((err) => {
                 res.json({err});
             });
         }).catch((err) => {
-            console.log('err');
+            res.json({err});
         });
-         
         res.json({info: 'Crawling Started'});
     }
     res.json({message: 'Request Method Not Allowed'});
