@@ -1,8 +1,8 @@
-
-
-const SiteMap = () => {
-
-    return `
+import React from 'react';
+export default class Sitemap extends React.Component {
+  static async getInitialProps({ res }) {
+    res.setHeader("Content-Type", "text/xml");
+    res.write(`
 
     <?xml version="1.0" encoding="UTF-8"?>
     <urlset
@@ -46,7 +46,11 @@ const SiteMap = () => {
 
 
 </urlset>
-    `;
+    `);
+    res.end();
+  }
 }
 
-export default SiteMap;
+
+
+
