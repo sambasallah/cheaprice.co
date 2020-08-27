@@ -16,7 +16,7 @@ const Track = () => {
     });
     const [loading, setLoading] = useState(false);
     const [stores,setStores] = useState(["www.amazon.com","amazon.com","www.ebay.com",
-    "ebay.com", "www.walmart.com","walmart.com"]);
+    "ebay.com"]);
     const [currentlyTracking, setCurrentlyTracking] = useState([]);
     
     const submitForm = async (event) => {
@@ -144,9 +144,6 @@ const Track = () => {
                    </div>
                    <div>
                    <img src="images/ebay.png" style={{maxWidth: '100%', maxHeight: '100%'}} />
-                   </div>
-                   <div>
-                   <img src="images/walmart.png" style={{maxWidth: '100%', maxHeight: '100%'}} />
                    </div>
             </div>
            <div className="currently__tracking">

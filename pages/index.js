@@ -60,18 +60,19 @@ const Index = ({data}) => {
 }
   return (
     <>
-     <Header title="Cheaprice.co | Amazon, eBay & Walmart Price Tracker App" description="Amazon price tracker, eBay price tracker,
-             walmart price tracker, Free Price tracker, ecommerce stores, price tracker, best price tracker" />
+     <Header title="Cheaprice.co | Amazon & eBay Price Tracker App" description="Amazon price tracker, eBay price tracker,
+             walmart price tracker, Free Price tracker, ecommerce stores, price tracker, best price tracker, amazon price history,
+             amazon price history tracker, price tracker amazon, price history tracker amazon,
+             ebay price tracker free, free price tracker, price history tracker" />
      <main className="main__body">
        <div className="hero__section">
-          <h1>Amazon, eBay & Walmart Price Tracker</h1>
-          <p>Free price tracker for Amazon, eBay, & Walmart</p>
+          <h1>Amazon & eBay Price Tracker</h1>
+          <p>Free price tracker for Amazon & eBay</p>
           <img src='images/about1.png' style={{maxWidth: '70%', maxHeight: '50%'}} />
        </div>
        <div className="ecommerce__logos">
              <div><img src="images/amazon.png" style={{maxWidth: '40%', maxHeight: '40%'}}/></div>
              <div><img src="images/ebay.png" style={{maxWidth: '40%', maxHeight: '40%'}}/></div>
-             <div><img src="images/walmart.png" style={{maxWidth: '40%', maxHeight: '40%'}}/></div>
        </div>
        <div className="services">
           <h2>What We Offer</h2>
