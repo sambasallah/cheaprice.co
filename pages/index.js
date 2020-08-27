@@ -23,10 +23,6 @@ const Index = ({data}) => {
   const params = {
     slidesPerView: 4,
     spaceBetween: 0,
-    autoplay: {
-			delay: 5000,
-			disableOnInteraction: false
-      },
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
