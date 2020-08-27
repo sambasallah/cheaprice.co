@@ -96,7 +96,7 @@ const Product = ({data}) => {
                            <div className="product__description">
                                <h1>Description</h1>
                                <ul>
-                                   <li>Price : ${ data.price } </li>
+                                   {data.price? <li>Price: ${data.price}</li> : <li>OUT OF STOCK</li>}
                                    { data.previousPrice? <li>Before : ${data.previousPrice }</li>: ''}
                                </ul>
                                <span>Last Updated: { new Date(data.updatedAt._seconds * 1000).toString()  }</span>

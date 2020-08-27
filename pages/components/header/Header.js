@@ -54,7 +54,7 @@ const Header = ({title,description,url,image, type}) => {
                 <a href="/" className="site__title">CHEAPRICE <FiTrendingDown /></a>
                 <nav>
                 <ul>
-                    <li><Link href='/'><a>Home</a></Link></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="/deals">Deals</a></li>
                     <li><Link href='/privacy'><a>Privacy</a></Link></li>
                     <li><Link href='/faqs'><a>FAQs</a></Link></li>
@@ -76,7 +76,7 @@ const Header = ({title,description,url,image, type}) => {
             <header className={ "responsive__nav " + (resNav? 'show': 'hide')} >
             <nav>
                 <ul>
-                    <li><Link href='/'><a>Home</a></Link></li>
+                    <li><a href="/">Home</a></li>
                     <li><Link href='/deals'><a>Deals</a></Link></li>
                     <li><Link href='/privacy'><a>Privacy</a></Link></li>
                     <li><Link href='/faqs'><a>FAQs</a></Link></li>

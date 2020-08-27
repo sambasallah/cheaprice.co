@@ -155,9 +155,6 @@ ul {
 }
 
 /** Main Body **/
-.main__body {
-  text-align: center;
-}
 .main__body .hero__section {
   padding-top: 60px;
   font-size: 25px;
@@ -165,6 +162,7 @@ ul {
   line-height: 1.3;
   color: #3f3a64;
   font-family: "Merriweather", serif;
+  text-align: center;
 }
 .main__body .hero__section p {
   color: #696969;
@@ -179,12 +177,14 @@ ul {
   background-color: #f6f6f6;
   margin: 15px 0px;
   align-items: center;
+  text-align: center;
 }
 .main__body .ecommerce__logos div {
   flex-basis: 100%;
 }
 .main__body .services {
   width: 100%;
+  text-align: center;
 }
 .main__body .services h2 {
   text-align: center;
@@ -753,6 +753,68 @@ ul {
   .contact__us .form__container {
     width: 95%;
   }
+}
+
+/** Daily Drops */
+.daily__drops {
+  width: 95%;
+  margin: 15px auto;
+}
+.daily__drops h2 {
+  font-family: "Merriweather", serif;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+  padding-bottom: 10px;
+  width: inherit;
+  width: 100%;
+}
+.daily__drops .daily__drop__products {
+  margin: 15px 0px;
+}
+.daily__drops .daily__drop__products .daily__product {
+  position: relative;
+  width: 250px;
+  height: 300px;
+  border: 1px solid #f6f6f6;
+  text-align: center;
+  cursor: pointer;
+}
+.daily__drops .daily__drop__products .daily__product .swiper-button-next, .daily__drops .daily__drop__products .daily__product .swiper-button-prev, .daily__drops .daily__drop__products .daily__product .swiper-pagination {
+  color: #0099e5 !important;
+}
+.daily__drops .daily__drop__products .daily__product .img__container {
+  position: relative;
+  height: 240px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.daily__drops .daily__drop__products .daily__product .img__container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 10px 0px;
+  vertical-align: middle;
+}
+.daily__drops .daily__drop__products .daily__product span {
+  position: absolute;
+  z-index: 999;
+  right: 8px;
+  top: 20px;
+  text-align: right;
+  color: #0099e5;
+  padding: 8px;
+  border: 1px solid #0099e5;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.daily__drops .daily__drop__products .daily__product .descrip h6 {
+  font-size: 15px;
+  padding-bottom: 3px;
+  font-family: "Courier New", Courier, monospace;
 }
 
 /*# sourceMappingURL=style.css.map */

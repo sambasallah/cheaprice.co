@@ -1,8 +1,67 @@
+import React from 'react';
+import Swiper from 'react-id-swiper';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
+import Link from 'next/link';
 import './style/css/style.css';
+import 'swiper/swiper-bundle.min.css';
+import SwiperCore,{ Pagination, Navigation} from "swiper"
 
-const Index = () => {
+
+const Index = ({data}) => {
+  SwiperCore.use([Pagination,Navigation]);
+  const limitTitle = (title) => {
+    let newTitle = "";
+    if(title.length < 15) {
+        return title;
+    }
+    for(let i = 0; i < 18; i++) {
+        newTitle += title.charAt(i);
+    }
+    return newTitle;
+  }
+  const params = {
+    slidesPerView: 4,
+    spaceBetween: 0,
+    autoplay: {
+			delay: 5000,
+			disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+        },
+    breakpoints: {
+			320: {
+				slidesPerView: 1,
+				slidesPerGroup: 1
+			},
+			340: {
+				slidesPerView: 1,
+				slidesPerGroup: 1
+			},
+			500 : {
+				slidesPerView: 2,
+				slidesPerGroup: 2
+			},
+			640: {
+			  slidesPerView: 2,
+			  slidesPerGroup: 2
+			},
+			768: {
+			  slidesPerView: 4,
+			  spaceBetween: 40,
+			},
+			1024: {
+			  slidesPerView: 5,
+			  spaceBetween: 50,
+      }
+  }
+}
   return (
     <>
      <Header title="Cheaprice.co | Amazon, eBay & Walmart Price Tracker App" description="Amazon price tracker, eBay price tracker,
@@ -33,10 +92,45 @@ const Index = () => {
             </div>
           </div>
        </div>
+       <div className="daily__drops">
+         <h2>DAILY DROPS</h2>
+         <div className="daily__drop__products">
+            <Swiper {...params}>
+                { data.dailydrops.map((value) => {
+                  return (
+                      <div className="swiper-slide" key={value.id}>
+                         <Link href={"/product/" + value.id}>
+                         <div className="daily__product">
+                            <span>BEST DEAL</span>
+                              <div className="img__container">
+                              <img src={value.image} style={{maxWidth: '100%', maxHeight: '100%'}} />
+                              </div>
+                            <div className="descrip">
+                            <h6>{limitTitle(value.title) }</h6>
+                          <h6>{value.price? '$'+value.price : 'OUT OF STOCK'} <del>{value.previousPrice}</del></h6>
+                        </div>
+                        </div>
+                         </Link>
+                      </div>
+                  )
+                })}
+            </Swiper>
+         </div>
+       </div>
      </main>
      <Footer />
     </>
   )
+}
+
+export async function getServerSideProps(context) {
+  let response = await fetch(process.env.NODE_ENV === 'development'? 
+  `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/dailydrops` : 
+  `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/dailydrops`);
+  let data = await response.json();
+  return {
+    props: {data}, // will be passed to the page component as props
+  }
 }
 
 export default Index;
