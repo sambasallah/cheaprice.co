@@ -4,7 +4,7 @@ export default async (req, res) => {
     if(req.method === 'GET') {
         let drops = [];
         let products = [];
-        await firebase.collection('prices')
+        await firebase.collection('prices').limit(10)
         .get()
         .then((snap) => {
             snap.forEach((doc) => {
@@ -18,7 +18,7 @@ export default async (req, res) => {
             products.push(new Promise(async (resolve, reject) => {
                 
                     await firebase.collection('products')
-                .   where('id', '==', value.id)
+                    .where('id', '==', value.id)
                     .get()
                     .then((snap) => {
                         snap.forEach((doc) => {
