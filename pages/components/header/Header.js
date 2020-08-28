@@ -27,6 +27,7 @@ const Header = ({title,description,url,image, type}) => {
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
             {/* <meta name="description" content="Amazon price tracker, eBay price tracker,
              walmart price tracker, Free Price tracker, ecommerce stores" /> */}
+              <script data-ad-client="ca-pub-7391905567078145" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
              <meta property="og:title" content={title} />
             <meta property="og:type" content={type} />
             <meta property="og:url" content={url} />
