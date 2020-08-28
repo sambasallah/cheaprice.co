@@ -1,5 +1,4 @@
 import firebase from '../firebase/firebase';
-import { resolve } from 'url';
 
 export default async (req, res) => {
     if(req.method === 'GET') {

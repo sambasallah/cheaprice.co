@@ -1,4 +1,5 @@
 import { FiTrendingDown } from 'react-icons/fi';
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
     return (

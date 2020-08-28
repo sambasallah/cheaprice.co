@@ -2,7 +2,7 @@
 import firebase from '../firebase/firebase';
 export default async (req, res) => {
     await firebase.collection('products')
-    .where('store','==','Walmart')
+    .where('id','==','S3sr2si1R11426FggSJVsk123bux7rF')
     .get()
     .then((snap) => {
         snap.forEach((doc) => {
