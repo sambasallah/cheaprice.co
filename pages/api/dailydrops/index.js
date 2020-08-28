@@ -4,7 +4,8 @@ export default async (req, res) => {
     if(req.method === 'GET') {
         let drops = [];
         let products = [];
-        await firebase.collection('prices').limit(10)
+        await firebase.collection('prices')
+        .limit(20)
         .get()
         .then((snap) => {
             snap.forEach((doc) => {
