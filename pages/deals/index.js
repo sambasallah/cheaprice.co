@@ -82,7 +82,7 @@ const Deals = ({data}) => {
                                             </div>
                                             <div className="product__description">
                                                 <p>{ limitTitle(String(value.title)) }</p>
-                                                <p>{ value.price? '$' + value.price : 'OUT OF STOCK' }</p>
+                                                <p>{ value.price? `$${value.price}` : 'OUT OF STOCK' }</p>
                                             </div>
                                         </div>
                                     </Link>
