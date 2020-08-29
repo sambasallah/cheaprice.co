@@ -4,7 +4,7 @@ export default async (req, res) => {
         const { products } = req.body;
         products.forEach(async (value) => {
             if(value.store == 'Amazon') {
-                console.log('Amazon')/\\\
+                console.log('Amazon');
                 await axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/amazon/add',{url: value.url},
                 {headers: {'Content-Type': 'application/json'}}).
                 then((resp) => {
