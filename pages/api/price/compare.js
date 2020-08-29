@@ -97,17 +97,8 @@ export default async (req, res) => {
                             price: scraped.price,
                             previousPrice: previousData.price,
                             updatedAt: new Date()
-                        });
-                        await firebase.collection('users')
-                        .where('id','==',previousData.id)
-                        .get()
-                        .then((snap) => {
-                            snap.forEach((doc) => {
-                                doc.ref.delete();
-                            });
-                        }).catch((err) => {
-                            console.log(err);
-                        });
+                         });
+                
                     });
                     await firebase.collection('prices').
                     add({
@@ -118,6 +109,16 @@ export default async (req, res) => {
                         console.log('Done...');
                     }).catch((err) => {
                         console.log('err');
+                    });
+                }).catch((err) => {
+                    console.log(err);
+                });
+                await firebase.collection('users')
+                .where('id','==',previousData.id)
+                .get()
+                .then((snap) => {
+                    snap.forEach((doc) => {
+                        doc.ref.delete();
                     });
                 }).catch((err) => {
                     console.log(err);
