@@ -13,8 +13,19 @@ export default async (req,res) => {
             // send crawl request
             await axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/amazon/add',{url: url},
             {headers: {'Content-Type': 'application/json'}}).
-            then(async (response) => {
-                const data = Object.assign({}, response.data, {id: id, createdAt: new Date(), updatedAt: new Date()});  
+            then(async (resp) => {
+                let price = resp.data.price !== 'Currently unavailable'? 
+                     resp.data.price.replace(/[`~!@#$%^&*()_|+\-=?;:'",<>\\n{\}\[\]\\\/]/gi, '') : null;
+                     let previousPrice = resp.data.previousPrice !== null? 
+                     resp.data.previousPrice.replace(/[`~!@#$%^&*()_|+\-=?;:'",<>\\n{\}\[\]\\\/]/gi, '') : null;
+                let scraped = {title: resp.data.title, url: resp.data.url, 
+                        price: price, 
+                        previousPrice: previousPrice,
+                        description: resp.data.description,
+                        image: resp.data.image,
+                        store: resp.data.store
+                };
+                const data = Object.assign({}, scraped, {id: id, createdAt: new Date(), updatedAt: new Date()});  
                 await firebase.collection('products')
                 .add(data).
                  then(async (response) => {

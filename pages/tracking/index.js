@@ -160,7 +160,7 @@ const Track = () => {
                                     </div>
                                     <div className="product__description">
                                         <p className="product__name">{limitTitle(String(value.title))}</p>
-                                        <span className="price__now">${value.price}</span> {/** <span className="before__price">$260</span> */}
+                                        <span className="price__now">{value.price? '$' + value.price : 'OUT OF STOCK'}</span> {/** <span className="before__price">$260</span> */}
                                     </div>
                                 </div>
                             </Link>
