@@ -90,7 +90,7 @@ const Index = ({data}) => {
           </div>
        </div>
        <div className="daily__drops">
-         <h2>DAILY DROPS</h2>
+         <h2>DAILY DEALS</h2>
          <div className="daily__drop__products">
             <Swiper {...params}>
                 { data.dailydrops.map((value) => {
