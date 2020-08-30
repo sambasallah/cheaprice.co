@@ -9,7 +9,7 @@ export default async (req, res) => {
    }
    let first = await firebase.collection("products")
    .orderBy("title")
-   .limit(200);
+   .limit(300);
     await first.get().then(function (documentSnapshots) {
             // Get the last visible document
           //  let lastVisible = documentSnapshots.docs[documentSnapshots.docs.length-1];
