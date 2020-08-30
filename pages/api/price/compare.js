@@ -4,7 +4,12 @@ const axios = require('axios').default;
 
 export default async (req, res) => {
         const { previousData , scraped } = req.body;
-        
+        const filterPrice  = (str) => {
+            if(str === 'Currently unavailable') {
+                return null;
+            }
+            return str.replace(/[`~!@#%^&*()_a-zA-Z|+\-=?;:'",<>\\n{\}\[\]\\\/]/gi, '');
+        }
         if(scraped === null) {
             // crawl again
             if(previousData.store == 'Amazon') {
@@ -12,8 +17,19 @@ export default async (req, res) => {
                 await axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/amazon/add',{url: previousData.url},
                 {headers: {'Content-Type': 'application/json'}}).
                 then((resp) => {
-                    scraped = resp.data;
-                    console.log(scraped);
+                    // scraped = resp.data;
+                    let priceRaw = filterPrice(resp.data.price);
+                    let pricefilter = priceRaw.replace(/\s\s+/g,'');
+                    let price = pricefilter.startsWith('$')? pricefilter.substr(1) : pricefilter.substr(2);
+                     let previousPrice = resp.data.previousPrice !== null? 
+                     resp.data.previousPrice.replace(/[`~!@#$%^&*()_|+\-=?;:'",<>\\n{\}\[\]\\\/]/gi, '') : null;
+                    scraped = {title: resp.data.title, url: resp.data.url, 
+                        price: price, 
+                        previousPrice: previousPrice,
+                        description: resp.data.description,
+                        image: resp.data.image,
+                        store: resp.data.store
+                };
                 }).catch((err) => {
                     console.log(err);
                 })

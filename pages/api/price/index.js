@@ -16,7 +16,7 @@ export default async (req, res) => {
                 then((resp) => {
                      let priceRaw = filterPrice(resp.data.price);
                      let pricefilter = priceRaw.replace(/\s\s+/g,'');
-                     let price = pricefilter.startsWith('$')? pricefilter.substr(1) : pricefilter.substr(3);
+                     let price = pricefilter.startsWith('$')? pricefilter.substr(1) : pricefilter.substr(2);
                      let previousPrice = resp.data.previousPrice !== null? 
                      resp.data.previousPrice.replace(/[`~!@#$%^&*()_|+\-=?;:'",<>\\n{\}\[\]\\\/]/gi, '') : null;
                      let scraped = {

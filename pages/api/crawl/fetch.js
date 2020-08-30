@@ -5,6 +5,12 @@ import firebase from '../firebase/firebase';
 
 export default async (req,res) => {
     if(req.method === 'POST') {
+        const filterPrice  = (str) => {
+            if(str === 'Currently unavailable') {
+                return null;
+            }
+            return str.replace(/[`~!@#%^&*()_a-zA-Z|+\-=?;:'",<>\\n{\}\[\]\\\/]/gi, '');
+        }
         const stores = ['amazon.com','www.amazon.com', 'ebay.com', 'www.ebay.com',
         'walmart.com','www.walmart.com']
         const { url, id, email } = req.body;
@@ -14,8 +20,9 @@ export default async (req,res) => {
             await axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/amazon/add',{url: url},
             {headers: {'Content-Type': 'application/json'}}).
             then(async (resp) => {
-                let price = resp.data.price !== 'Currently unavailable'? 
-                     resp.data.price.replace(/[`~!@#$%^&*()_|+\-=?;:'",<>\\n{\}\[\]\\\/]/gi, '') : null;
+                    let priceRaw = filterPrice(resp.data.price);
+                    let pricefilter = priceRaw.replace(/\s\s+/g,'');
+                    let price = pricefilter.startsWith('$')? pricefilter.substr(1) : pricefilter.substr(2);
                      let previousPrice = resp.data.previousPrice !== null? 
                      resp.data.previousPrice.replace(/[`~!@#$%^&*()_|+\-=?;:'",<>\\n{\}\[\]\\\/]/gi, '') : null;
                 let scraped = {title: resp.data.title, url: resp.data.url, 
