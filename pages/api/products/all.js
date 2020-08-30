@@ -12,7 +12,7 @@ export default async (req, res) => {
    .limit(200);
     await first.get().then(function (documentSnapshots) {
             // Get the last visible document
-           let lastVisible = documentSnapshots.docs[documentSnapshots.docs.length-1];
+          //  let lastVisible = documentSnapshots.docs[documentSnapshots.docs.length-1];
         
           let products = {products: []};
                 documentSnapshots.docs.map((doc) => {
