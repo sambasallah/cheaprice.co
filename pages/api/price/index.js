@@ -4,15 +4,23 @@ export default async (req, res) => {
         const { products } = req.body;
         products.forEach(async (value) => {
             if(value.store == 'Amazon') {
+                const filterPrice  = (str) => {
+                    if(str === 'Currently unavailable') {
+                        return null;
+                    }
+                    return str.replace(/[`~!@#%^&*()_a-zA-Z|+\-=?;:'",<>\\n{\}\[\]\\\/]/gi, '');
+                }
                 console.log('Amazon');
                 await axios.post('https://mp001iwsca.execute-api.eu-west-1.amazonaws.com/dev/amazon/add',{url: value.url},
                 {headers: {'Content-Type': 'application/json'}}).
                 then((resp) => {
-                     let price = resp.data.price !== 'Currently unavailable'? 
-                     resp.data.price.replace(/[`~!@#$%^&*()_|+\-=?;:'",<>\\n{\}\[\]\\\/]/gi, '') : null;
+                     let priceRaw = filterPrice(resp.data.price);
+                     let pricefilter = priceRaw.replace(/\s\s+/g,'');
+                     let price = pricefilter.startsWith('$')? pricefilter.substr(1) : pricefilter.substr(3);
                      let previousPrice = resp.data.previousPrice !== null? 
                      resp.data.previousPrice.replace(/[`~!@#$%^&*()_|+\-=?;:'",<>\\n{\}\[\]\\\/]/gi, '') : null;
-                     let scraped = {title: resp.data.title, url: resp.data.url, 
+                     let scraped = {
+                        title: resp.data.title, url: resp.data.url, 
                         price: price, 
                         previousPrice: previousPrice,
                         description: resp.data.description,
