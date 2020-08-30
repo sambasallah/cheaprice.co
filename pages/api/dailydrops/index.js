@@ -18,8 +18,6 @@ export default async (req, res) => {
             }
             return arra1;
         }
-
-
         let drops = [];
         let products = [];
         await firebase.collection('prices')

@@ -114,19 +114,19 @@ const Product = ({data}) => {
                                { data.store === 'Amazon'? (
                                    <>
                                     <a href={ data.url } target="__blank" className="buy__on__amazon">View On Amazon</a>
-                                    <a href="#" onClick={openModal} className="track">Track</a>
+                                    <a href="#" onClick={openModal} className="track">Track Price</a>
                                    </>
                                ) : ''}
                                { data.store === 'eBay'? (
                                    <>
                                    <a href={ data.url } target="__blank" className="buy__on__ebay">View On eBay</a>
-                                   <a href="#" onClick={openModal} className="track">Track</a>
+                                   <a href="#" onClick={openModal} className="track">Track Price</a>
                                    </>
                                ) : ''}
                                { data.store === 'Walmart'? (
                                    <>
                                      <a href={ data.url } target="__blank" className="buy__on__walmart">View On Walmart <FaStarOfLife style={{color: '#FF9900'}} /></a>
-                                     <a href="#" onClick={openModal} className="track">Track</a>
+                                     <a href="#" onClick={openModal} className="track">Track Price</a>
                                    </>
                                ): ''}
                               
