@@ -185,6 +185,8 @@ export default async (req, res) => {
             .then((snap) => {
                 snap.forEach((doc) => {
                 doc.ref.update({
+                    price: scraped.price? Number(scraped.price) : null,
+                    previousPrice: scraped.previousPrice? Number(scraped.previousPrice) : null,
                     updatedAt: new Date()
                 });
                 });
