@@ -100,7 +100,7 @@ const Product = ({data}) => {
                                    { data.previousPrice? <li>Before : ${Number(data.previousPrice)}</li>: ''}
                                </ul>
                                <span>Started Tracking: { new Date(data.createdAt._seconds * 1000).toString()  }</span> <br /> <br />
-                               <span>Last Updated: { new Date(data.updatedAt._seconds * 1000).toString()  }</span>
+                               <span>Last Updated: { Number(new Date().getHours() - new Date(data.updatedAt._seconds * 1000).getHours() ) + ' hours ago' }</span>
                                { data.description !== null? (
                                    <>
                                     <h3>Details</h3>
