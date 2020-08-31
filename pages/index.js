@@ -8,7 +8,7 @@ import 'swiper/swiper-bundle.min.css';
 import SwiperCore,{ Pagination, Navigation} from "swiper"
 
 
-const Index = ({data}) => {
+const Index = ({}) => {
   SwiperCore.use([Pagination,Navigation]);
   const limitTitle = (title) => {
     let newTitle = "";
@@ -89,7 +89,7 @@ const Index = ({data}) => {
             </div>
           </div>
        </div>
-       {data.length >= 1? (
+       {/* {data.length >= 1? (
          <>
          <div className="daily__drops">
          <h2>DAILY DEALS</h2>
@@ -117,29 +117,29 @@ const Index = ({data}) => {
          </div>
        </div>
          </>
-       ) : ''}
+       ) : ''} */}
      </main>
      <Footer />
     </>
   )
 }
 
-export async function getServerSideProps(context) {
-  let response = await fetch(process.env.NODE_ENV === 'development'? 
-  `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/dailydrops` : 
-  `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/dailydrops`);
-  let data = await response.json();
-  if(data) {
-    return {
-      props: {data}, // will be passed to the page component as props
-    }
-  } else {
-    data = [];
-    return {
-      props: {data}, // will be passed to the page component as props
-    }
-  }
+// export async function getServerSideProps(context) {
+//   // let response = await fetch(process.env.NODE_ENV === 'development'? 
+//   // `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/dailydrops` : 
+//   // `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/dailydrops`);
+//   // let data = await response.json();
+//   // if(data) {
+//   //   return {
+//   //     props: {data}, // will be passed to the page component as props
+//   //   }
+//   // } else {
+//   //   data = [];
+//   //   return {
+//   //     props: {data}, // will be passed to the page component as props
+//   //   }
+//  // }
   
-}
+// }
 
 export default Index;
