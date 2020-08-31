@@ -31,7 +31,8 @@ export default async (req, res) => {
         }).catch((err) => {
             res.json({err});
         });
-        let dailydeals = shuffle(drops);
+        if(drops.length >= 1) {
+            let dailydeals = shuffle(drops);
         // filter to remove duplicate id's
         dailydeals = [...new Set(drops.slice(0,10))];
         await firebase.collection('products')
@@ -46,6 +47,8 @@ export default async (req, res) => {
             res.json(err);
         });
        res.json({dailydrops: products});
+        }
+        res.json({dailydrops: products});
     }
     res.json({message: 'Request Method Not Allowed'});
 }
