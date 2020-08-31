@@ -129,9 +129,17 @@ export async function getServerSideProps(context) {
   `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/dailydrops` : 
   `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/dailydrops`);
   let data = await response.json();
-  return {
-    props: {data}, // will be passed to the page component as props
+  if(data) {
+    return {
+      props: {data}, // will be passed to the page component as props
+    }
+  } else {
+    data = [];
+    return {
+      props: {data}, // will be passed to the page component as props
+    }
   }
+  
 }
 
 export default Index;
