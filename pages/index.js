@@ -89,7 +89,9 @@ const Index = ({data}) => {
             </div>
           </div>
        </div>
-       <div className="daily__drops">
+       {data? (
+         <>
+         <div className="daily__drops">
          <h2>DAILY DEALS</h2>
          <div className="daily__drop__products">
             <Swiper {...params}>
@@ -114,6 +116,8 @@ const Index = ({data}) => {
             </Swiper>
          </div>
        </div>
+         </>
+       ) : ''}
      </main>
      <Footer />
     </>
