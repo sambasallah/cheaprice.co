@@ -89,7 +89,7 @@ const Index = ({data}) => {
             </div>
           </div>
        </div>
-       {data? (
+       {data.length >= 1? (
          <>
          <div className="daily__drops">
          <h2>DAILY DEALS</h2>
