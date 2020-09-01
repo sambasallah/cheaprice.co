@@ -8,11 +8,15 @@ import { FaStarOfLife } from 'react-icons/fa';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import { ToastContainer, toast } from 'react-toastify';
+import { Line } from 'react-chartjs-2';
+import { useRouter } from 'next/router';
 
 const Product = ({data}) => {
     
+    const router = useRouter();
     const [product, setProduct] = useState({...data});
     const [modal, setModal] = useState(false);
+    const [priceHistory, setPriceHistory] = useState({date: [], price: []});
     const [formData, setFormData] = useState({
         email: "",
         phoneNumber: "",
@@ -65,6 +69,22 @@ const Product = ({data}) => {
         }
     }
 
+    const getPriceHistory = async () => {
+        let response = await fetch(process.env.NODE_ENV === 'development'? 
+        `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/price/${router.query.id}` : 
+        `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/price/${router.query.id}`);
+        let data = await response.json();
+        let date = [];
+        let price = [];
+        if(data) {
+            data.prices.map((value) => {
+                date.push(value.createdAt);
+                price.push(Number(value.price));
+            });
+            setPriceHistory({date: [...date], price: [...price]});
+        }
+    }
+
     const openModal = () => {
         setModal(true);
     }
@@ -76,6 +96,11 @@ const Product = ({data}) => {
     const handleChange = (event) => {
         setFormData({...formData, [event.target.id]: event.target.value});
     }
+
+
+    useEffect(() => {
+        getPriceHistory();
+    },[])
 
     return (
         <div>
@@ -100,7 +125,7 @@ const Product = ({data}) => {
                                    { data.previousPrice? <li>Before : ${Number(data.previousPrice)}</li>: ''}
                                </ul>
                                <span>Started Tracking: { new Date(data.createdAt._seconds * 1000).toString()  }</span> <br /> <br />
-                               <span>Last Updated: { Number(new Date().getHours() - new Date(data.updatedAt._seconds * 1000).getHours() ) + ' hours ago' }</span>
+                               <span>Last Updated: {  new Date(data.updatedAt._seconds * 1000).toTimeString() }</span>
                                { data.description !== null? (
                                    <>
                                     <h3>Details</h3>
@@ -131,6 +156,7 @@ const Product = ({data}) => {
                                ): ''}
                               
                            </div>
+                           
                            <Modal open={modal} classNames="custom-modal-style" onClose={closeModal}>
                                 <h2 style={{paddingBottom: '20px', fontFamily: "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"
                                    ,fontWeight: 'lighter', fontSize: '25px' ,textAlign: 'center'}}>Track Product</h2>
@@ -188,6 +214,23 @@ const Product = ({data}) => {
                                 </form>
                            </Modal>
                        </div>
+                       {/* <div className="price__history">
+                           {priceHistory? (
+                               <>
+                               <Line
+                                    data={{
+                                        labels: priceHistory.date,
+                                        datasets: [{label: 'Price History',
+                                                    data: priceHistory.price,
+                                        }]
+                                    }}  
+                                    width={100}
+                                    height={450}
+                                    options={{ maintainAspectRatio: false }}
+                                    />
+                               </>
+                           ) : ('')}
+                        </div> */}
                    </main>
                 <Footer />
                      </>
