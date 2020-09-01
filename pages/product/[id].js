@@ -81,7 +81,7 @@ const Product = ({data}) => {
                 date.push(value.createdAt);
                 price.push(Number(value.price));
             });
-            setPriceHistory({date: [...date], price: [...price]});
+            setPriceHistory({date: [...date].sort(), price: [...price].sort()});
         }
     }
 
@@ -214,7 +214,7 @@ const Product = ({data}) => {
                                 </form>
                            </Modal>
                        </div>
-                       {/* <div className="price__history">
+                       <div className="price__history">
                            {priceHistory? (
                                <>
                                <Line
@@ -230,7 +230,7 @@ const Product = ({data}) => {
                                     />
                                </>
                            ) : ('')}
-                        </div> */}
+                        </div>
                    </main>
                 <Footer />
                      </>

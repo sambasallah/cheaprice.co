@@ -534,6 +534,10 @@ ul {
   }
 }
 
+.price__history {
+  margin-top: 15px;
+}
+
 /** Product Don't Exist **/
 .product__not__exist {
   width: 100%;
