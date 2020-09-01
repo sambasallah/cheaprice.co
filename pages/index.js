@@ -100,9 +100,9 @@ const Index = ({data}) => {
                       <div className="swiper-slide" key={value.id}>
                          <Link href={"/product/" + value.id}>
                          <div className="daily__product">
-                            <span>BEST DEAL</span>
+                            <span>{ ((value.previousPrice/value.price - 1) * 100) > 0? 'Low' : 'High'  }</span>
                               <div className="img__container">
-                              <img src={value.image} style={{maxWidth: '100%', maxHeight: '100%'}} />
+                              <img src={value.image} loading="lazy" style={{maxWidth: '100%', maxHeight: '100%'}} />
                               </div>
                             <div className="descrip">
                             <h6>{limitTitle(value.title) }</h6>
