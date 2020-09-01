@@ -229,7 +229,7 @@ const Product = ({data}) => {
                                     options={{ maintainAspectRatio: false }}
                                     />
                                </>
-                           ) : ('')}
+                           ) : (<h1>Loading...</h1>)}
                         </div>
                    </main>
                 <Footer />
