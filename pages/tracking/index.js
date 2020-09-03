@@ -112,7 +112,7 @@ const Track = () => {
     return(
         <>
          <ToastContainer />
-          <Header title="Track A Product" description="Amazon price tracker, eBay price tracker,
+          <Header title="Track A Product: Amazon Price Tracker: Price History: Cheaprice.co" description="Amazon price tracker, eBay price tracker,
              walmart price tracker, Free Price tracker, ecommerce stores"/>
            <main className="track__page">
                <h1>Track A Product</h1>
