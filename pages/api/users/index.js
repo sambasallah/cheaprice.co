@@ -30,5 +30,13 @@ export default async (req, res) => {
         }).catch((err) => {
             res.json({statusCode: 400, error: err});
         });;
+    } else {
+        await firebase.collection('users').
+        add(user).
+         then(() => {
+             res.json({statusCode: 201,message: 'Data inserted'})
+         }).catch((err) => {
+             res.json({statusCode: 400, error: err});
+         });;
     }
 }
