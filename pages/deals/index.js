@@ -57,7 +57,7 @@ const Deals = ({data}) => {
 
     return (
        <>
-             <Header title="Deals | Cheaprice" />
+             <Header title="Best Deals: Currently tracking | Cheaprice: Amazon Price History Tracker " />
             <main className="deals">
                 <div className="breadcrumb">
                     <h2>Best Deals</h2>
