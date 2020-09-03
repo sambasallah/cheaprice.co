@@ -6,7 +6,7 @@ import '../style/css/style.css';
 const Privacy = () => {
     return(
         <>
-         <Header title="Privacy Policy" />
+         <Header title="Privacy Policy: Amazon Price Tracker: Price History: Cheaprice.co" />
            <div className="privacy__page">
                <div className="privacy__title">
                    <h2>Privacy Policy</h2>
