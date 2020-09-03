@@ -42,7 +42,7 @@ const FAQs = () => {
                 You will be sent an email everytime the price of the product you are tracking is reduced
                 and if the price is equal or goes below your desired price drop amount.
             </p>
-            <h2>How is https://cheaprice.co Different From https://camelcamelcamel.com and https://keepa.com</h2>
+            <h2>How is <a href="https://cheaprice.co">Cheaprice</a> Different From <a href="https://camelcamelcamel.com">camelcamelcamel</a> and <a href="https://keepa.com">Keepa</a></h2>
             <p>Keepa.com and camelcamelcamel.com are both great price tracking tools but cheaprice is the tracking tool to use if you want
                 ease of use without many complications and registrations.
             </p>
