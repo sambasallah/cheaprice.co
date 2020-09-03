@@ -15,7 +15,8 @@ export default async (req, res) => {
         createdAt: new Date()
     };
 
-    await firebase.collection('users').
+    if(!req.body.id) {
+        await firebase.collection('users').
        add(user).
         then(() => {
             axios.post(process.env.NODE_ENV === 'development'? 
@@ -29,4 +30,5 @@ export default async (req, res) => {
         }).catch((err) => {
             res.json({statusCode: 400, error: err});
         });;
+    }
 }

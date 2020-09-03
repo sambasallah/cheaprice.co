@@ -60,10 +60,10 @@ const Index = ({data}) => {
 }
   return (
     <>
-     <Header title="Amazon Price Tracker | eBay Price Tracker App" description="Amazon price tracker, eBay price tracker,
-             walmart price tracker, Free Price tracker, ecommerce stores, price tracker, best price tracker, amazon price history,
+     <Header title="Amazon Price History: Price Tracker 2020 | eBay Price History: Price Tracker 2020" description="Amazon price tracker, eBay price tracker,
+             walmart price tracker, Free Price tracker, price tracker, best price tracker 2020, amazon price history,
              amazon price history tracker, price tracker amazon, price history tracker amazon,
-             ebay price tracker free, free price tracker, price history tracker" />
+             ebay price tracker free,price history tracker" />
      <main className="main__body">
        <div className="hero__section">
           <h1>Amazon & eBay Price Tracker</h1>
