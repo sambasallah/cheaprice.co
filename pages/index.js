@@ -100,7 +100,7 @@ const Index = ({data}) => {
                       <div className="swiper-slide" key={value.id}>
                          <Link href={"/product/" + value.id}>
                          <div className="daily__product">
-                            <span>{ ((value.previousPrice/value.price - 1) * 100) > 0? 'Low' : 'High'  }</span>
+                            <span>{ Number(value.previousPrice) / Number(value.price) >= 1.5? 'Best Deal' : 'Good Deal'  }</span>
                               <div className="img__container">
                               <img src={value.image} loading="lazy" style={{maxWidth: '100%', maxHeight: '100%'}} />
                               </div>
