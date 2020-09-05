@@ -28,7 +28,7 @@ const Header = ({title,description,url,image, type}) => {
             <meta name="description" content="Amazon price tracker, eBay price tracker,
              walmart price tracker, Free Price tracker, product tracker, price drop, price drop alert
              , boat sales, amazon, ebay, amazon prices, ebay shopping, amazon shopping, online shopping" />
-            
+            <meta name="p:domain_verify" content="073c1c8f24e9376166e83c6d70fcf770"/>
              <meta property="og:title" content={title} />
             <meta property="og:type" content={type} />
             <meta property="og:url" content={url} />
