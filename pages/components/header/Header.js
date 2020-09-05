@@ -25,9 +25,10 @@ const Header = ({title,description,url,image, type}) => {
           <Head>
             <meta CharSet="utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-            <meta name="description" content="Amazon price tracker, eBay price tracker,
-             walmart price tracker, Free Price tracker, product tracker, price drop, price drop alert
-             , boat sales, amazon, ebay, amazon prices, ebay shopping, amazon shopping, online shopping" />
+            <meta name="description" content="CHEAPRICE allows you to 
+            check historic prices of products from US based E-commerce stores for free. 
+            This is easy to use price tracker for US based E-commerce stores. 
+            We currently offer Amazon Price Tracker and eBay Price Tracker" />
             <meta name="p:domain_verify" content="073c1c8f24e9376166e83c6d70fcf770"/>
              <meta property="og:title" content={title} />
             <meta property="og:type" content={type} />

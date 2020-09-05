@@ -5,7 +5,7 @@ import '../style/css/style.css';
 const FAQs = () => {
     return (
         <>
-        <Header title="FAQs: Amazon Price Tracker: Cheaprice.co" />
+        <Header title="FAQs: Amazon Price Tracker: Cheaprice.co" description='Cheaprice.co: Amazon price tracker frequently asked questions' />
         <div className="faqs__page">
             <div className="faqs__title">
                 <h2>FAQs</h2>

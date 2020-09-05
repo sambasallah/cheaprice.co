@@ -108,7 +108,7 @@ const Product = ({data}) => {
                  { Object.keys(product).length !== 0? (
                      <>
                      <ToastContainer />
-                       <Header title={data.title} type="image/jpeg" image={data.image? data.image : data.fullImg} />
+                       <Header title={data.title} type="image/jpeg" image={data.image? data.image : data.fullImg} description={data.description !== null? data.description : data.title} />
                    <main className="product__page">
                        <div className="breadcrumb">
                            <h1>{ parse(String(data.title)) }</h1>
