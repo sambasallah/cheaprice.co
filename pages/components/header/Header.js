@@ -53,7 +53,7 @@ const Header = ({title,description,url,image, type}) => {
                 }}
             />
             <script>var ezoicId = 212199;</script>
-            <script type="text/javascript" src="https://go.ezoic.net/ezoic/ezoic.js"></script>
+            <script type="text/javascript" src="//go.ezoic.net/ezoic/ezoic.js"></script>
          </Head>
          <header className="site__header">
                 <a href="/" className="site__title">CHEAPRICE <FiTrendingDown /></a>
