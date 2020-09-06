@@ -87,6 +87,7 @@ const Index = ({data}) => {
             </div>
           </div>
        </div>
+       <div id="ezoic-pub-ad-placeholder-103"> </div>
        {data.dailydrops.length >= 1? (
          <>
          <div className="daily__drops">
