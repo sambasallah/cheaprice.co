@@ -111,6 +111,7 @@ const Product = ({data}) => {
                        <Header title={data.title} type="image/jpeg" image={data.image? data.image : data.fullImg} description={data.description !== null? data.description : data.title} />
                    <main className="product__page">
                        <div className="breadcrumb">
+                          <div id="ezoic-pub-ad-placeholder-101"></div>
                            <h1>{ parse(String(data.title)) }</h1>
                        </div>
                        
