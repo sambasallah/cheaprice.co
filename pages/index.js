@@ -63,6 +63,7 @@ const Index = ({data}) => {
      <Header title="Amazon Price History: Price Tracker | eBay Price History: Price Tracker"/>
      <main className="main__body">
        <div className="hero__section">
+          <div id="ezoic-pub-ad-placeholder-102"> </div>
           <h1>Amazon & eBay Price Tracker</h1>
           <p>Free price tracker for Amazon & eBay</p>
           <img src='images/about1.png' style={{maxWidth: '70%', maxHeight: '50%'}} />
