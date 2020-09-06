@@ -24,7 +24,7 @@ export default async (req, res) => {
         .get()
         .then((snap) => {
             snap.forEach((doc) => {
-                if(new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)) {
+                if(new Date(Date.now() - 4 * 24 * 60 * 60 * 1000)) {
                    drops.push(doc.data().id);
                }
             });
