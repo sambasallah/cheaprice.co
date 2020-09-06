@@ -23,8 +23,6 @@ const Header = ({title,description,url,image, type}) => {
     return (
         <>
           <Head>
-            <script>var ezoicId = 212199;</script>
-            <script type="text/javascript" src="//go.ezoic.net/ezoic/ezoic.js"></script>
             <meta CharSet="utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
             <meta name="description" content="CHEAPRICE allows you to 
