@@ -36,6 +36,7 @@ const Header = ({title,description,url,image, type}) => {
             <meta property="og:description" content={description} />
             <meta property="og:image" content={image} />
             <title>{title}</title>
+            <script data-ad-client="ca-pub-7391905567078145" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=UA-174290712-1"
