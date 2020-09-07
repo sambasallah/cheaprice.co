@@ -125,6 +125,7 @@ const Product = ({data}) => {
                         }}
                         data-ad-client="ca-pub-7391905567078145"
                         data-ad-slot="1723273533"
+                        data-full-width-responsive="true"
                         />
                        <div className="product__info">
                            <div className="product__img">
@@ -175,6 +176,7 @@ const Product = ({data}) => {
                             }}
                             data-ad-client="ca-pub-7391905567078145"
                             data-ad-slot="1723273533"
+                            data-full-width-responsive="true"
                             />
                            <Modal open={modal} classNames="custom-modal-style" onClose={closeModal}>
                                 <h2 style={{paddingBottom: '20px', fontFamily: "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"
@@ -257,6 +259,7 @@ const Product = ({data}) => {
                             }}
                             data-ad-client="ca-pub-7391905567078145"
                             data-ad-slot="1723273533"
+                            data-full-width-responsive="true"
                             />
                    </main>
                 <Footer />
@@ -265,6 +268,15 @@ const Product = ({data}) => {
                      <>
                       <Header title="Product Does Not Exist" />
                        <main className="product__not__exist">
+                       <ins
+                            className="adsbygoogle adbanner-customize"
+                            style={{
+                                display: "block"
+                            }}
+                            data-ad-client="ca-pub-7391905567078145"
+                            data-ad-slot="1723273533"
+                            data-full-width-responsive="true"
+                            />
                             <div className="not__found">
                                 Product Not Found
                             </div>

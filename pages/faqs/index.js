@@ -26,6 +26,7 @@ const FAQs = () => {
                 }}
                 data-ad-client="ca-pub-7391905567078145"
                 data-ad-slot="1723273533"
+                data-full-width-responsive="true"
                 />
             <div className="faqs__content">
             <h2>What is CHEAPRICE</h2>
@@ -71,6 +72,7 @@ const FAQs = () => {
                 }}
                 data-ad-client="ca-pub-7391905567078145"
                 data-ad-slot="1723273533"
+                data-full-width-responsive="true"
                 />
         </div>
         <Footer />

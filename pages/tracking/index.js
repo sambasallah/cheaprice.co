@@ -128,6 +128,7 @@ const Track = () => {
                     }}
                     data-ad-client="ca-pub-7391905567078145"
                     data-ad-slot="1723273533"
+                    data-full-width-responsive="true"
                  />
                <form onSubmit={ submitForm }>
                    <div>
@@ -157,6 +158,7 @@ const Track = () => {
                 }}
                 data-ad-client="ca-pub-7391905567078145"
                 data-ad-slot="1723273533"
+                data-full-width-responsive="true"
             />
            <div className="supported__stores">
                    <div>
@@ -200,6 +202,7 @@ const Track = () => {
                     }}
                     data-ad-client="ca-pub-7391905567078145"
                     data-ad-slot="1723273533"
+                    data-full-width-responsive="true"
                 />
            </div>
            <Footer />

@@ -19,6 +19,7 @@ const Footer = () => {
                     }}
                     data-ad-client="ca-pub-7391905567078145"
                     data-ad-slot="1723273533"
+                    data-full-width-responsive="true"
                 />
                 <div className="copyright">
                 <span className="copyright__text">&copy; 2020 CHEAPRICE <FiTrendingDown />. All Rights Reserved</span>

@@ -81,6 +81,7 @@ useEffect(() => {
           }}
           data-ad-client="ca-pub-7391905567078145"
           data-ad-slot="1723273533"
+          data-full-width-responsive="true"
         />
           <h1>Amazon & eBay Price Tracker</h1>
           <p>Free price tracker for Amazon & eBay</p>
@@ -112,6 +113,7 @@ useEffect(() => {
           }}
           data-ad-client="ca-pub-7391905567078145"
           data-ad-slot="1723273533"
+          data-full-width-responsive="true"
         />
        {data.dailydrops.length >= 1? (
          <>
@@ -146,6 +148,7 @@ useEffect(() => {
           }}
           data-ad-client="ca-pub-7391905567078145"
           data-ad-slot="1723273533"
+          data-full-width-responsive="true"
         />
        </div>
          </>

@@ -86,6 +86,7 @@ const Contact = () => {
                     }}
                     data-ad-client="ca-pub-7391905567078145"
                     data-ad-slot="1723273533"
+                    data-full-width-responsive="true"
                     />
                  <h2>Have Questions? Enquires? Support? Feature Request? 
                      Let us know! Drop us a line in the form below, and we'll get back to you as soon as possible!</h2>
@@ -103,6 +104,7 @@ const Contact = () => {
                     }}
                     data-ad-client="ca-pub-7391905567078145"
                     data-ad-slot="1723273533"
+                    data-full-width-responsive="true"
                     />
              </div>
          </div>
