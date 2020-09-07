@@ -11,7 +11,6 @@ const Footer = () => {
                 <p>CHEAPRICE allows you to check historic prices of products from US based 
                     E-commerce stores for free. This is easy to use price tracker for US based 
                     E-commerce stores. We currently offer Amazon Price Tracker and eBay Price Tracker.</p>
-                    <div id="ezoic-pub-ad-placeholder-104"> </div>
                 </div>
                 <div className="copyright">
                 <span className="copyright__text">&copy; 2020 CHEAPRICE <FiTrendingDown />. All Rights Reserved</span>
