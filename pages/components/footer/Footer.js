@@ -12,6 +12,14 @@ const Footer = () => {
                     E-commerce stores for free. This is easy to use price tracker for US based 
                     E-commerce stores. We currently offer Amazon Price Tracker and eBay Price Tracker.</p>
                 </div>
+                <ins
+                    className="adsbygoogle adbanner-customize"
+                    style={{
+                        display: "block"
+                    }}
+                    data-ad-client="ca-pub-7391905567078145"
+                    data-ad-slot="1723273533"
+                />
                 <div className="copyright">
                 <span className="copyright__text">&copy; 2020 CHEAPRICE <FiTrendingDown />. All Rights Reserved</span>
                 </div>

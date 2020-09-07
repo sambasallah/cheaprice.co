@@ -100,22 +100,32 @@ const Product = ({data}) => {
 
     useEffect(() => {
         getPriceHistory();
+        try {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+          } catch (err) {
+            console.log(err);
+          }
     },[])
 
     return (
         <div>
                 <>
-                <script data-ad-client="ca-pub-7391905567078145" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                  { Object.keys(product).length !== 0? (
                      <>
                      <ToastContainer />
                        <Header title={data.title} type="image/jpeg" image={data.image? data.image : data.fullImg} description={data.description !== null? data.description : data.title} />
                    <main className="product__page">
                        <div className="breadcrumb">
-
                            <h1>{ parse(String(data.title)) }</h1>
                        </div>
-                       
+                       <ins
+                        className="adsbygoogle adbanner-customize"
+                        style={{
+                            display: "block"
+                        }}
+                        data-ad-client="ca-pub-7391905567078145"
+                        data-ad-slot="1723273533"
+                        />
                        <div className="product__info">
                            <div className="product__img">
                                <img src={data.image? data.image : data.fullImg.replace('http', 'https') } />
@@ -158,7 +168,14 @@ const Product = ({data}) => {
                                ): ''}
                               
                            </div>
-                           
+                           <ins
+                            className="adsbygoogle adbanner-customize"
+                            style={{
+                                display: "block"
+                            }}
+                            data-ad-client="ca-pub-7391905567078145"
+                            data-ad-slot="1723273533"
+                            />
                            <Modal open={modal} classNames="custom-modal-style" onClose={closeModal}>
                                 <h2 style={{paddingBottom: '20px', fontFamily: "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"
                                    ,fontWeight: 'lighter', fontSize: '25px' ,textAlign: 'center'}}>Track Product</h2>
@@ -233,6 +250,14 @@ const Product = ({data}) => {
                                </>
                            ) : (<h1>Loading...</h1>)}
                         </div>
+                        <ins
+                            className="adsbygoogle adbanner-customize"
+                            style={{
+                                display: "block"
+                            }}
+                            data-ad-client="ca-pub-7391905567078145"
+                            data-ad-slot="1723273533"
+                            />
                    </main>
                 <Footer />
                      </>

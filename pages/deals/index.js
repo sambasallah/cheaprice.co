@@ -52,17 +52,28 @@ const Deals = ({data}) => {
     }
 
     useEffect(() => {
-      
-    },[]);
+        try {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (err) {
+          console.log(err);
+        }
+      }, []);
 
     return (
        <>
              <Header title="Best Deals: Currently tracking | Cheaprice: Amazon Price History Tracker" description="Amazon price tracker | ebay price tracker: Best deals cheaprice.co" />
             <main className="deals">
-            <script data-ad-client="ca-pub-7391905567078145" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 <div className="breadcrumb">
                     <h2>Best Deals</h2>
                 </div>
+                <ins
+                className="adsbygoogle adbanner-customize"
+                style={{
+                    display: "block"
+                }}
+                data-ad-client="ca-pub-7391905567078145"
+                data-ad-slot="1723273533"
+                />
                 <div className="products">
                     {/* <div className="search__bar">
                         <h2>Filter</h2>
@@ -91,6 +102,14 @@ const Deals = ({data}) => {
                               )
                           })}
                         </div>
+                        <ins
+                            className="adsbygoogle adbanner-customize"
+                            style={{
+                                display: "block"
+                            }}
+                            data-ad-client="ca-pub-7391905567078145"
+                            data-ad-slot="1723273533"
+                            />
                     </div>
                 </div>
             </main>

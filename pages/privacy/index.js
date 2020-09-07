@@ -1,17 +1,31 @@
-
+import React, { useEffect } from 'react';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import '../style/css/style.css';
 
 const Privacy = () => {
+    useEffect(() => {
+        try {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (err) {
+          console.log(err);
+        }
+      }, []);
     return(
         <>
          <Header title="Privacy Policy: Amazon Price Tracker: Price History: Cheaprice.co" />
            <div className="privacy__page">
-           <script data-ad-client="ca-pub-7391905567078145" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                <div className="privacy__title">
                    <h2>Privacy Policy</h2>
                </div>
+               <ins
+                    className="adsbygoogle adbanner-customize"
+                    style={{
+                        display: "block"
+                    }}
+                    data-ad-client="ca-pub-7391905567078145"
+                    data-ad-slot="1723273533"
+                    />
                <div className="privacy__content">
                    <p>
                     You can use all of our services without providing any personal information. 
@@ -28,6 +42,14 @@ const Privacy = () => {
                     please <a href="/contact" style={{color: '#0099e5'}}>Send Us A Message</a>.</p>
 
                </div>
+               <ins
+                    className="adsbygoogle adbanner-customize"
+                    style={{
+                        display: "block"
+                    }}
+                    data-ad-client="ca-pub-7391905567078145"
+                    data-ad-slot="1723273533"
+                    />
            </div>
          <Footer />
         </>

@@ -1,16 +1,32 @@
+import React, { useEffect } from 'react';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import '../style/css/style.css';
 
 const FAQs = () => {
+    useEffect(() => {
+        try {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (err) {
+          console.log(err);
+        }
+      }, []);
     return (
         <>
         <Header title="FAQs: Amazon Price Tracker: Cheaprice.co" description='Cheaprice.co: Amazon price tracker frequently asked questions' />
         <div className="faqs__page">
-        <script data-ad-client="ca-pub-7391905567078145" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <div className="faqs__title">
                 <h2>FAQs</h2>
             </div>
+
+            <ins
+                className="adsbygoogle adbanner-customize"
+                style={{
+                    display: "block"
+                }}
+                data-ad-client="ca-pub-7391905567078145"
+                data-ad-slot="1723273533"
+                />
             <div className="faqs__content">
             <h2>What is CHEAPRICE</h2>
             <p>Cheaprice maintains price histories for all products on Amazon and eBay
@@ -48,6 +64,14 @@ const FAQs = () => {
                 ease of use without many complications and registrations.
             </p>
             </div>
+            <ins
+                className="adsbygoogle adbanner-customize"
+                style={{
+                    display: "block"
+                }}
+                data-ad-client="ca-pub-7391905567078145"
+                data-ad-slot="1723273533"
+                />
         </div>
         <Footer />
         </>

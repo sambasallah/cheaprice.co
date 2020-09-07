@@ -107,6 +107,11 @@ const Track = () => {
 
     useEffect(() => {
         trackingData();
+        try {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+          } catch (err) {
+            console.log(err);
+          }    
     },[]);
    
     return(
@@ -116,6 +121,14 @@ const Track = () => {
            <main className="track__page">
                <h1>Track A Product</h1>
                <p>Get Alerts sent to your Email and/or Phone when the price drops for free</p>
+               <ins
+                    className="adsbygoogle adbanner-customize"
+                    style={{
+                        display: "block"
+                    }}
+                    data-ad-client="ca-pub-7391905567078145"
+                    data-ad-slot="1723273533"
+                 />
                <form onSubmit={ submitForm }>
                    <div>
                        <input type="url" placeholder="PRODUCT URL" id="url" value={formData.url} onChange={handleChange} required/>
@@ -137,6 +150,14 @@ const Track = () => {
                    </div>
                </form>
            </main>
+           <ins
+                className="adsbygoogle adbanner-customize"
+                style={{
+                    display: "block"
+                }}
+                data-ad-client="ca-pub-7391905567078145"
+                data-ad-slot="1723273533"
+            />
            <div className="supported__stores">
                    <div>
                    <img src="images/amazon.png" style={{maxWidth: '100%', maxHeight: '100%'}} />
@@ -172,7 +193,14 @@ const Track = () => {
                     </>
                 )}
                </div>
-              
+               <ins
+                    className="adsbygoogle adbanner-customize"
+                    style={{
+                        display: "block"
+                    }}
+                    data-ad-client="ca-pub-7391905567078145"
+                    data-ad-slot="1723273533"
+                />
            </div>
            <Footer />
           

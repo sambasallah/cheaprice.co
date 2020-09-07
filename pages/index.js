@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Swiper from 'react-id-swiper';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
@@ -20,6 +20,8 @@ const Index = ({data}) => {
     }
     return newTitle;
   }
+
+
   const params = {
     slidesPerView: 4,
     spaceBetween: 0,
@@ -58,12 +60,28 @@ const Index = ({data}) => {
       }
   }
 }
+
+useEffect(() => {
+  try {
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  } catch (err) {
+    console.log(err);
+  }
+}, []);
+
   return (
     <>
      <Header title="Amazon Price History: Price Tracker, Price Charts, Price Drops | eBay Price History: Price Tracker, Price Charts, Price Drops"/>
      <main className="main__body">
-     <script data-ad-client="ca-pub-7391905567078145" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
        <div className="hero__section">
+       <ins
+          className="adsbygoogle adbanner-customize"
+          style={{
+            display: "block"
+          }}
+          data-ad-client="ca-pub-7391905567078145"
+          data-ad-slot="1723273533"
+        />
           <h1>Amazon & eBay Price Tracker</h1>
           <p>Free price tracker for Amazon & eBay</p>
           <img src='images/about1.png' style={{maxWidth: '70%', maxHeight: '50%'}} />
@@ -87,6 +105,14 @@ const Index = ({data}) => {
             </div>
           </div>
        </div>
+       <ins
+          className="adsbygoogle adbanner-customize"
+          style={{
+            display: "block"
+          }}
+          data-ad-client="ca-pub-7391905567078145"
+          data-ad-slot="1723273533"
+        />
        {data.dailydrops.length >= 1? (
          <>
          <div className="daily__drops">
@@ -113,6 +139,14 @@ const Index = ({data}) => {
                 })}
             </Swiper>
          </div>
+         <ins
+          className="adsbygoogle adbanner-customize"
+          style={{
+            display: "block"
+          }}
+          data-ad-client="ca-pub-7391905567078145"
+          data-ad-slot="1723273533"
+        />
        </div>
          </>
        ) : ''}

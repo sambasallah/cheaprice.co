@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import '../style/css/style.css';
@@ -62,17 +62,31 @@ const Contact = () => {
     const handleChange = (event) => {
         setFormData({...formData, [event.target.id]: event.target.value});
     }
+    useEffect(() => {
+        try {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (err) {
+          console.log(err);
+        }
+      }, []);
     return (
         <>
         <ToastContainer />
         <Header title="Contact Us | Cheaprice.co" description="Have Questions? Enquires? Support? Feature Request? 
                      Let us know! Drop us a line in the form below, and we'll get back to you as soon as possible!"/>
          <div className="contact__us">
-         <script data-ad-client="ca-pub-7391905567078145" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
              <div className="breadcrumb">
                  <h2>Contact Us</h2>
              </div>
              <div className="form__container">
+                 <ins
+                    className="adsbygoogle adbanner-customize"
+                    style={{
+                        display: "block"
+                    }}
+                    data-ad-client="ca-pub-7391905567078145"
+                    data-ad-slot="1723273533"
+                    />
                  <h2>Have Questions? Enquires? Support? Feature Request? 
                      Let us know! Drop us a line in the form below, and we'll get back to you as soon as possible!</h2>
                  <form onSubmit={sendMessage}>
@@ -82,6 +96,14 @@ const Contact = () => {
                      <textarea col="4" rows="20" placeholder="Message" id="message" value={formData.message} onChange={handleChange} required/>
                      <button type="submit" className="btn__send">{loading? 'Loading...': 'Send'}</button>
                  </form>
+                 <ins
+                    className="adsbygoogle adbanner-customize"
+                    style={{
+                        display: "block"
+                    }}
+                    data-ad-client="ca-pub-7391905567078145"
+                    data-ad-slot="1723273533"
+                    />
              </div>
          </div>
         <Footer />
