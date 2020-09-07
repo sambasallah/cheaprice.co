@@ -68,6 +68,7 @@ const Contact = () => {
         <Header title="Contact Us | Cheaprice.co" description="Have Questions? Enquires? Support? Feature Request? 
                      Let us know! Drop us a line in the form below, and we'll get back to you as soon as possible!"/>
          <div className="contact__us">
+         <script data-ad-client="ca-pub-7391905567078145" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
              <div className="breadcrumb">
                  <h2>Contact Us</h2>
              </div>

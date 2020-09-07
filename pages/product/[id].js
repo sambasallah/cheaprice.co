@@ -105,13 +105,14 @@ const Product = ({data}) => {
     return (
         <div>
                 <>
+                <script data-ad-client="ca-pub-7391905567078145" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                  { Object.keys(product).length !== 0? (
                      <>
                      <ToastContainer />
                        <Header title={data.title} type="image/jpeg" image={data.image? data.image : data.fullImg} description={data.description !== null? data.description : data.title} />
                    <main className="product__page">
                        <div className="breadcrumb">
-                          <div id="ezoic-pub-ad-placeholder-101"></div>
+
                            <h1>{ parse(String(data.title)) }</h1>
                        </div>
                        

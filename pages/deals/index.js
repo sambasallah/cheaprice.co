@@ -59,6 +59,7 @@ const Deals = ({data}) => {
        <>
              <Header title="Best Deals: Currently tracking | Cheaprice: Amazon Price History Tracker" description="Amazon price tracker | ebay price tracker: Best deals cheaprice.co" />
             <main className="deals">
+            <script data-ad-client="ca-pub-7391905567078145" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 <div className="breadcrumb">
                     <h2>Best Deals</h2>
                 </div>

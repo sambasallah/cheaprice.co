@@ -62,6 +62,7 @@ const Index = ({data}) => {
     <>
      <Header title="Amazon Price History: Price Tracker, Price Charts, Price Drops | eBay Price History: Price Tracker, Price Charts, Price Drops"/>
      <main className="main__body">
+     <script data-ad-client="ca-pub-7391905567078145" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
        <div className="hero__section">
           <h1>Amazon & eBay Price Tracker</h1>
           <p>Free price tracker for Amazon & eBay</p>

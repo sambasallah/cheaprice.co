@@ -8,6 +8,7 @@ const Privacy = () => {
         <>
          <Header title="Privacy Policy: Amazon Price Tracker: Price History: Cheaprice.co" />
            <div className="privacy__page">
+           <script data-ad-client="ca-pub-7391905567078145" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                <div className="privacy__title">
                    <h2>Privacy Policy</h2>
                </div>
