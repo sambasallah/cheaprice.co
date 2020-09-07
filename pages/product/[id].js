@@ -118,6 +118,7 @@ const Product = ({data}) => {
                        <div className="breadcrumb">
                            <h1>{ parse(String(data.title)) }</h1>
                        </div>
+                       <div>
                        <ins
                         className="adsbygoogle adbanner-customize"
                         style={{
@@ -127,6 +128,7 @@ const Product = ({data}) => {
                         data-ad-slot="1723273533"
                         data-full-width-responsive="true"
                         />
+                       </div>
                        <div className="product__info">
                            <div className="product__img">
                                <img src={data.image? data.image : data.fullImg.replace('http', 'https') } />
@@ -169,15 +171,6 @@ const Product = ({data}) => {
                                ): ''}
                               
                            </div>
-                           <ins
-                            className="adsbygoogle adbanner-customize"
-                            style={{
-                                display: "block"
-                            }}
-                            data-ad-client="ca-pub-7391905567078145"
-                            data-ad-slot="1723273533"
-                            data-full-width-responsive="true"
-                            />
                            <Modal open={modal} classNames="custom-modal-style" onClose={closeModal}>
                                 <h2 style={{paddingBottom: '20px', fontFamily: "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"
                                    ,fontWeight: 'lighter', fontSize: '25px' ,textAlign: 'center'}}>Track Product</h2>
@@ -252,15 +245,6 @@ const Product = ({data}) => {
                                </>
                            ) : (<h1>Loading...</h1>)}
                         </div>
-                        <ins
-                            className="adsbygoogle adbanner-customize"
-                            style={{
-                                display: "block"
-                            }}
-                            data-ad-client="ca-pub-7391905567078145"
-                            data-ad-slot="1723273533"
-                            data-full-width-responsive="true"
-                            />
                    </main>
                 <Footer />
                      </>
