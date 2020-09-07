@@ -119,28 +119,8 @@ const Track = () => {
          <ToastContainer />
           <Header title="Track A Product: Amazon Price Tracker: Price History: Cheaprice.co" description="Track price drops on amazon and get alerts sent to your phone or email when the price drops"/>
            <main className="track__page">
-               <div>
-                    <ins
-                        className="adsbygoogle"
-                        style={{
-                            display: "block"
-                        }}
-                        data-ad-client="ca-pub-7391905567078145"
-                        data-ad-slot="1723273533"
-                        data-full-width-responsive="true"
-                    />
-               </div>
                <h1>Track A Product</h1>
                <p>Get Alerts sent to your Email and/or Phone when the price drops for free</p>
-               <ins
-                    className="adsbygoogle adbanner-customize"
-                    style={{
-                        display: "block"
-                    }}
-                    data-ad-client="ca-pub-7391905567078145"
-                    data-ad-slot="1723273533"
-                    data-full-width-responsive="true"
-                 />
                <form onSubmit={ submitForm }>
                    <div>
                        <input type="url" placeholder="PRODUCT URL" id="url" value={formData.url} onChange={handleChange} required/>
@@ -170,6 +150,15 @@ const Track = () => {
                    <img src="images/ebay.png" style={{maxWidth: '100%', maxHeight: '100%'}} />
                    </div>
             </div>
+            <ins
+                        className="adsbygoogle"
+                        style={{
+                            display: "block"
+                        }}
+                        data-ad-client="ca-pub-7391905567078145"
+                        data-ad-slot="1723273533"
+                        data-full-width-responsive="true"
+                    />
            <div className="currently__tracking">
                <h1>Currently Tracking</h1>
                <div className="currently__tracking_products">
