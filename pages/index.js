@@ -81,6 +81,7 @@ useEffect(() => {
           }}
           data-ad-client="ca-pub-7391905567078145"
           data-ad-slot="1723273533"
+          data-ad-format="auto"
           data-full-width-responsive="true"
         />
           <h1>Amazon & eBay Price Tracker</h1>
@@ -148,6 +149,7 @@ useEffect(() => {
           }}
           data-ad-client="ca-pub-7391905567078145"
           data-ad-slot="1723273533"
+          data-ad-format="auto"
           data-full-width-responsive="true"
         />
        </div>

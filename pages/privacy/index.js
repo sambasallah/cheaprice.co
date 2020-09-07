@@ -25,6 +25,7 @@ const Privacy = () => {
                     }}
                     data-ad-client="ca-pub-7391905567078145"
                     data-ad-slot="1723273533"
+                    data-ad-format="auto"
                     data-full-width-responsive="true"
                     />
                <div className="privacy__content">
@@ -50,6 +51,7 @@ const Privacy = () => {
                     }}
                     data-ad-client="ca-pub-7391905567078145"
                     data-ad-slot="1723273533"
+                    data-ad-format="auto"
                     data-full-width-responsive="true"
                     />
            </div>

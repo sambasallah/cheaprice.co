@@ -26,6 +26,7 @@ const FAQs = () => {
                 }}
                 data-ad-client="ca-pub-7391905567078145"
                 data-ad-slot="1723273533"
+                data-ad-format="auto"
                 data-full-width-responsive="true"
                 />
             <div className="faqs__content">
@@ -72,6 +73,7 @@ const FAQs = () => {
                 }}
                 data-ad-client="ca-pub-7391905567078145"
                 data-ad-slot="1723273533"
+                data-ad-format="auto"
                 data-full-width-responsive="true"
                 />
         </div>
