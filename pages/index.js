@@ -60,7 +60,7 @@ const Index = ({data}) => {
 }
   return (
     <>
-     <Header title="Amazon Price History: Price Tracker | eBay Price History: Price Tracker 2020"/>
+     <Header title="Amazon Price History: Price Tracker, Price Charts, Price Drops | eBay Price History: Price Tracker, Price Charts, Price Drops"/>
      <main className="main__body">
        <div className="hero__section">
           <div id="ezoic-pub-ad-placeholder-102"> </div>

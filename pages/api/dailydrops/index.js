@@ -33,22 +33,22 @@ export default async (req, res) => {
         });
         if(drops.length >= 1) {
             let dailydeals = shuffle(drops);
-        // filter to remove duplicate id's
-        dailydeals = [...new Set(drops.slice(0,10))];
-        await firebase.collection('products')
-        .where('id','in',dailydeals)
-        .get()
-        .then((snap) => {
-            snap.forEach((doc) => {
-                // return resolve(doc.data());
-                products.push(doc.data());
+            // filter to remove duplicate id's
+            dailydeals = [...new Set(drops.slice(0,10))];
+            await firebase.collection('products')
+            .where('id','in',dailydeals)
+            .get()
+            .then((snap) => {
+                snap.forEach((doc) => {
+                    // return resolve(doc.data());
+                    products.push(doc.data());
+                });
+            }).catch((err) => {
+                res.json(err);
             });
-        }).catch((err) => {
-            res.json(err);
-        });
-       res.json({dailydrops: products});
-        }
-        res.json({dailydrops: products});
+            res.json({dailydrops: products});
+         }
+            res.json({dailydrops: products});
     }
     res.json({message: 'Request Method Not Allowed'});
 }
