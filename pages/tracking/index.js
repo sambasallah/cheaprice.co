@@ -150,7 +150,9 @@ const Track = () => {
                    <img src="images/ebay.png" style={{maxWidth: '100%', maxHeight: '100%'}} />
                    </div>
             </div>
-            <ins
+           <div className="currently__tracking">
+               <h1>Currently Tracking</h1>
+               <ins
                         className="adsbygoogle"
                         style={{
                             display: "block"
@@ -159,8 +161,6 @@ const Track = () => {
                         data-ad-slot="1723273533"
                         data-full-width-responsive="true"
                     />
-           <div className="currently__tracking">
-               <h1>Currently Tracking</h1>
                <div className="currently__tracking_products">
                 { currentlyTracking.length > 0 ?(
                      currentlyTracking.map((value) => {
