@@ -121,7 +121,8 @@ const Product = ({data}) => {
                        <ins
                         className="adsbygoogle"
                         style={{
-                            display: "block"
+                            display: "block",
+                            margin: "20px auto"
                         }}
                         data-ad-client="ca-pub-7391905567078145"
                         data-ad-slot="1723273533"
