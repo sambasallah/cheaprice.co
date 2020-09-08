@@ -118,6 +118,16 @@ const Product = ({data}) => {
                        <div className="breadcrumb">
                            <h1>{ parse(String(data.title)) }</h1>
                        </div>
+                       <ins
+                        className="adsbygoogle"
+                        style={{
+                            display: "block"
+                        }}
+                        data-ad-client="ca-pub-7391905567078145"
+                        data-ad-slot="1723273533"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"
+                    />
                        <div className="product__info">
                            <div className="product__img">
                                <img src={data.image? data.image : data.fullImg.replace('http', 'https') } />
@@ -243,14 +253,15 @@ const Product = ({data}) => {
                       <Header title="Product Does Not Exist" />
                        <main className="product__not__exist">
                        <ins
-                            className="adsbygoogle adbanner-customize"
-                            style={{
-                                display: "block"
-                            }}
-                            data-ad-client="ca-pub-7391905567078145"
-                            data-ad-slot="1723273533"
-                            data-full-width-responsive="true"
-                            />
+                        className="adsbygoogle"
+                        style={{
+                            display: "block"
+                        }}
+                        data-ad-client="ca-pub-7391905567078145"
+                        data-ad-slot="1723273533"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"
+                    />
                             <div className="not__found">
                                 Product Not Found
                             </div>
