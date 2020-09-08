@@ -118,17 +118,19 @@ const Product = ({data}) => {
                        <div className="breadcrumb">
                            <h1>{ parse(String(data.title)) }</h1>
                        </div>
+                       <div style={{width: "95%", margin: '20px auto'}}>
                        <ins
-                        className="adsbygoogle"
-                        style={{
-                            display: "block",
-                            margin: "20px auto"
-                        }}
-                        data-ad-client="ca-pub-7391905567078145"
-                        data-ad-slot="1723273533"
-                        data-ad-format="auto"
-                        data-full-width-responsive="true"
-                    />
+                            className="adsbygoogle"
+                            style={{
+                                display: "block",
+                                margin: "20px auto"
+                            }}
+                            data-ad-client="ca-pub-7391905567078145"
+                            data-ad-slot="1723273533"
+                            data-ad-format="auto"
+                            data-full-width-responsive="true"
+                        />
+                       </div>
                        <div className="product__info">
                            <div className="product__img">
                                <img src={data.image? data.image : data.fullImg.replace('http', 'https') } />
