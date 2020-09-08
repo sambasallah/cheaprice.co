@@ -106,8 +106,8 @@ const Track = () => {
     }
 
     useEffect(() => {
-        trackingData();
         try {
+            trackingData();
             (window.adsbygoogle = window.adsbygoogle || []).push({});
           } catch (err) {
             console.log(err);
@@ -150,9 +150,7 @@ const Track = () => {
                    <img src="images/ebay.png" style={{maxWidth: '100%', maxHeight: '100%'}} />
                    </div>
             </div>
-           <div className="currently__tracking">
-               <h1>Currently Tracking</h1>
-               <ins
+            <ins
                         className="adsbygoogle"
                         style={{
                             display: "block"
@@ -161,6 +159,8 @@ const Track = () => {
                         data-ad-slot="1723273533"
                         data-full-width-responsive="true"
                     />
+           <div className="currently__tracking">
+               <h1>Currently Tracking</h1>
                <div className="currently__tracking_products">
                 { currentlyTracking.length > 0 ?(
                      currentlyTracking.map((value) => {
@@ -186,15 +186,6 @@ const Track = () => {
                     </>
                 )}
                </div>
-               <ins
-                    className="adsbygoogle adbanner-customize"
-                    style={{
-                        display: "block"
-                    }}
-                    data-ad-client="ca-pub-7391905567078145"
-                    data-ad-slot="1723273533"
-                    data-full-width-responsive="true"
-                />
            </div>
            <Footer />
           
