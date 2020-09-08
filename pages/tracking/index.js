@@ -152,7 +152,7 @@ const Track = () => {
                    <img src="images/ebay.png" style={{maxWidth: '100%', maxHeight: '100%'}} />
                    </div>
             </div>
-            <div style={{width: "95%", margin: "10px auto", border: '1px solid black'}}>
+            <div style={{width: "95%", margin: "10px auto"}}>
             <ins
                         className="adsbygoogle"
                         style={{
