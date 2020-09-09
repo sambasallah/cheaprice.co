@@ -84,7 +84,7 @@ useEffect(() => {
           data-ad-format="auto"
           data-full-width-responsive="true"
         />
-          <h1>Amazon & eBay Price Tracker</h1>
+          <h1>eBay & Amazon Price Tracker</h1>
           <p>Free price tracker for Amazon & eBay</p>
           <img src='images/about1.png' style={{maxWidth: '70%', maxHeight: '50%'}} />
        </div>

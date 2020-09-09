@@ -31,7 +31,7 @@ const FAQs = () => {
                 data-full-width-responsive="true"
                 />
             <div className="faqs__content">
-            <h2>What is CHEAPRICE</h2>
+            <h2>What is CHEAPRICE: AMAZON PRICE TRACKER?</h2>
             <p>Cheaprice maintains price histories for all products on Amazon and eBay
             which are the world’s largest and most trusted online merchants. Users can individually 
             track the price development of products they are interested in, and Cheaprice will notify 
