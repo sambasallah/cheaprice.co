@@ -25,6 +25,7 @@ const Header = ({title,description,url,image, type}) => {
           <Head>
             <meta CharSet="utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+            <meta name="description" content={description} />
             <meta name="p:domain_verify" content="073c1c8f24e9376166e83c6d70fcf770"/>
              <meta property="og:title" content={title} />
             <meta property="og:type" content={type} />
