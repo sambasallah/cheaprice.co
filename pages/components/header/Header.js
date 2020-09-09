@@ -29,6 +29,7 @@ const Header = ({title,description,url,image, type}) => {
             <meta name="p:domain_verify" content="073c1c8f24e9376166e83c6d70fcf770"/>
              <meta property="og:title" content={title} />
             <meta property="og:type" content={type} />
+            <meta property="og:locale" content="en_US" />
             <meta property="og:url" content={url} />
             <meta property="og:description" content={description} />
             <meta property="og:image" content={image} />
