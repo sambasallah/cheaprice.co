@@ -4,6 +4,7 @@ import Footer from '../components/footer/Footer';
 import '../style/css/style.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import { FaFacebook, FaInstagram, FaReddit, FaTwitter, FaLinkedin } from 'react-icons/fa';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -98,6 +99,14 @@ const Contact = () => {
                      <textarea col="4" rows="20" placeholder="Message" id="message" value={formData.message} onChange={handleChange} required/>
                      <button type="submit" className="btn__send">{loading? 'Loading...': 'Send'}</button>
                  </form>
+                 <h3>Social Handles</h3>
+                 <ul className="social__icons">
+                     <li><a href="https://www.facebook.com/cheaprice.co"><FaFacebook /></a></li>
+                     <li><a href="https://www.instagram.com/cheaprice.co/"><FaInstagram /></a></li>
+                     <li><a href="https://www.reddit.com/user/cheaprice-co"><FaReddit /></a></li>
+                     <li><a href="https://twitter.com/CheapriceC"><FaTwitter /></a></li>
+                     <li><a href="https://www.linkedin.com/company/cheaprice-co/"><FaLinkedin /></a></li>
+                 </ul>
                  <ins
                     className="adsbygoogle adbanner-customize"
                     style={{

@@ -66,6 +66,7 @@ const FAQs = () => {
             <p>Keepa.com and camelcamelcamel.com are both great price tracking tools but cheaprice is the tracking tool to use if you want
                 ease of use without many complications and registrations.
             </p>
+            <h2>Note: CERTAIN CONTENT THAT APPEARS ON THIS SITE COMES FROM AMAZON SERVICES LLC & eBay LLC. THIS CONTENT IS PROVIDED ‘AS IS’ AND IS SUBJECT TO CHANGE OR REMOVAL AT ANY TIME.</h2>
             </div>
             <ins
                 className="adsbygoogle adbanner-customize"

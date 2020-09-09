@@ -266,6 +266,18 @@ ul {
 
 /** Footer Section **/
 .footer__section {
+	.social__icons {
+		list-style-type: none;
+		li {
+			a{
+				color: #000;
+			}
+			display: inline-block;
+			padding-top: 20px;
+			padding-right: 20px;
+			font-size: 25px;
+		}
+	}
 	div {
 		width: 95%;
 		margin: 10px auto;
@@ -806,6 +818,22 @@ ul {
 			cursor: pointer;
 		}
 	}
+	h3 {
+		padding-top: 20px;
+	}
+	.social__icons {
+		list-style-type: none;
+		li {
+			a{
+				color: #000;
+			}
+			display: inline-block;
+			padding-top: 20px;
+			padding-right: 20px;
+			font-size: 25px;
+		}
+	}
+
 	@media screen and (max-width: 800px) {
 		.form__container {
 			width: 95%;

@@ -232,6 +232,18 @@ ul {
 }
 
 /** Footer Section **/
+.footer__section .social__icons {
+  list-style-type: none;
+}
+.footer__section .social__icons li {
+  display: inline-block;
+  padding-top: 20px;
+  padding-right: 20px;
+  font-size: 25px;
+}
+.footer__section .social__icons li a {
+  color: #000;
+}
 .footer__section div {
   width: 95%;
   margin: 10px auto;
@@ -751,6 +763,21 @@ ul {
   font-family: serif;
   border-radius: 8px;
   cursor: pointer;
+}
+.contact__us h3 {
+  padding-top: 20px;
+}
+.contact__us .social__icons {
+  list-style-type: none;
+}
+.contact__us .social__icons li {
+  display: inline-block;
+  padding-top: 20px;
+  padding-right: 20px;
+  font-size: 25px;
+}
+.contact__us .social__icons li a {
+  color: #000;
 }
 @media screen and (max-width: 800px) {
   .contact__us .form__container {

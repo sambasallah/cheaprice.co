@@ -1,5 +1,5 @@
 import { FiTrendingDown } from 'react-icons/fi';
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaReddit, FaTwitter, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
     return (
@@ -23,7 +23,15 @@ const Footer = () => {
                 />
                 <div className="copyright">
                 <span className="copyright__text">&copy; 2020 CHEAPRICE <FiTrendingDown />. All Rights Reserved</span>
+                 <ul className="social__icons">
+                     <li><a href="https://www.facebook.com/cheaprice.co"><FaFacebook /></a></li>
+                     <li><a href="https://www.instagram.com/cheaprice.co/"><FaInstagram /></a></li>
+                     <li><a href="https://www.reddit.com/user/cheaprice-co"><FaReddit /></a></li>
+                     <li><a href="https://twitter.com/CheapriceC"><FaTwitter /></a></li>
+                     <li><a href="https://www.linkedin.com/company/cheaprice-co/"><FaLinkedin /></a></li>
+                 </ul>
                 </div>
+               
             </footer>
         </>
     )
