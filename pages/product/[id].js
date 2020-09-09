@@ -119,17 +119,6 @@ const Product = ({data}) => {
                            <h1>{ parse(String(data.title)) }</h1>
                        </div>
                        <div style={{width: "95%", margin: '20px auto'}}>
-                       <ins
-                            className="adsbygoogle"
-                            style={{
-                                display: "block",
-                                margin: "20px auto"
-                            }}
-                            data-ad-client="ca-pub-7391905567078145"
-                            data-ad-slot="1723273533"
-                            data-ad-format="auto"
-                            data-full-width-responsive="true"
-                        />
                        </div>
                        <div className="product__info">
                            <div className="product__img">
@@ -255,16 +244,6 @@ const Product = ({data}) => {
                      <>
                       <Header title="Product Does Not Exist" />
                        <main className="product__not__exist">
-                       <ins
-                        className="adsbygoogle"
-                        style={{
-                            display: "block"
-                        }}
-                        data-ad-client="ca-pub-7391905567078145"
-                        data-ad-slot="1723273533"
-                        data-ad-format="auto"
-                        data-full-width-responsive="true"
-                    />
                             <div className="not__found">
                                 Product Not Found
                             </div>

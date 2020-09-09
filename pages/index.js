@@ -76,16 +76,6 @@ useEffect(() => {
      We currently offer Amazon Price Tracker and eBay Price Tracker"/>
      <main className="main__body">
        <div className="hero__section">
-       <ins
-          className="adsbygoogle adbanner-customize"
-          style={{
-            display: "block"
-          }}
-          data-ad-client="ca-pub-7391905567078145"
-          data-ad-slot="1723273533"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        />
           <h1>eBay & Amazon Price Tracker | Price History | Price Charts </h1>
           <div className="text__content">
           <p>Free price history tracker for Amazon & eBay</p>
@@ -152,17 +142,6 @@ useEffect(() => {
                 })}
             </Swiper>
          </div>
-         <ins
-          className="adsbygoogle adbanner-customize"
-          style={{
-            display: "block",
-            margin: "20px auto"
-          }}
-          data-ad-client="ca-pub-7391905567078145"
-          data-ad-slot="1723273533"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        />
        </div>
          </>
        ) : ''}

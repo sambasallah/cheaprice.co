@@ -18,18 +18,6 @@ const FAQs = () => {
             <div className="faqs__title">
                 <h1>FAQs</h1>
             </div>
-
-            <ins
-                className="adsbygoogle adbanner-customize"
-                style={{
-                    display: "block",
-                    margin: "20px auto"
-                }}
-                data-ad-client="ca-pub-7391905567078145"
-                data-ad-slot="1723273533"
-                data-ad-format="auto"
-                data-full-width-responsive="true"
-                />
             <div className="faqs__content">
             <h2>What is CHEAPRICE: AMAZON PRICE TRACKER?</h2>
             <p>Cheaprice maintains price histories for all products on Amazon and eBay
@@ -68,16 +56,6 @@ const FAQs = () => {
             </p>
             <h2>Note: CERTAIN CONTENT THAT APPEARS ON THIS SITE COMES FROM AMAZON SERVICES LLC & eBay LLC. THIS CONTENT IS PROVIDED ‘AS IS’ AND IS SUBJECT TO CHANGE OR REMOVAL AT ANY TIME.</h2>
             </div>
-            <ins
-                className="adsbygoogle adbanner-customize"
-                style={{
-                    display: "block"
-                }}
-                data-ad-client="ca-pub-7391905567078145"
-                data-ad-slot="1723273533"
-                data-ad-format="auto"
-                data-full-width-responsive="true"
-                />
         </div>
         <Footer />
         </>

@@ -19,17 +19,6 @@ const Privacy = () => {
                <div className="privacy__title">
                    <h1>Privacy Policy</h1>
                </div>
-               <ins
-                    className="adsbygoogle adbanner-customize"
-                    style={{
-                        display: "block",
-                        margin: "20px auto"
-                    }}
-                    data-ad-client="ca-pub-7391905567078145"
-                    data-ad-slot="1723273533"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"
-                    />
                <div className="privacy__content">
                    <p>
                     You can use all of our services without providing any personal information. 
