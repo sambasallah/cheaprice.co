@@ -71,9 +71,8 @@ useEffect(() => {
 
   return (
     <>
-     <Header title="Amazon Price History: Price Tracker, Price Charts, Price Drops | eBay Price Tracker"
-     description="Cheaprice.co allows you to track, check price history of 
-     two of the biggest ecommerce sites in the US Amazon & eBay
+     <Header title="Amazon Price History: Price Tracker, Price Charts, Price Drops"
+     description="Cheaprice.co allows you to track, check price history of products from amazon and ebay
      We currently offer Amazon Price Tracker and eBay Price Tracker"/>
      <main className="main__body">
        <div className="hero__section">
