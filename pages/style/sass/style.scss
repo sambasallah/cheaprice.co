@@ -189,8 +189,15 @@ ul {
 			line-height: 28px;
 			padding-bottom: 20px;
 		}
+		.text__content {
+			width: 60%;
+			margin: auto;
+		}
+		@media screen and (max-width: 800px) {
+			.text__content {width: 95%;}
+		}
 	}
-
+	
 	.ecommerce__logos {
 		display: flex;
 		width: 100%;

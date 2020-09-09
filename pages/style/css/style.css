@@ -170,6 +170,15 @@ ul {
   line-height: 28px;
   padding-bottom: 20px;
 }
+.main__body .hero__section .text__content {
+  width: 60%;
+  margin: auto;
+}
+@media screen and (max-width: 800px) {
+  .main__body .hero__section .text__content {
+    width: 95%;
+  }
+}
 .main__body .ecommerce__logos {
   display: flex;
   width: 100%;
