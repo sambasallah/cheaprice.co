@@ -76,7 +76,7 @@ const Contact = () => {
                      Let us know! Drop us a line in the form below, and we'll get back to you as soon as possible!"/>
          <div className="contact__us">
              <div className="breadcrumb">
-                 <h2>Contact Us</h2>
+                 <h1>Contact Us</h1>
              </div>
              <div className="form__container">
                  <ins

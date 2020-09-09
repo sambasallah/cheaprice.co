@@ -16,7 +16,7 @@ const FAQs = () => {
         <Header title="FAQs: Amazon Price Tracker: Cheaprice.co" description='Cheaprice.co: Amazon price tracker frequently asked questions' />
         <div className="faqs__page">
             <div className="faqs__title">
-                <h2>FAQs</h2>
+                <h1>FAQs</h1>
             </div>
 
             <ins

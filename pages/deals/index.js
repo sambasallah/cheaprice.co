@@ -64,7 +64,7 @@ const Deals = ({data}) => {
              <Header title="Best Deals: Currently tracking | Cheaprice: Amazon Price History Tracker" description="Amazon price tracker | ebay price tracker: Best deals cheaprice.co" />
             <main className="deals">
                 <div className="breadcrumb">
-                    <h2>Best Deals</h2>
+                    <h1>Best Deals</h1>
                 </div>
                 <ins
                 className="adsbygoogle adbanner-customize"

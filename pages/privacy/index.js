@@ -17,7 +17,7 @@ const Privacy = () => {
          description="Privacy Policy: Amazon Price Tracker: Price History: Cheaprice.co"/>
            <div className="privacy__page">
                <div className="privacy__title">
-                   <h2>Privacy Policy</h2>
+                   <h1>Privacy Policy</h1>
                </div>
                <ins
                     className="adsbygoogle adbanner-customize"
