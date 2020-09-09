@@ -66,16 +66,6 @@ const Deals = ({data}) => {
                 <div className="breadcrumb">
                     <h1>Best Deals</h1>
                 </div>
-                <ins
-                className="adsbygoogle adbanner-customize"
-                style={{
-                    display: "block"
-                }}
-                data-ad-client="ca-pub-7391905567078145"
-                data-ad-slot="1723273533"
-                data-ad-format="auto"
-                data-full-width-responsive="true"
-                />
                 <div className="products">
                     {/* <div className="search__bar">
                         <h2>Filter</h2>
