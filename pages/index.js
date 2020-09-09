@@ -71,7 +71,12 @@ useEffect(() => {
 
   return (
     <>
-     <Header title="Amazon Price History: Price Tracker, Price Charts, Price Drops | eBay Price History: Price Tracker, Price Charts, Price Drops"/>
+     <Header title="Amazon Price History: Price Tracker, Price Charts, Price Drops | eBay Price History: Price Tracker, Price Charts, Price Drops"
+     description="CHEAPRICE allows you to 
+     check historic prices of products from US based E-commerce stores for free. 
+     This is easy to use price tracker for US based E-commerce stores. 
+     We currently offer Amazon Price Tracker and eBay Price Tracker: Amazon price tracer, ebay price tracker, amazon, ebay,
+      online shopping, price history, boat sales, amazon, ebay, walmart, target, etsy, price tracker, price charts"/>
      <main className="main__body">
        <div className="hero__section">
        <ins
