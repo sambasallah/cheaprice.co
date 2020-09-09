@@ -182,6 +182,8 @@ ul {
 		color: $heading-color;
 		font-family: 'Merriweather', serif;
 		text-align: center;
+		width: 70%;
+		margin: auto;
 
 		p {
 			color: $para-color;
@@ -189,10 +191,10 @@ ul {
 			line-height: 28px;
 			padding-bottom: 20px;
 		}
-		.text__content {
-			width: 60%;
-			margin: auto;
-		}
+		// .text__content {
+		// 	width: 60%;
+		// 	margin: auto;
+		// }
 		@media screen and (max-width: 800px) {
 			.text__content {width: 95%;}
 		}
