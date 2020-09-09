@@ -87,24 +87,25 @@ useEffect(() => {
           data-full-width-responsive="true"
         />
           <h1>eBay & Amazon Price Tracker | Price History | Price Charts </h1>
-          <p>Free price tracker for Amazon & eBay</p>
+          <p>Free price history tracker for Amazon & eBay</p>
+          <p>Track Millions of products from Amazon & eBay and get notified when the prices drops for free</p>
           <img src='images/about1.png' style={{maxWidth: '70%', maxHeight: '50%'}} />
        </div>
        <div className="ecommerce__logos">
-             <div><img src="images/amazon.png" style={{maxWidth: '40%', maxHeight: '40%'}}/></div>
-             <div><img src="images/ebay.png" style={{maxWidth: '40%', maxHeight: '40%'}}/></div>
+             <div><img src="images/amazon.png" alt="Amazon Logo" style={{maxWidth: '40%', maxHeight: '40%'}}/></div>
+             <div><img src="images/ebay.png" alt="eBay Logo" style={{maxWidth: '40%', maxHeight: '40%'}}/></div>
        </div>
        <div className="services">
           <h2>What We Offer</h2>
           <div className="services__list">
-            <div><img src="images/pricechart.png" />
+            <div><img src="images/pricechart.png" alt="Price Chart"/>
                 <h3>Price History</h3>
             </div>  
           
-            <div><img src="images/notification.png" />
+            <div><img src="images/notification.png" alt="Notification" />
                 <h3>Price Alerts</h3>
             </div>
-            <div><img src="images/productselection.png" />
+            <div><img src="images/productselection.png" alt="Deals" />
                  <h3>Daily Deals</h3> 
             </div>
           </div>
@@ -131,7 +132,7 @@ useEffect(() => {
                          <div className="daily__product">
                             <span>{ Number(value.previousPrice) / Number(value.price) >= 1.5? 'Best Deal' : 'Good Deal'  }</span>
                               <div className="img__container">
-                              <img src={value.image} loading="lazy" style={{maxWidth: '100%', maxHeight: '100%'}} />
+                              <img src={value.image} loading="lazy" style={{maxWidth: '100%', maxHeight: '100%'}} alt="Product Img" />
                               </div>
                             <div className="descrip">
                             <h6>{limitTitle(value.title) }</h6>

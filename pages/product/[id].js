@@ -133,7 +133,7 @@ const Product = ({data}) => {
                        </div>
                        <div className="product__info">
                            <div className="product__img">
-                               <img src={data.image? data.image : data.fullImg.replace('http', 'https') } />
+                               <img src={data.image? data.image : data.fullImg.replace('http', 'https') } alt="Product Img" />
                            </div>
                            <div className="product__description">
                                <h1>Description</h1>

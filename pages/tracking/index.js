@@ -146,10 +146,10 @@ const Track = () => {
            
            <div className="supported__stores">
                    <div>
-                   <img src="images/amazon.png" style={{maxWidth: '100%', maxHeight: '100%'}} />
+                   <img src="images/amazon.png" style={{maxWidth: '100%', maxHeight: '100%'}} alt="Amazon Logo" />
                    </div>
                    <div>
-                   <img src="images/ebay.png" style={{maxWidth: '100%', maxHeight: '100%'}} />
+                   <img src="images/ebay.png" style={{maxWidth: '100%', maxHeight: '100%'}} alt="eBay Logo"/>
                    </div>
             </div>
             <div style={{width: "95%", margin: "10px auto"}}>
