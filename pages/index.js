@@ -88,7 +88,12 @@ useEffect(() => {
         />
           <h1>eBay & Amazon Price Tracker | Price History | Price Charts </h1>
           <p>Free price history tracker for Amazon & eBay</p>
-          <p>Track Millions of products from Amazon & eBay and get notified when the prices drops for free</p>
+          <p>Track Millions of products from Amazon & eBay and get notified when the prices drops for free.
+          Amazon and eBay price's drop almost everyday if you wait just for a day or 
+          so you will buy at a lower price, cheaprice.co is an amazon and ebay price tracker 
+          that help you buy at the lowest price possible, 
+          track prices and get notifications sent to your email or phone when the price drops
+          </p>
           <img src='images/about1.png' style={{maxWidth: '70%', maxHeight: '50%'}} />
        </div>
        <div className="ecommerce__logos">
