@@ -80,16 +80,6 @@ const Contact = () => {
                  <h1>Contact Us</h1>
              </div>
              <div className="form__container">
-                 <ins
-                    className="adsbygoogle adbanner-customize"
-                    style={{
-                        display: "block"
-                    }}
-                    data-ad-client="ca-pub-7391905567078145"
-                    data-ad-slot="1723273533"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"
-                    />
                  <h2>Have Questions? Enquires? Support? Feature Request? 
                      Let us know! Drop us a line in the form below, and we'll get back to you as soon as possible!</h2>
                  <form onSubmit={sendMessage}>
@@ -107,16 +97,6 @@ const Contact = () => {
                      <li><a href="https://twitter.com/CheapriceC"><FaTwitter /></a></li>
                      <li><a href="https://www.linkedin.com/company/cheaprice-co/"><FaLinkedin /></a></li>
                  </ul>
-                 <ins
-                    className="adsbygoogle adbanner-customize"
-                    style={{
-                        display: "block"
-                    }}
-                    data-ad-client="ca-pub-7391905567078145"
-                    data-ad-slot="1723273533"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"
-                    />
              </div>
          </div>
         <Footer />
