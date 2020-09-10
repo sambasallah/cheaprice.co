@@ -23,6 +23,7 @@ const Header = ({title,description,url,image, type}) => {
     return (
         <>
           <Head>
+             <html lang="en" />
             <meta CharSet="utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
             <meta name="description" content={description} />
