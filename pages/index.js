@@ -71,12 +71,12 @@ useEffect(() => {
 
   return (
     <>
-     <Header title="Amazon Price History: Price Tracker, Price Charts, Price Drops"
+     <Header title="Best Amazon Price History: Price Tracker, Price Charts, Price Drops"
      description="Cheaprice.co allows you to track, check price history of products from amazon and ebay
      We currently offer Amazon Price Tracker and eBay Price Tracker"/>
      <main className="main__body">
        <div className="hero__section">
-          <h1>eBay & Amazon Price Tracker | Price History | Price Charts </h1>
+          <h1>Best eBay & Amazon Price Tracker | Price History | Price Charts </h1>
           <div className="text__content">
           <p>Free price history tracker for Amazon & eBay</p>
           <p>Track Millions of products from Amazon & eBay and get notified when the prices drops for free.
