@@ -81,7 +81,11 @@ const Product = ({data}) => {
                 date.push(value.createdAt);
                 price.push(Number(value.price));
             });
-            setPriceHistory({date: [...date].sort(), price: [...price].sort()});
+            let sorted = [...date];
+            let dateSorted = sorted.sort((a, b) => {
+                return new Date(a) - new Date(b);
+            });
+            setPriceHistory({date: dateSorted, price: [...price].sort()});
         }
     }
 
