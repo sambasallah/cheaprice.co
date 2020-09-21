@@ -9,6 +9,7 @@ import  Router from 'next/router';
 const Deals = ({data}) => {
 
     const [search, setSearch] = useState(null);
+    const [loading, setLoading] = useState(false);
     const [products, setProducts] = useState({products: [...data.products], lastVisible: data.lastVisible});
 
    
@@ -46,15 +47,18 @@ const Deals = ({data}) => {
         return newString;
     }
 
-    const loadMore = async () => {
+    const loadMore = async (event) => {
+        event.preventDefault();
+        setLoading(true);
         let response = await fetch(process.env.NODE_ENV === 'development'? 
         `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/products/more` : 
         `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/products/more`, 
         {method: 'POST', body: JSON.stringify({lastVisible: products.lastVisible}), headers: 
         {'Content-Type': 'application/json'}});
         let data = await response.json();
+        setLoading(false);
         setProducts({products: [...products.products,...data.products], lastVisible: data.lastVisible});
-        console.log(data);
+        
     }
 
     useEffect(() => {
@@ -97,7 +101,7 @@ const Deals = ({data}) => {
                           })}
                          
                         </div>
-                        <button onClick={loadMore} style={{width:'100%', marginTop:'15px', height: '40px'}}>Load More</button>
+                        <button onClick={loadMore} style={{width:'100%', marginTop:'15px', height: '40px'}}>{loading? 'Loading...' : 'Load More' }</button>
                     </div>
                 </div>
             </main>

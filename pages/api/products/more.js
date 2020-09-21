@@ -4,7 +4,7 @@ import firebase from '../firebase/firebase';
 
 export default async (req, res) => {
    let more = await firebase.collection("products")
-   .orderBy("title",'desc')
+   .orderBy("title")
    .startAfter(req.body.lastVisible._fieldsProto.id.stringValue)
    .limit(28);
     await more.get().then(function (documentSnapshots) {
