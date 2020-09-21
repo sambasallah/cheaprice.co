@@ -4,13 +4,12 @@ import 'flexboxgrid/dist/flexboxgrid.min.css';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import Link from 'next/link';
-import { FaSearch } from 'react-icons/fa';
 import  Router from 'next/router';
 
 const Deals = ({data}) => {
 
     const [search, setSearch] = useState(null);
-    const [products, setProducts] = useState({products: [...data.products]});
+    const [products, setProducts] = useState({products: [...data.products], lastVisible: data.lastVisible});
 
    
     const lookUp = async (event) => {
@@ -47,16 +46,19 @@ const Deals = ({data}) => {
         return newString;
     }
 
-    const handleChange = (event) => {
-        setSearch(event.target.value);
+    const loadMore = async () => {
+        let response = await fetch(process.env.NODE_ENV === 'development'? 
+        `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/products/more` : 
+        `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/products/more`, 
+        {method: 'POST', body: JSON.stringify({lastVisible: products.lastVisible}), headers: 
+        {'Content-Type': 'application/json'}});
+        let data = await response.json();
+        setProducts({products: [...products.products,...data.products], lastVisible: data.lastVisible});
+        console.log(data);
     }
 
     useEffect(() => {
-        try {
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (err) {
-          console.log(err);
-        }
+      
       }, []);
 
     return (
@@ -93,7 +95,9 @@ const Deals = ({data}) => {
                                   </>
                               )
                           })}
+                         
                         </div>
+                        <button onClick={loadMore} style={{width:'100%', marginTop:'15px', height: '40px'}}>Load More</button>
                     </div>
                 </div>
             </main>

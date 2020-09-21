@@ -3,10 +3,11 @@
 import firebase from '../firebase/firebase';
 
 export default async (req, res) => {
-   let first = await firebase.collection("products")
+   let more = await firebase.collection("products")
    .orderBy("title",'desc')
+   .startAfter(req.body.lastVisible._fieldsProto.id.stringValue)
    .limit(28);
-    await first.get().then(function (documentSnapshots) {
+    await more.get().then(function (documentSnapshots) {
             // Get the last visible document
            let lastVisible = documentSnapshots.docs[documentSnapshots.docs.length-1];
         
