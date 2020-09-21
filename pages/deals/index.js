@@ -101,7 +101,7 @@ const Deals = ({data}) => {
                           })}
                          
                         </div>
-                        <button onClick={loadMore} style={{width:'100%', marginTop:'15px', height: '40px'}}>{loading? 'Loading...' : 'Load More' }</button>
+                        <button onClick={loadMore} style={{width:'100%', marginTop:'15px', height: '40px', overflowAnchor: 'none'}}>{loading? 'Loading...' : 'Load More' }</button>
                     </div>
                 </div>
             </main>
