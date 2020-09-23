@@ -9,11 +9,16 @@ import { FaSearch, FaSpinner } from 'react-icons/fa';
 
 const Deals = ({data}) => {
 
-    const [search, setSearch] = useState(null);
+    const [search, setSearch] = useState("");
     const [loading, setLoading] = useState(false);
     const [searchLoad, setSearchLoad] = useState(false);
     const [products, setProducts] = useState({products: [...data.products], lastVisible: data.lastVisible});
 
+    let active = true;
+
+    if(search.length > 2) {
+        active = false;
+    }
    
     const fullTextSearch = async (event) => {
         event.preventDefault();
@@ -83,7 +88,7 @@ const Deals = ({data}) => {
                     <h1>Best Deals</h1>
                     <form onSubmit={fullTextSearch}>
                         <input type="text" placeholder="Search" onChange={ handleChange }/>
-                        <button type="submit">{searchLoad? <FaSpinner /> : <FaSearch /> }</button>
+                        <button type="submit" disabled={active}>{searchLoad? <FaSpinner /> : <FaSearch /> }</button>
                     </form>
                 </div>
                 <div className="products">
