@@ -21,6 +21,8 @@ export default async (req, res) => {
         let drops = [];
         let products = [];
         await firebase.collection('prices')
+        .orderBy('createdAt','desc')
+        .limit(15)
         .get()
         .then((snap) => {
             snap.forEach((doc) => {
