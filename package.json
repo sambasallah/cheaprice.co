@@ -26,6 +26,7 @@
     "html-react-parser": "^0.13.0",
     "jquery": "^3.5.1",
     "jquery-countup": "^1.0.1",
+    "lodash": "^4.17.20",
     "magnific-popup": "^1.1.0",
     "next": "^9.5.2",
     "node-fetch": "^2.6.0",

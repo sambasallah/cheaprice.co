@@ -583,8 +583,27 @@ ul {
 }
 .deals .breadcrumb {
   min-height: 70px;
+  display: flex;
   line-height: 70px;
   border-bottom: 1px solid #f6f6f6;
+}
+.deals .breadcrumb h1 {
+  flex: 1;
+}
+.deals .breadcrumb form {
+  flex: 1;
+  display: flex;
+  margin-top: 20px;
+}
+.deals .breadcrumb form input[type=text] {
+  width: 100%;
+  height: 40px;
+  padding: 0px 8px;
+  border: 1px solid #3f3a64;
+}
+.deals .breadcrumb form button {
+  height: 40px;
+  width: 40px;
 }
 .deals .breadcrumb h2 {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;

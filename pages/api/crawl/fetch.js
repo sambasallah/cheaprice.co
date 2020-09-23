@@ -2,7 +2,9 @@
 const axios = require('axios').default;
 const urlUtil = require('url');
 import firebase from '../firebase/firebase';
-
+const algoliasearch = require('algoliasearch');
+const client = algoliasearch('VL9V6CVL87',process.env.NEXT_PUBLIC_ALGOLIA_API);
+const index = client.initIndex('cheaprice.co');
 export default async (req,res) => {
     if(req.method === 'POST') {
         const filterPrice  = (str) => {
@@ -36,6 +38,13 @@ export default async (req,res) => {
                 await firebase.collection('products')
                 .add(data).
                  then(async (response) => {
+                    index.saveObjects([data], {
+                        autoGenerateObjectIDIfNotExist: true
+                      }).then(({ objectIDs }) => {
+                        console.log(objectIDs);
+                      }).catch((err) => {
+                          console.log(err)
+                    });
                     await axios.post(process.env.NODE_ENV === 'development'? 
                     `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/tracksuccess` : 
                     `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})
@@ -128,6 +137,13 @@ export default async (req,res) => {
             await firebase.collection('products')
             .add(data).
              then(async (resp) => {
+                index.saveObjects([data], {
+                    autoGenerateObjectIDIfNotExist: true
+                  }).then(({ objectIDs }) => {
+                    console.log(objectIDs);
+                  }).catch((err) => {
+                      console.log(err)
+                });
                await axios.post(process.env.NODE_ENV === 'development'? 
                 `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/sendmail/tracksuccess` : 
                 `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/sendmail/tracksuccess`, {email: email},{headers: {'Content-Type': 'application/json'}})

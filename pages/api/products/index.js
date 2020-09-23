@@ -12,7 +12,7 @@ export default async (req, res) => {
           return res.json(products);
        }).catch((err) => {
          return res.json({message: 'Error getting data'});
-       })
+       });
     }
     // const product = {
     //   id: req.body.id,

@@ -1,12 +1,14 @@
-const limitTitle = (title) => {
-    let newTitle = "";
-    if(title.length < 25) {
-        return title;
-    }
-    for(let i = 0; i < 32; i++) {
-        newTitle += title.charAt(i);
-    }
-    return newTitle + '...';
-}
+const algoliasearch = require('algoliasearch');
+const _ = require('lodash');
+const client = algoliasearch('VL9V6CVL87', '1706d6a2d8010a0021303ce7a9a766fe');
+const index = client.initIndex('cheaprice.co');
 
-console.log(limitTitle('Portable Charger RAVPower 80W AC Outlet Power Bank 20000mAh 30W PD USB C Laptop Charger External Battery Pack for MacBook Pro Dell iPad Pro Nintendo Switch iPhone Samsung(USB C Charger Not Included)'));
+index.saveObjects([{
+  test: 'testing'
+}], {
+    autoGenerateObjectIDIfNotExist: true
+  }).then(({ objectIDs }) => {
+    console.log(objectIDs);
+  }).catch((err) => {
+      console.log(err)
+});

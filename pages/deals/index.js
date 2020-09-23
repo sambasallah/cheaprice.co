@@ -5,22 +5,29 @@ import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import Link from 'next/link';
 import  Router from 'next/router';
+import { FaSearch, FaSpinner } from 'react-icons/fa';
 
 const Deals = ({data}) => {
 
     const [search, setSearch] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [searchLoad, setSearchLoad] = useState(false);
     const [products, setProducts] = useState({products: [...data.products], lastVisible: data.lastVisible});
 
    
-    const lookUp = async (event) => {
+    const fullTextSearch = async (event) => {
         event.preventDefault();
-        Router.push('/deals?search=' + search);
-        let resp = await fetch('http://localhost:3000/api/search/' + serializeString(search));
+        setSearchLoad(true);
+        Router.push('/deals?search=' + serializeString(search));
+        let resp = await fetch(process.env.NODE_ENV === 'development'? 
+        `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/search`: 
+        `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/search`, {method: 'POST', body: JSON.stringify({searchText: search}),
+            headers: {'Content-Type': 'application/json'}});
         let data = await resp.json();
 
         if(data) {
-            setProducts({products: []});
+            setSearchLoad(false)
+            setProducts({products: [...data.products]});
         }
     }
 
@@ -61,6 +68,11 @@ const Deals = ({data}) => {
         
     }
 
+    const handleChange = (event) => {
+        setSearch(event.target.value);
+        console.log(event.target.value);
+    }
+
     useEffect(() => {
       
       }, []);
@@ -69,8 +81,12 @@ const Deals = ({data}) => {
        <>
              <Header title="Best Deals: Currently tracking | Cheaprice: Amazon Price History Tracker" description="Amazon price tracker | ebay price tracker: Best deals cheaprice.co" />
             <main className="deals">
-                <div className="breadcrumb">
+                <div className="breadcrumb deals-breadcrumb">
                     <h1>Best Deals</h1>
+                    <form onSubmit={fullTextSearch}>
+                        <input type="text" placeholder="Search" onChange={ handleChange }/>
+                    <button type="submit">{searchLoad? <FaSpinner /> : <FaSearch /> }</button>
+                    </form>
                 </div>
                 <div className="products">
                     {/* <div className="search__bar">
@@ -82,7 +98,9 @@ const Deals = ({data}) => {
                     </div> */}
                     <div className="product__list">
                         <div className="row">
-                          {products.products.map((value) => {
+                          { products.products.length > 0? (
+                              <>
+                              {products.products.map((value) => {
                               return (
                                   <>
                                     <Link href={`../product/${value.id}`}>
@@ -99,9 +117,13 @@ const Deals = ({data}) => {
                                   </>
                               )
                           })}
+                              </>
+                          ) : (
+                              <h1>No Product Found</h1>
+                          )}
                          
                         </div>
-                        <button onClick={loadMore} style={{width:'100%', marginTop:'15px', height: '40px', overflowAnchor: 'none'}}>{loading? 'Loading...' : 'Load More' }</button>
+                        { products.lastVisible? (<button onClick={loadMore} style={{width:'100%', marginTop:'15px', height: '40px', overflowAnchor: 'none'}}>{loading? 'Loading...' : 'Load More' }</button>) : ('')}
                     </div>
                 </div>
             </main>

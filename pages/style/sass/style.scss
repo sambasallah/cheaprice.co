@@ -631,8 +631,28 @@ ul {
 	margin: auto;
 	.breadcrumb {
 		min-height: 70px;
+		display: flex;
 		line-height: 70px;
 		border-bottom: 1px solid $bg-primary;
+		h1 {
+			flex: 1;
+		}
+		form {
+			flex: 1;
+			display: flex;
+			margin-top: 20px;
+			input[type=text] {
+				width: 100%;
+				height: 40px;
+				padding: 0px 8px;
+				border: 1px solid $heading-color;
+			}
+
+			button {
+				height: 40px;
+				width: 40px;
+			}
+		}
 		h2 {
 			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 			font-weight: lighter;
