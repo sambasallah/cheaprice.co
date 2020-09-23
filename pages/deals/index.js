@@ -24,7 +24,6 @@ const Deals = ({data}) => {
         `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/search`, {method: 'POST', body: JSON.stringify({searchText: search}),
             headers: {'Content-Type': 'application/json'}});
         let data = await resp.json();
-
         if(data) {
             setSearchLoad(false)
             setProducts({products: [...data.products]});
@@ -70,7 +69,6 @@ const Deals = ({data}) => {
 
     const handleChange = (event) => {
         setSearch(event.target.value);
-        console.log(event.target.value);
     }
 
     useEffect(() => {
@@ -85,7 +83,7 @@ const Deals = ({data}) => {
                     <h1>Best Deals</h1>
                     <form onSubmit={fullTextSearch}>
                         <input type="text" placeholder="Search" onChange={ handleChange }/>
-                    <button type="submit">{searchLoad? <FaSpinner /> : <FaSearch /> }</button>
+                        <button type="submit">{searchLoad? <FaSpinner /> : <FaSearch /> }</button>
                     </form>
                 </div>
                 <div className="products">
