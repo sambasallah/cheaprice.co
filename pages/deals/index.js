@@ -23,7 +23,7 @@ const Deals = ({data}) => {
     const fullTextSearch = async (event) => {
         event.preventDefault();
         setSearchLoad(true);
-        Router.push('/deals?search=' + serializeString(search));
+        // Router.push('/deals?search=' + serializeString(search));
         let resp = await fetch(process.env.NODE_ENV === 'development'? 
         `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/api/search`: 
         `${process.env.NEXT_PUBLIC_LIVE_SERVER}/api/search`, {method: 'POST', body: JSON.stringify({searchText: search}),
@@ -87,7 +87,7 @@ const Deals = ({data}) => {
                 <div className="breadcrumb deals-breadcrumb">
                     <h1>Best Deals</h1>
                     <form onSubmit={fullTextSearch}>
-                        <input type="text" placeholder="Search" onChange={ handleChange }/>
+                        <input type="text" placeholder="Search" onChange={ handleChange } id="searchBox" />
                         <button type="submit" disabled={active}>{searchLoad? <FaSpinner /> : <FaSearch /> }</button>
                     </form>
                 </div>
