@@ -647,10 +647,14 @@ ul {
 				padding: 0px 8px;
 				border: 1px solid $heading-color;
 			}
-
+			input[type=text]:focus {
+				outline: none;
+			}
 			button {
 				height: 40px;
-				width: 40px;
+				width: 50px;
+				border: 1px solid $primary-color;
+				background-color: $primary-color;
 			}
 		}
 		h2 {
@@ -658,6 +662,17 @@ ul {
 			font-weight: lighter;
 			font-size: 30px;
 		}
+	}
+	@media screen and (max-width: 840px) {
+		.breadcrumb {
+			display: block;
+			h1 {
+				text-align: center;
+			}
+			form {
+				margin-top: -8px;
+			}
+		}	
 	}
 	.products {
 		display: flex;
