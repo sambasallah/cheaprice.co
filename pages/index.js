@@ -62,16 +62,12 @@ const Index = ({data}) => {
 }
 
 useEffect(() => {
-  try {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
-  } catch (err) {
-    console.log(err);
-  }
+  
 }, []);
 
   return (
     <>
-     <Header title="Cheaprice.co:Best Amazon Price History Tracker: Price Tracker, Price Charts, Price Drops"
+     <Header title="Cheaprice.co: Best eBay & Amazon Price History Tracker: Price Tracker, Price Charts, Price Drops"
      description="Cheaprice.co allows you to track, check price history of products from amazon and ebay
      We currently offer Amazon Price Tracker and eBay Price Tracker"/>
      <main className="main__body">
@@ -108,15 +104,6 @@ useEffect(() => {
             </div>
           </div>
        </div>
-       <ins
-          className="adsbygoogle adbanner-customize"
-          style={{
-            display: "block"
-          }}
-          data-ad-client="ca-pub-7391905567078145"
-          data-ad-slot="1723273533"
-          data-full-width-responsive="true"
-        />
        {data.dailydrops.length >= 1? (
          <>
          <div className="daily__drops">

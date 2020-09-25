@@ -79,7 +79,7 @@ const Header = ({title,description,url,image, type}) => {
             <nav>
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><Link href='/deals'><a>Deals</a></Link></li>
+                    <li><Link href='/deals'><a>Best Deals</a></Link></li>
                     <li><Link href='/privacy'><a>Privacy</a></Link></li>
                     <li><Link href='/faqs'><a>FAQs</a></Link></li>
                     <li><Link href='/contact'><a>Contact</a></Link></li>
