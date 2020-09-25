@@ -115,13 +115,14 @@ useEffect(() => {
                       <div className="swiper-slide" key={value.id}>
                          <Link href={"/product/" + value.id}>
                          <div className="daily__product">
-                            <span>{ Number(value.previousPrice) / Number(value.price) >= 1.5? 'Best Deal' : 'Good Deal'  }</span>
+                            <span>{ Number(value.previousPrice) / Number(value.price) >= 1.5? 'Best Deal' : 'Good Deal' }</span>
                               <div className="img__container">
                               <img src={value.image} loading="lazy" style={{maxWidth: '100%', maxHeight: '100%'}} alt="Product Img" />
                               </div>
                             <div className="descrip">
                             <h6>{limitTitle(value.title) }</h6>
                           <h6>{value.price? '$'+value.price : 'OUT OF STOCK'} <del>{value.previousPrice}</del></h6>
+                          <h6>{ (Math.ceil(((Number(value.previousPrice) - Number(value.price)) / Number(value.price)) * 100)) + '% Off' }</h6>
                         </div>
                         </div>
                          </Link>
