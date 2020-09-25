@@ -82,7 +82,7 @@ const Deals = ({data}) => {
 
     return (
        <>
-             <Header title="Best Deals: Currently tracking | Cheaprice: Amazon Price History Tracker" description="Amazon price tracker | ebay price tracker: Best deals cheaprice.co" />
+             <Header title="Best Deals: Lowest Prices | Cheaprice: Amazon Price History Tracker" description="Amazon price tracker | ebay price tracker: Best deals cheaprice.co" />
             <main className="deals">
                 <div className="breadcrumb deals-breadcrumb">
                     <h1>Best Deals</h1>
