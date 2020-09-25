@@ -115,7 +115,7 @@ useEffect(() => {
                       <div className="swiper-slide" key={value.id}>
                          <Link href={"/product/" + value.id}>
                          <div className="daily__product">
-                            <span>{ value.price? (Number(value.previousPrice) / Number(value.price) >= 1.5? 'Best Deal' : 'Good Deal') : '' }</span>
+                              { value.price? <span>{ (Number(value.previousPrice) / Number(value.price) >= 1.5? 'Best Deal' : 'Good Deal') }</span> : '' }
                               <div className="img__container">
                               <img src={value.image} loading="lazy" style={{maxWidth: '100%', maxHeight: '100%'}} alt="Product Img" />
                               </div>
