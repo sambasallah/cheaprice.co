@@ -73,7 +73,7 @@ const Contact = () => {
     return (
         <>
         <ToastContainer />
-        <Header title="Contact Us | Cheaprice.co" description="Have Questions? Enquires? Support? Feature Request? 
+        <Header title="Contact Us | Best eBay & Amazon Price Tracker" description="Have Questions? Enquires? Support? Feature Request? 
                      Let us know! Drop us a line in the form below, and we'll get back to you as soon as possible!"/>
          <div className="contact__us">
              <div className="breadcrumb">

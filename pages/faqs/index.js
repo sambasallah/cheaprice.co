@@ -13,7 +13,7 @@ const FAQs = () => {
       }, []);
     return (
         <>
-        <Header title="FAQs: Amazon Price Tracker: Cheaprice.co" description='Cheaprice.co: Amazon price tracker frequently asked questions' />
+        <Header title="FAQs: Best eBay & Amazon Price Tracker: Cheaprice.co" description='Cheaprice.co: Amazon price tracker frequently asked questions' />
         <div className="faqs__page">
             <div className="faqs__title">
                 <h1>FAQs</h1>

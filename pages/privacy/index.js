@@ -13,7 +13,7 @@ const Privacy = () => {
       }, []);
     return(
         <>
-         <Header title="Privacy Policy: Amazon Price Tracker: Price History: Cheaprice.co" 
+         <Header title="Privacy Policy | Best eBay & Amazon Price Tracker" 
          description="Privacy Policy: Amazon Price Tracker: Price History: Cheaprice.co"/>
            <div className="privacy__page">
                <div className="privacy__title">
