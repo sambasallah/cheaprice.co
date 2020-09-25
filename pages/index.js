@@ -122,7 +122,7 @@ useEffect(() => {
                             <div className="descrip">
                             <h6>{limitTitle(value.title) }</h6>
                           <h6>{value.price? '$'+value.price : 'OUT OF STOCK'} <del>{value.previousPrice}</del></h6>
-                          <h6>{ (Math.ceil(((Number(value.previousPrice) - Number(value.price)) / Number(value.price)) * 100)) + '% Off' }</h6>
+                          <h6>{ value.price? (Math.ceil(((Number(value.previousPrice) - Number(value.price)) / Number(value.price)) * 100)) + '% Off' : '' }</h6>
                         </div>
                         </div>
                          </Link>
