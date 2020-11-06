@@ -2,7 +2,7 @@
 import firebase from '../firebase/firebase';
 export default async (req, res) => {
     await firebase.collection('products')
-    .where('id','==','WW92rWw-3wurw83urAOHFEIHASDNKLNAZFHWHEFi88IILSFJWEFHpw893ruJ-3URskW-ur')
+    .where('id','==','uwSNDC82fHWESNNZNWIWURL-389YhsjdhfHOPWEHFISNVSOKD4u8KS-K-J3i-JFK38y')
     .get()
     .then((snap) => {
         snap.forEach((doc) => {

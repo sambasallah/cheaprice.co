@@ -9,6 +9,7 @@ export default async (req, res) => {
    }
   await firebase.collection('products').
    where('id', '==',`${id}`)
+   .limit(15)
    .get()
    .then((snapshots) => {
      let product = {};
