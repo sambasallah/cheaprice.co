@@ -5,6 +5,7 @@ export default async (req, res) => {
     if(req.method === 'GET') {
         await firebase.collection('prices')
         .where('id', '==', id)
+        .limit(15)
         .get()
         .then((snap) => {
             let prices = [];
