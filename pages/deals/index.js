@@ -4,7 +4,6 @@ import 'flexboxgrid/dist/flexboxgrid.min.css';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import Link from 'next/link';
-import  Router from 'next/router';
 import { FaSearch, FaSpinner } from 'react-icons/fa';
 
 const Deals = ({data}) => {
@@ -76,10 +75,6 @@ const Deals = ({data}) => {
         setSearch(event.target.value);
     }
 
-    useEffect(() => {
-      
-      }, []);
-
     return (
        <>
              <Header title="Best Deals: Lowest Prices | Cheaprice: Best eBay & Amazon Price History Tracker" description="Amazon price tracker | ebay price tracker: Best deals cheaprice.co" />
@@ -92,13 +87,6 @@ const Deals = ({data}) => {
                     </form>
                 </div>
                 <div className="products">
-                    {/* <div className="search__bar">
-                        <h2>Filter</h2>
-                        <form onSubmit={ lookUp }>
-                            <input type="text" placeholder="Search" id="searchValue" onChange={handleChange} />
-                            <button type="submit"><FaSearch /></button>
-                        </form>
-                    </div> */}
                     <div className="product__list">
                         <div className="row">
                           { products.products.length > 0? (
